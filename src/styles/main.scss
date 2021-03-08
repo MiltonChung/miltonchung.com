@@ -1,3 +1,103 @@
-@import "_base.scss";
+// === Typography =======================================
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rubik:wght@300;400;500;700;900&display=swap");
+$rubik-font: "Rubik", sans-serif;
+$lato-font: "Lato", sans-serif;
+
+$body-font-size: 16px;
+
+html {
+	font-size: $body-font-size;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $rubik-font;
+}
+p,
+span,
+button,
+small,
+a {
+	font-family: $lato-font;
+	margin: 0;
+	padding: 0;
+}
+p {
+	line-height: 1.5;
+}
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+// === Colors =======================================
+$light-blue: #3b87ca;
+$light-gray: #f1f1f1;
+$dark-purple: #2f2e41;
+$white: #fff;
+$black: #000;
+
+// === Resets =======================================
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.offset:before {
+	display: block;
+	content: "";
+	height: 3.7rem;
+	margin-top: -3.7rem;
+}
+body {
+	line-height: normal;
+}
+button:hover,
+a:hover {
+	text-decoration: none;
+}
+
+// === Browser Changes ================================
+::selection {
+	background: #cc9afa8f; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+	background: #cc9afa8f; /* Gecko Browsers */
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 17px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(#87b6df, $light-blue);
+	border-radius: 20px;
+	border: transparent;
+}
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+// @import "_base.scss";
 @import "_components.scss";
-@import "_layout.scss";
+// @import "_layout.scss";
+
+@import "_navbar.scss";
+@import "_landing.scss";

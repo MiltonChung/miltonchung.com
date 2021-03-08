@@ -1,0 +1,120 @@
+#hero {
+	background-image: linear-gradient(
+			to right,
+			rgba(29, 30, 38, 0.9),
+			rgba(29, 30, 38, 0.7),
+			rgba(29, 30, 38, 0.54)
+		),
+		url("../assets/landing-opt.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-attachment: fixed;
+	min-height: 100vh;
+
+	@media only screen and (min-width: 300px) and (max-width: 768px) {
+		background-attachment: scroll;
+	}
+
+	.hero-styles {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: white;
+
+		h1 {
+			font-size: 3.2rem;
+			font-weight: 500;
+			margin-bottom: 0.8rem;
+			text-shadow: 1px 1px 4px black;
+		}
+
+		h2 {
+			font-size: 2.2rem;
+			font-weight: 400;
+			margin-bottom: 0.8rem;
+			text-shadow: 1px 1px 4px black;
+		}
+
+		.btn-row {
+			display: flex;
+			margin-bottom: 0.8rem;
+			a {
+				font-size: 1.1rem;
+				font-weight: 400;
+				width: fit-content;
+				letter-spacing: 0.65px;
+				text-shadow: 1px 1px 4px black;
+			}
+			a:first-child {
+				margin-right: 0.8rem;
+			}
+		}
+		.icons {
+			display: flex;
+			flex-direction: row;
+			a {
+				margin-top: 0.2rem;
+				svg {
+					width: 30px;
+					height: 30px;
+					color: white;
+					transition: all 0.4s;
+					cursor: pointer;
+				}
+				svg:hover {
+					color: $light-blue;
+				}
+			}
+			a:first-child {
+				margin-right: 0.8rem;
+			}
+		}
+	}
+	@media (max-width: 767.5px) {
+		.hero-styles {
+			align-items: flex-start;
+			h1 {
+				font-size: 2.7rem;
+				margin-bottom: 0.6rem;
+			}
+			h2 {
+				font-size: 1.7rem;
+				margin-bottom: 0.6rem;
+			}
+			.btn-row {
+				margin-bottom: 0.6rem;
+				a {
+					font-size: 1rem;
+				}
+				a:first-child {
+					margin-right: 0.5rem;
+				}
+			}
+		}
+	}
+	@media (max-width: 425px) {
+		.hero-styles {
+			align-items: center;
+			text-align: center;
+			h1 {
+				font-size: 2rem;
+				margin-bottom: 0.8rem;
+			}
+			h2 {
+				font-size: 1.5rem;
+				margin-bottom: 0.8rem;
+			}
+			.btn-row {
+				margin-bottom: 0.6rem;
+				a:first-child {
+					margin-right: 0.7rem;
+				}
+			}
+		}
+	}
+}
