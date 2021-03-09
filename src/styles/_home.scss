@@ -414,17 +414,70 @@
 				display: flex;
 				align-items: center;
 				margin-bottom: 2rem;
-				.email-icon {
-					font-size: 1.8rem;
-					margin-right: 0.4rem;
-				}
+
 				a {
 					color: $light-blue;
 					font-size: 1.2rem;
 					text-decoration: none;
+					margin-right: 0.5rem;
 				}
 				a:hover {
 					text-decoration: underline;
+				}
+
+				button {
+					padding: 0.5rem 0.7rem;
+					background: $light-blue;
+					outline: none;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+					svg {
+						color: white;
+						width: 14px;
+						height: auto;
+					}
+					&:hover {
+						opacity: 0.8;
+					}
+				}
+
+				.tooltip {
+					position: relative;
+					display: inline-block;
+				}
+
+				.tooltip .tooltiptext {
+					visibility: hidden;
+					width: 89px;
+					background-color: #555;
+					color: #fff;
+					text-align: center;
+					border-radius: 6px;
+					padding: 8px 10px;
+					position: absolute;
+					z-index: 1;
+					bottom: 120%;
+					left: 50%;
+					margin-left: -42px;
+					opacity: 0;
+					transition: opacity 0.3s;
+				}
+
+				.tooltip .tooltiptext::after {
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					margin-left: -5px;
+					border-width: 5px;
+					border-style: solid;
+					border-color: #555 transparent transparent transparent;
+				}
+
+				.tooltip:hover .tooltiptext {
+					visibility: visible;
+					opacity: 1;
 				}
 			}
 			img {

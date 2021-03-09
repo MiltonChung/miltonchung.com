@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactIllustration from "../assets/svg/contact.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
+
+const CopyText = setCopyStatus => {
+	const email = "miltonjchung@gmail.com";
+	navigator.clipboard.writeText(email).then(
+		function () {
+			setCopyStatus(true);
+		},
+		function (err) {
+			console.error("Async: Could not copy text: ", err);
+		}
+	);
+};
 
 const Contact = () => {
+	const [copyStatus, setCopyStatus] = useState(false);
+
 	return (
 		<section id="contact" className="offset">
 			<div className="custom-container contact-styles">
@@ -64,11 +80,15 @@ const Contact = () => {
 							onLoad="if(submitted){console.log('sent')}"></iframe>
 						<h3>- OR -</h3>
 						<div className="myEmail">
-							<span
-								className="iconify email-icon"
-								data-icon="dashicons:email-alt"
-								data-inline="true"></span>
-							<a href="mailto:hchung14@ucsc.edu"> miltonjchung@gmail.com </a>
+							<a href="mailto:hchung14@ucsc.edu" title="Open Mail app" rel="noreferrer">
+								miltonjchung@gmail.com
+							</a>
+							<button onClick={() => CopyText(setCopyStatus)} className="tooltip">
+								<FontAwesomeIcon className="email" icon={faCopy} />
+								<span className="tooltiptext" id="myTooltip">
+									{copyStatus ? <>Copied to clipboard!</> : <>Copy to clipboard</>}
+								</span>
+							</button>
 						</div>
 					</div>
 					<img src={ContactIllustration} alt="contact illustration" />
