@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
+	const currentYear = new Date().getFullYear();
+
 	return (
 		<footer id="footer">
 			<div className="icon-set">
@@ -23,7 +25,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="credit">
-				<small>Designed and created by Milton Chung &copy; 2021</small>
+				<small>Designed and created by Milton Chung &copy; {currentYear}</small>
 			</div>
 		</footer>
 	);
