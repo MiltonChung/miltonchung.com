@@ -3,6 +3,8 @@ import Landing from "../components/Landing";
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
+import Contact from "../components/Contact";
+import Profiles from "../components/Profiles";
 
 const Home = () => {
 	return (
@@ -11,6 +13,8 @@ const Home = () => {
 			<About />
 			<Projects />
 			<Skills />
+			<Contact />
+			<Profiles />
 		</div>
 	);
 };

@@ -4,17 +4,17 @@ import Resume from "../assets/Milton_Chung_Resume_2021.pdf";
 
 const About = () => {
 	return (
-		<section id="about" class="offset">
-			<div class="about-wrapper custom-container">
-				<div class="blue-bg"></div>
-				<div class="profile-pic">
+		<section id="about" className="offset">
+			<div className="about-wrapper custom-container">
+				<div className="blue-bg"></div>
+				<div className="profile-pic">
 					<img src={Milton} alt="Milton" />
 				</div>
-				<div class="about-text">
-					<div class="about-title">
+				<div className="about-text">
+					<div className="about-title">
 						<small>A little</small>
 						<h2>About me</h2>
-						<div class="underline-section"></div>
+						<div className="underline-section"></div>
 					</div>
 					<p>
 						I am a recent graduate from the University of California, Santa Cruz with Bachelor of Arts in
@@ -26,7 +26,7 @@ const About = () => {
 						to life for the world to see.
 					</p>
 
-					<a href={Resume} target="_blank" type="application/octet-stream">
+					<a href={Resume} target="_blank" rel="noreferrer" type="application/octet-stream">
 						<span>My Resume</span>
 					</a>
 				</div>

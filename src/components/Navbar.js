@@ -11,7 +11,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="fixed-top">
-			<a class="navbar-brand" href="#">
+			<a className="navbar-brand" href="#">
 				Milton Chung
 			</a>
 			<button className="menu-button" onClick={toggleMenu}>
@@ -19,24 +19,24 @@ const Navbar = () => {
 			</button>
 
 			<div className={menu ? "nav-links-m" : "nav-links"}>
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="#about">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<a className="nav-link" href="#about">
 							About
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#portfolio">
+					<li className="nav-item">
+						<a className="nav-link" href="#portfolio">
 							Portfolio
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#skills">
+					<li className="nav-item">
+						<a className="nav-link" href="#skills">
 							Skills
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#contact">
+					<li className="nav-item">
+						<a className="nav-link" href="#contact">
 							Contact
 						</a>
 					</li>
