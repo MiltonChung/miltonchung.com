@@ -435,7 +435,7 @@
 	}
 }
 
-#web {
+#profiles {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
 	background: $light-blue;
@@ -472,13 +472,41 @@
 		}
 	}
 	.web-container {
-		width: 90%;
+		width: 100%;
 		margin: auto;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		justify-items: center;
 		align-items: center;
-		column-gap: 0.6rem;
+		column-gap: 0.8rem;
 		row-gap: 1rem;
+		.profile {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			width: 100%;
+
+			img {
+				width: 45px;
+				height: auto;
+				margin-right: 0.35rem;
+			}
+			a {
+				font-size: 1.1rem;
+				color: $white;
+				text-decoration: underline;
+				transition: all 0.23s;
+				letter-spacing: 0.7px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			a:hover {
+				color: $dark-purple;
+			}
+			a:hover img {
+				opacity: 0.75;
+			}
+		}
 	}
 }

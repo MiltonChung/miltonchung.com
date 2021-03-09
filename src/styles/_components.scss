@@ -67,27 +67,6 @@
 //Box
 
 // Profile
-.profile {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	width: 100%;
-
-	img {
-		width: 50px;
-		height: auto;
-		margin-right: 0.5rem;
-	}
-	a {
-		font-size: 1.1rem;
-		color: $white;
-		text-decoration: underline;
-		transition: all 0.23s;
-	}
-	a:hover {
-		color: $black;
-	}
-}
 
 // Showcase
 .hoverTextBlur {

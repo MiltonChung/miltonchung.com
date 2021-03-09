@@ -7,7 +7,7 @@ import Codepen from "../assets/svg/codepen.svg";
 
 const Profiles = () => {
 	return (
-		<section id="web">
+		<section id="profiles">
 			<div className="custom-container web-styles">
 				<div className="webTitle">
 					<small>Links to my profiles</small>
@@ -16,32 +16,32 @@ const Profiles = () => {
 				</div>
 				<div className="web-container">
 					<div className="profile">
-						<img src={FrontendMentor} alt="frontend mentor logo" />
 						<a href="https://www.frontendmentor.io/profile/MiltonChung" target="_blank" rel="noreferrer">
+							<img src={FrontendMentor} alt="frontend mentor logo" />
 							Frontend Mentor
 						</a>
 					</div>
 					<div className="profile">
-						<img src={Edabit} alt="edabit logo" />
 						<a href="https://edabit.com/user/CY5fcK7kzoo56Ysmr" target="_blank" rel="noreferrer">
+							<img src={Edabit} alt="edabit logo" />
 							Edabit
 						</a>
 					</div>
 					<div className="profile">
-						<img src={Exercism} alt="exercism logo" />
 						<a href="https://exercism.io/profiles/MiltonChung" target="_blank" rel="noreferrer">
+							<img src={Exercism} alt="exercism logo" />
 							Exercism
 						</a>
 					</div>
 					<div className="profile">
-						<img src={HackerRank} alt="Hackerrank logo" />
 						<a href="https://www.hackerrank.com/miltonjchung?hr_r=1" target="_blank" rel="noreferrer">
+							<img src={HackerRank} alt="Hackerrank logo" />
 							HackerRank
 						</a>
 					</div>
 					<div className="profile">
-						<img src={Codepen} alt="codepen logo" />
 						<a href="https://codepen.io/miltonchung" target="_blank" rel="noreferrer">
+							<img src={Codepen} alt="codepen logo" />
 							Codepen
 						</a>
 					</div>
