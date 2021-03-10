@@ -11,7 +11,7 @@ const Navbar = () => {
 
 	return (
 		<nav className="fixed-top">
-			<a className="navbar-brand" href="#">
+			<a className="navbar-brand" href="/#">
 				Milton Chung
 			</a>
 			<button className="menu-button" onClick={toggleMenu}>
@@ -21,22 +21,22 @@ const Navbar = () => {
 			<div className={menu ? "nav-links-m" : "nav-links"}>
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						<a className="nav-link" href="#about">
+						<a className="nav-link" href="/#about">
 							About
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="#portfolio">
+						<a className="nav-link" href="/#portfolio">
 							Portfolio
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="#skills">
+						<a className="nav-link" href="/#skills">
 							Skills
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="#contact">
+						<a className="nav-link" href="/#contact">
 							Contact
 						</a>
 					</li>
