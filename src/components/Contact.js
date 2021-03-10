@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import LoadingIcon from "./LoadingIcon";
+import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+// Icons
 import ContactIllustration from "../assets/svg/contact.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
@@ -17,6 +23,45 @@ const CopyText = setCopyStatus => {
 
 const Contact = () => {
 	const [copyStatus, setCopyStatus] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const { register, errors, handleSubmit, reset } = useForm();
+
+	const toastifySuccess = () => {
+		toast("🚀 Form sent! Thank you!", {
+			position: "bottom-center",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: false,
+			className: "submit-feedback success",
+			toastId: "notifyToast",
+		});
+	};
+
+	const onSubmit = async data => {
+		try {
+			setLoading(true);
+			const templateParams = {
+				name: data.name,
+				email: data.email,
+				subject: data.subject,
+				message: data.message,
+			};
+
+			await emailjs.send(
+				process.env.REACT_APP_SERVICE_ID,
+				process.env.REACT_APP_TEMPLATE_ID,
+				templateParams,
+				process.env.REACT_APP_USER_ID
+			);
+			reset();
+			toastifySuccess();
+			setLoading(false);
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
 	return (
 		<section id="contact" className="offset">
@@ -28,57 +73,91 @@ const Contact = () => {
 				</div>
 				<div className="contact-body">
 					<div className="contact-body-left">
-						{/* <!-- https://docs.google.com/forms/d/e/1FAIpQLSeWdNgFLDh-ZW7SSYHpY5iM13K62ksyF5xW-QsYshbUv4Tv6Q/viewform?usp=pp_url&entry.49473630=testName&entry.610198788=testEmail&entry.2083211948=testMessage -->
-						<!-- https://docs.google.com/forms/d/e/1FAIpQLSeWdNgFLDh-ZW7SSYHpY5iM13K62ksyF5xW-QsYshbUv4Tv6Q/viewform?usp=pp_url&entry.49473630=1&entry.610198788=2&entry.2083211948=3 --> */}
-						<form
-							id="gform"
-							name="gform"
-							target="hidden_iframe"
-							onSubmit="return validateForm(event);"
-							action="https://docs.google.com/forms/d/e/1FAIpQLSeWdNgFLDh-ZW7SSYHpY5iM13K62ksyF5xW-QsYshbUv4Tv6Q/formResponse?">
+						<form id="gform" name="gform" onSubmit={handleSubmit(onSubmit)} noValidate>
 							<label>
 								<p>Full Name:*</p>
 								<input
 									type="text"
-									name="entry.49473630"
-									id="entry.49473630"
+									name="name"
 									placeholder="Ecma Script"
-								/>{" "}
+									ref={register({
+										required: { value: true, message: "Please enter your name" },
+										maxLength: {
+											value: 30,
+											message: "Please use 30 characters or less",
+										},
+									})}
+								/>
 							</label>
-							<small className="error-msg">Please enter a valid name</small>
+							<small className="error-msg error">
+								{errors.name && <span className="errorMessage">{errors.name.message}</span>}
+							</small>
 
 							<label>
-								<p>Email:*</p>
+								<p>Your Email:*</p>
 								<input
 									type="email"
-									name="entry.610198788"
-									id="entry.610198788"
+									name="email"
+									ref={register({
+										required: true,
+										pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+									})}
 									placeholder="ecmascript@example.com"
-								/>{" "}
+								/>
 							</label>
-							<small className="error-msg">Please enter a valid email</small>
+							<small className="error-msg error">
+								{errors.email && (
+									<span className="errorMessage">Please enter a valid email address</span>
+								)}
+							</small>
+
+							<label>
+								<p>Subject:*</p>
+								<input
+									type="text"
+									name="subject"
+									ref={register({
+										required: { value: true, message: "Please enter a subject" },
+										maxLength: {
+											value: 75,
+											message: "Subject cannot exceed 75 characters",
+										},
+									})}
+									placeholder="Job Opening!"
+								/>
+							</label>
+							<small className="error-msg error">
+								{errors.subject && <span className="errorMessage">{errors.subject.message}</span>}
+							</small>
 
 							<label>
 								<p>Your message:*</p>
 								<textarea
-									name="entry.2083211948"
-									id="entry.2083211948"
+									name="message"
+									ref={register({
+										required: true,
+									})}
 									cols="30"
 									rows="8"
 									placeholder="Hello world!"></textarea>
 							</label>
-							<small className="error-msg">Please enter a longer message</small>
+							<small className="error-msg error">
+								{errors.message && <span className="errorMessage">Please enter a message</span>}
+							</small>
 
-							<button type="submit" id="contactButton">
-								Send Message
-							</button>
+							{loading ? (
+								<button disabled id="contactButton">
+									<LoadingIcon />
+								</button>
+							) : (
+								<button type="submit" id="contactButton">
+									Send Message
+								</button>
+							)}
 						</form>
-						<iframe
-							title="hidden_iframe"
-							name="hidden_iframe"
-							id="hidden_iframe"
-							onLoad="if(submitted){console.log('sent')}"></iframe>
+						<ToastContainer />
 						<h3>- OR -</h3>
+
 						<div className="myEmail">
 							<a href="mailto:hchung14@ucsc.edu" title="Open Mail app" rel="noreferrer">
 								miltonjchung@gmail.com
