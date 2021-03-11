@@ -159,8 +159,9 @@ const Contact = () => {
 						<h3>- OR -</h3>
 
 						<div className="myEmail">
-							<a href="mailto:hchung14@ucsc.edu" title="Open Mail app" rel="noreferrer">
+							<a href="mailto:hchung14@ucsc.edu" rel="noreferrer" className="tooltip">
 								miltonjchung@gmail.com
+								<span className="email-tooltip-text">Open Mail app</span>
 							</a>
 							<button onClick={() => CopyText(setCopyStatus)} className="tooltip">
 								<FontAwesomeIcon className="email" icon={faCopy} />
