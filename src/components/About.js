@@ -6,9 +6,9 @@ const About = () => {
 	return (
 		<section id="about" className="offset">
 			<div className="about-wrapper custom-container">
-				<div className="blue-bg"></div>
+				{/* <div className="blue-bg"></div> */}
 				<div className="profile-pic">
-					<img src={Milton} alt="Milton" />
+					<img src={Milton} alt="Milton Picture" />
 				</div>
 				<div className="about-text">
 					<div className="about-title">

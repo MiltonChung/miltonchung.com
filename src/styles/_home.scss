@@ -5,38 +5,42 @@
 		margin: 4rem auto;
 		display: flex;
 		flex-direction: row;
-		height: fit-content;
+		min-height: fit-content;
+		height: 100%;
 		position: relative;
-		.blue-bg {
-			width: 85%;
-			height: 100%;
+		padding: 1.5rem 1rem;
+		padding-left: 0;
+
+		&::before {
+			content: "";
 			position: absolute;
 			right: 0;
+			top: 0;
+			width: 82%;
+			height: 100%;
+			z-index: -1;
 			background: $light-blue;
 			border-radius: 5px;
 		}
 		.profile-pic {
-			z-index: 1;
-			margin: 0 auto;
+			flex: 1.5;
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
+
 			img {
-				width: auto;
-				height: 90%;
+				width: 80%;
+				height: auto;
 				border-radius: 5px;
 				box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.24);
-				// margin-right: 1rem;
 			}
 		}
 
 		.about-text {
-			z-index: 5;
-			padding: 1.2rem 2.5rem 1.2rem 0.5rem;
+			flex: 2;
+			padding: 1.5rem 0;
 			color: white;
-			@media (max-width: 1000px) {
-				padding: 1.2rem;
-			}
+
 			.about-title {
 				margin-bottom: 1.5rem;
 				small {
@@ -56,18 +60,17 @@
 				}
 			}
 			p {
-				margin-bottom: 3rem;
-				font-size: 1.05rem;
+				margin-bottom: 2.3rem;
+				font-size: 18px;
 				letter-spacing: 0.5px;
-				text-emphasis: none;
 				font-weight: 300;
 			}
 			a {
 				background: $light-blue;
 				border-radius: 5px;
 				color: $white;
-				padding: 0.7rem 2rem;
-				font-size: 23px;
+				padding: 0.7rem 1.2rem;
+				font-size: 21px;
 				font-weight: 500;
 				text-decoration: none;
 				border: 3px solid $white;
@@ -76,37 +79,16 @@
 
 				@media (max-width: 1000px) {
 					padding: 0.5rem 1rem;
-					border: 1px solid $white;
+					border: 1.5px solid $white;
 					span {
-						font-size: 1.3rem;
+						font-size: 21px;
 					}
 				}
 			}
-			a svg {
-				margin-top: -2px;
-			}
-			a path {
-				transition: all 0.5s;
-			}
+
 			a:hover {
 				color: $light-blue;
 				background: $white;
-			}
-			a:hover path {
-				fill: $light-blue;
-			}
-		}
-
-		@media (max-width: 1000px) {
-			display: grid;
-			grid-template-columns: 1fr 1.5fr;
-
-			.profile-pic {
-				justify-content: center;
-				img {
-					width: 80%;
-					height: auto;
-				}
 			}
 		}
 
@@ -114,9 +96,14 @@
 			display: flex;
 			flex-direction: column;
 			margin: 4rem auto 1rem auto;
-			.blue-bg {
-				display: none;
+			padding: 0;
+			&::before {
+				background: none;
 			}
+			.profile-pic {
+				justify-content: center;
+			}
+
 			.about-text {
 				color: $black;
 				padding: 2rem 0;
@@ -129,13 +116,50 @@
 					}
 				}
 				p {
-					margin-bottom: 1.7rem;
+					margin-bottom: 2rem;
 				}
 				a {
 					border: 3px solid #3b87ca;
 					padding: 0.5rem 1rem;
 				}
 			}
+		}
+	}
+
+	.about-container {
+		display: flex;
+		width: 85%;
+		margin: 0 auto;
+		padding: 2rem;
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 80%;
+			height: 100%;
+			z-index: -1;
+			background: pink;
+		}
+
+		.picture-p {
+			flex: 1.5;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			img {
+				width: 80%;
+				height: auto;
+			}
+		}
+
+		.about-text {
+			flex: 2;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 		}
 	}
 }
@@ -261,7 +285,6 @@
 		border-radius: 5px;
 		font-size: 1.2rem;
 		background: #f7f7f763;
-		// box-shadow: inset 3px 3px 10px #87a6c063, 3px 3px 10px #3b87ca63;
 		box-shadow: #3b87ca63 3px 3px 5px, #69a0d13a 5px 5px 15px;
 		border: 1px solid rgba(180, 232, 253, 0.719);
 		color: $black;
