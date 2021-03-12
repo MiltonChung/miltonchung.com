@@ -8,7 +8,7 @@ const About = () => {
 			<div className="about-wrapper custom-container">
 				{/* <div className="blue-bg"></div> */}
 				<div className="profile-pic">
-					<img src={Milton} alt="Milton Picture" />
+					<img src={Milton} alt="Milton" />
 				</div>
 				<div className="about-text">
 					<div className="about-title">
