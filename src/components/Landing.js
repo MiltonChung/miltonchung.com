@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-scroll";
 
 const Landing = () => {
 	return (
@@ -9,12 +10,24 @@ const Landing = () => {
 				<h1>Hi! I'm Milton Chung.</h1>
 				<h2>Front End Developer</h2>
 				<div className="btn-row">
-					<a href="#portfolio" className="btn-outline-square" title="Portfolio">
+					<Link
+						activeClass="active"
+						className="btn-outline-square"
+						to="portfolio"
+						spy={true}
+						smooth={true}
+						duration={1000}>
 						Portfolio
-					</a>
-					<a href="#contact" className="btn-outline-square" title="Contact">
+					</Link>
+					<Link
+						activeClass="active"
+						className="btn-outline-square"
+						to="contact"
+						spy={true}
+						smooth={true}
+						duration={1000}>
 						Contact
-					</a>
+					</Link>
 				</div>
 				<div className="icons">
 					<a href="https://github.com/miltonchung" target="_blank" rel="noreferrer" title="Github">

@@ -1,4 +1,6 @@
 import React from "react";
+import { Element } from "react-scroll";
+
 import Bootstrap from "../assets/svg/bootstrap.svg";
 import CSS from "../assets/svg/css.svg";
 import Figma from "../assets/svg/figma.svg";
@@ -20,7 +22,7 @@ import Express from "../assets/svg/express.svg";
 
 const Skills = () => {
 	return (
-		<section id="skills" className="offset">
+		<Element id="skills" className="offset">
 			<div className="custom-container skills-styles">
 				<div className="skillsTitle">
 					<small>What I know</small>
@@ -102,7 +104,7 @@ const Skills = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</Element>
 	);
 };
 

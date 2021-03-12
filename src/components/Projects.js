@@ -1,8 +1,9 @@
 import React from "react";
+import { Element } from "react-scroll";
 
 const Projects = () => {
 	return (
-		<section id="portfolio" className="offset">
+		<Element id="portfolio" className="offset">
 			<div className="custom-container portfolio-styles">
 				<div className="portfolioTitle">
 					<small>Recent Works</small>
@@ -22,7 +23,7 @@ const Projects = () => {
 				</div>
 				<div className="showcase"></div>
 			</div>
-		</section>
+		</Element>
 	);
 };
 

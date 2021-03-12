@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-scroll";
 
+// https://stackoverflow.com/questions/53158796/get-scroll-position-with-reactjs
+
 const Navbar = () => {
 	const [menu, setMenu] = useState(false);
 
@@ -22,9 +24,6 @@ const Navbar = () => {
 			<div className={menu ? "nav-links-m" : "nav-links"}>
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						{/* <a className="nav-link" href="/#about">
-							About
-						</a> */}
 						<Link
 							activeClass="active"
 							className="nav-link"
@@ -36,19 +35,37 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/#portfolio">
+						<Link
+							activeClass="active"
+							className="nav-link"
+							to="portfolio"
+							spy={true}
+							smooth={true}
+							duration={1000}>
 							Portfolio
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/#skills">
+						<Link
+							activeClass="active"
+							className="nav-link"
+							to="skills"
+							spy={true}
+							smooth={true}
+							duration={1000}>
 							Skills
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/#contact">
+						<Link
+							activeClass="active"
+							className="nav-link"
+							to="contact"
+							spy={true}
+							smooth={true}
+							duration={1000}>
 							Contact
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>

@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { Element } from "react-scroll";
 // Icons
 import ContactIllustration from "../assets/svg/contact.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +65,7 @@ const Contact = () => {
 	};
 
 	return (
-		<section id="contact" className="offset">
+		<Element id="contact" className="offset">
 			<div className="custom-container contact-styles">
 				<div className="contactTitle">
 					<small>Let's talk!</small>
@@ -174,7 +175,7 @@ const Contact = () => {
 					<img src={ContactIllustration} alt="contact illustration" />
 				</div>
 			</div>
-		</section>
+		</Element>
 	);
 };
 
