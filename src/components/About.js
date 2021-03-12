@@ -1,10 +1,11 @@
 import React from "react";
 import Milton from "../assets/me-opt.jpg";
 import Resume from "../assets/Milton_Chung_Resume_2021.pdf";
+import { Element } from "react-scroll";
 
 const About = () => {
 	return (
-		<section id="about" className="offset">
+		<Element id="about" className="offset">
 			<div className="about-wrapper custom-container">
 				{/* <div className="blue-bg"></div> */}
 				<div className="profile-pic">
@@ -31,7 +32,7 @@ const About = () => {
 					</a>
 				</div>
 			</div>
-		</section>
+		</Element>
 	);
 };
 

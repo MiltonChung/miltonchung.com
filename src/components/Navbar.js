@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 
 const Navbar = () => {
 	const [menu, setMenu] = useState(false);
@@ -21,9 +22,18 @@ const Navbar = () => {
 			<div className={menu ? "nav-links-m" : "nav-links"}>
 				<ul className="navbar-nav">
 					<li className="nav-item">
-						<a className="nav-link" href="/#about">
+						{/* <a className="nav-link" href="/#about">
 							About
-						</a>
+						</a> */}
+						<Link
+							activeClass="active"
+							className="nav-link"
+							to="about"
+							spy={true}
+							smooth={true}
+							duration={1000}>
+							About
+						</Link>
 					</li>
 					<li className="nav-item">
 						<a className="nav-link" href="/#portfolio">
