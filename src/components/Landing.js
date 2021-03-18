@@ -2,10 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-scroll";
+import { Element } from "react-scroll";
 
 const Landing = () => {
 	return (
-		<header id="hero">
+		<Element id="hero">
 			<div className="header-container hero-styles">
 				<h1>Hi! I'm Milton Chung.</h1>
 				<h2>Front End Developer</h2>
@@ -43,7 +44,7 @@ const Landing = () => {
 					</a>
 				</div>
 			</div>
-		</header>
+		</Element>
 	);
 };
 
