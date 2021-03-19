@@ -46,7 +46,7 @@ const Navbar = () => {
 				<ul className="navbar-nav">
 					<li className="nav-item">
 						<Link
-							activeClass="active"
+							activeClass="active-nav"
 							onClick={width <= 768 ? () => toggleMenu() : null}
 							className="nav-link"
 							to="about"
@@ -58,7 +58,7 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<Link
-							activeClass="active"
+							activeClass="active-nav"
 							className="nav-link"
 							onClick={width <= 768 ? () => toggleMenu() : null}
 							to="portfolio"
@@ -70,7 +70,7 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<Link
-							activeClass="active"
+							activeClass="active-nav"
 							className="nav-link"
 							onClick={width <= 768 ? () => toggleMenu() : null}
 							to="skills"
@@ -82,7 +82,7 @@ const Navbar = () => {
 					</li>
 					<li className="nav-item">
 						<Link
-							activeClass="active"
+							activeClass="active-nav"
 							className="nav-link"
 							onClick={width <= 768 ? () => toggleMenu() : null}
 							to="contact"
