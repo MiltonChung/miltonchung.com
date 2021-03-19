@@ -1,7 +1,7 @@
 import React from "react";
 import { Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import ACM from "../assets/acm.png";
 
 const Projects = () => {
@@ -25,9 +25,9 @@ const Projects = () => {
 								UC Santa Cruz: Association for Computing Machinery(ACM) Club Website
 							</h3>
 							<div className="featured-pills">
-								<span class="featured-pill">html</span>
-								<span class="featured-pill">html</span>
-								<span class="featured-pill">html</span>
+								<span className="featured-pill">html</span>
+								<span className="featured-pill">html</span>
+								<span className="featured-pill">html</span>
 							</div>
 							<p className="featured-description">
 								A simple website that allows new and returning students to learn about the ACM club and
@@ -37,14 +37,14 @@ const Projects = () => {
 							</p>
 							<div className="featured-buttons">
 								<a
-									class="btn-portfolio"
+									className="btn-portfolio"
 									target="_blank"
 									href="https://github.com/MiltonChung/PersonalWebsiteV2/blob/main/js/loadModals.js"
 									rel="noreferrer">
 									<FontAwesomeIcon icon={faGithub} /> Code
 								</a>
 								<a
-									class="btn-portfolio"
+									className="btn-portfolio"
 									rel="noreferrer"
 									target="_blank"
 									href="https://ucscacm.netlify.app/">
