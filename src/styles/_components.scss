@@ -269,31 +269,6 @@
 		}
 	}
 }
-.portfolio-descr-pills {
-	display: flex;
-	justify-content: center;
-	margin: 0 0.5rem;
-	width: fit-content;
-	flex-wrap: wrap;
-
-	.portfolio-pills-ind {
-		margin-right: 0.3rem;
-		margin-bottom: 0.3rem;
-		font-style: italic;
-		font-weight: 300;
-		background: $light-blue;
-		padding: 0.2rem 0.6rem 0.35rem 0.5rem;
-		color: $white;
-		border-radius: 30px;
-		box-shadow: 1px 1px 3px rgba(6, 51, 116, 0.47);
-		font-size: 0.86rem;
-
-		@media (max-width: 768px) {
-			padding: 0.3rem 0.7rem 0.45rem 0.6rem;
-			font-size: 0.86rem;
-		}
-	}
-}
 
 @keyframes modalopen {
 	from {
