@@ -17,7 +17,9 @@ const Projects = () => {
 					<div className="featured">
 						<div className="featured-img">
 							<div className="overlap-img">
-								<img src={ACM} alt="acm" />
+								<a rel="noreferrer" target="_blank" href="https://ucscacm.netlify.app/">
+									<img src={ACM} alt="acm" />
+								</a>
 							</div>
 						</div>
 						<div className="featured-content">
@@ -25,9 +27,10 @@ const Projects = () => {
 								UC Santa Cruz: Association for Computing Machinery(ACM) Club Website
 							</h3>
 							<div className="featured-pills">
-								<span className="featured-pill">html</span>
-								<span className="featured-pill">html</span>
-								<span className="featured-pill">html</span>
+								<span className="featured-pill">React</span>
+								<span className="featured-pill">Sanity.io</span>
+								<span className="featured-pill">Sass</span>
+								<span className="featured-pill">Figma</span>
 							</div>
 							<p className="featured-description">
 								A simple website that allows new and returning students to learn about the ACM club and
@@ -39,7 +42,7 @@ const Projects = () => {
 								<a
 									className="btn-portfolio"
 									target="_blank"
-									href="https://github.com/MiltonChung/PersonalWebsiteV2/blob/main/js/loadModals.js"
+									href="https://github.com/MiltonChung/UCSC-ACM-Website"
 									rel="noreferrer">
 									<FontAwesomeIcon icon={faGithub} /> Code
 								</a>
