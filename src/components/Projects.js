@@ -3,7 +3,7 @@ import { Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import ACM from "../assets/acm.png";
-import sanityClient from "../sanity";
+// import sanityClient from "../sanity";
 
 const Projects = () => {
 	return (
