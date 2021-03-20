@@ -1,11 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import ACM from "../assets/acm.png";
-// import sanityClient from "../sanity";
+import sanityClient from "../sanity";
+import BlockContent from "@sanity/block-content-to-react";
+
+const FeaturedProjects = ({ featuredProjects }) => {
+	return featuredProjects.map(item => {
+		return (
+			<div className="featured" key={item._id}>
+				<div className="featured-img">
+					<div className="overlap-img">
+						<a rel="noreferrer" target="_blank" href={item.liveLink} title="Go to website">
+							<img src={item.projectPicture.asset.url} alt="acm" />
+						</a>
+					</div>
+				</div>
+				<div className="featured-content">
+					<h3 className="featured-title">{item.title}</h3>
+					<div className="featured-pills">
+						{item.skills.map(skill => (
+							<span className="featured-pill" key={Math.random()}>
+								{skill}
+							</span>
+						))}
+					</div>
+					<div className="featured-description">
+						<BlockContent blocks={item.description} projectId="w8nlqrwa" dataset="production" />
+					</div>
+					<div className="featured-buttons">
+						<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
+							<FontAwesomeIcon icon={faGithub} /> Code
+						</a>
+						<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
+							Live demo
+						</a>
+					</div>
+				</div>
+			</div>
+		);
+	});
+};
 
 const Projects = () => {
+	const [featuredProjects, setFeaturedProjects] = useState([]);
+
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "projects" && featured == true] | order(order asc) {
+					_id,
+					title,
+					skills,
+					description,
+					githubLink,
+					liveLink,
+					order,
+					featured,
+					projectPicture{
+						asset->{
+							_id,
+							url
+						},
+						alt
+					}
+				}`
+			)
+			.then(data => setFeaturedProjects(data));
+	}, []);
+
 	return (
 		<Element id="portfolio" className="offset">
 			<div className="custom-container portfolio-styles">
@@ -15,52 +78,7 @@ const Projects = () => {
 					<hr className="underline-section" />
 				</div>
 				<div className="showcase">
-					<div className="featured">
-						<div className="featured-img">
-							<div className="overlap-img">
-								<a
-									rel="noreferrer"
-									target="_blank"
-									href="https://ucscacm.netlify.app/"
-									title="Go to website">
-									<img src={ACM} alt="acm" />
-								</a>
-							</div>
-						</div>
-						<div className="featured-content">
-							<h3 className="featured-title">
-								UC Santa Cruz: Association for Computing Machinery(ACM) Club Website
-							</h3>
-							<div className="featured-pills">
-								<span className="featured-pill">React</span>
-								<span className="featured-pill">Sanity.io</span>
-								<span className="featured-pill">Sass</span>
-								<span className="featured-pill">Figma</span>
-							</div>
-							<p className="featured-description">
-								A simple website that allows new and returning students to learn about the ACM club and
-								keep them updated on upcoming events. Implemented using React for frontend and Sanity.io
-								for headless content management system that allows current board members to edit/add
-								events and member information without touching code
-							</p>
-							<div className="featured-buttons">
-								<a
-									className="btn-portfolio"
-									target="_blank"
-									href="https://github.com/MiltonChung/UCSC-ACM-Website"
-									rel="noreferrer">
-									<FontAwesomeIcon icon={faGithub} /> Code
-								</a>
-								<a
-									className="btn-portfolio"
-									rel="noreferrer"
-									target="_blank"
-									href="https://ucscacm.netlify.app/">
-									Live demo
-								</a>
-							</div>
-						</div>
-					</div>
+					<FeaturedProjects featuredProjects={featuredProjects} />
 				</div>
 			</div>
 		</Element>
