@@ -3,6 +3,7 @@ import { Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import ACM from "../assets/acm.png";
+import sanityClient from "../sanity";
 
 const Projects = () => {
 	return (
@@ -17,7 +18,11 @@ const Projects = () => {
 					<div className="featured">
 						<div className="featured-img">
 							<div className="overlap-img">
-								<a rel="noreferrer" target="_blank" href="https://ucscacm.netlify.app/">
+								<a
+									rel="noreferrer"
+									target="_blank"
+									href="https://ucscacm.netlify.app/"
+									title="Go to website">
 									<img src={ACM} alt="acm" />
 								</a>
 							</div>
