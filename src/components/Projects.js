@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import sanityClient from "../sanity";
 import BlockContent from "@sanity/block-content-to-react";
+import { Link } from "react-router-dom";
 
 const FeaturedProjects = ({ featuredProjects }) => {
 	return featuredProjects.map(item => {
@@ -80,6 +81,9 @@ const Projects = () => {
 				<div className="showcase">
 					<FeaturedProjects featuredProjects={featuredProjects} />
 				</div>
+				<Link to="/projects" className="see-more-button">
+					...see more projects!
+				</Link>
 			</div>
 		</Element>
 	);

@@ -45,5 +45,17 @@ export default {
 			title: "Order",
 			type: "number",
 		},
+		{
+			name: "type",
+			title: "Type",
+			type: "string",
+			options: {
+				list: [
+					{ title: "Project", value: "project" },
+					{ title: "Freelance", value: "freelance" },
+				],
+				layout: "dropdown",
+			},
+		},
 	],
 };
