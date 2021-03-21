@@ -1,5 +1,5 @@
-nav {
-	background-color: transparent !important;
+nav#homeNav {
+	background-color: transparent;
 	height: 60px;
 	transition: all 0.5s;
 	display: flex;
@@ -62,6 +62,7 @@ nav {
 					font-size: 20px;
 					font-weight: 400;
 					width: fit-content;
+					height: fit-content;
 					margin-left: 1rem;
 					padding: 0;
 					cursor: pointer;
@@ -116,14 +117,14 @@ nav {
 	}
 }
 
-.affix {
+nav#homeNav.affix {
 	background-color: rgba(17, 17, 17, 0.548) !important;
 	a.navbar-brand {
 		visibility: visible;
 	}
 }
 
-.fixed-top {
+nav#homeNav.fixed-top {
 	position: fixed;
 	top: 0;
 	right: 0;

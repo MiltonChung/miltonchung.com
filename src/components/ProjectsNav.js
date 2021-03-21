@@ -1,10 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProjectsNav = () => {
 	return (
-		<div className="projects-nav">
-			<h2>project nav</h2>
-		</div>
+		<nav className="projects-nav">
+			<Link to="/" className="project-navbar-brand">
+				Milton Chung
+			</Link>
+			<ul>
+				<li>
+					<Link to="/" className="navbar-back-home">
+						back
+					</Link>
+				</li>
+			</ul>
+		</nav>
 	);
 };
 

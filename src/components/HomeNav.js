@@ -34,8 +34,7 @@ const HomeNav = () => {
 	}
 
 	return (
-		<nav className={scrollPosition > 499 ? "fixed-top affix" : "fixed-top"}>
-			{/* <a className="navbar-brand" href="/#"></a> */}
+		<nav className={scrollPosition > 499 ? "fixed-top affix" : "fixed-top"} id="homeNav">
 			<Link activeClass="active" className="navbar-brand" to="hero" spy={true} smooth={true} duration={1000}>
 				Milton Chung
 			</Link>
