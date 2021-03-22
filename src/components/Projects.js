@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Element } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import sanityClient from "../sanity";
 import BlockContent from "@sanity/block-content-to-react";
 import { Link } from "react-router-dom";
+import sanityClient from "../sanity";
 
 const FeaturedProjects = ({ featuredProjects }) => {
 	return featuredProjects.map(item => {

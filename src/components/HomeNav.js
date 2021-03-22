@@ -8,8 +8,9 @@ import useWindowDimensions from "./useWindowDimensions";
 
 const HomeNav = () => {
 	const [menu, setMenu] = useState(false);
-	const [scrollPosition, setScrollPosition] = useState(0);
 	const { width } = useWindowDimensions();
+	const [scrollPosition, setScrollPosition] = useState(0);
+
 	const handleScroll = () => {
 		const position = window.pageYOffset;
 		setScrollPosition(position);
