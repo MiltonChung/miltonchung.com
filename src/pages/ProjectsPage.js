@@ -30,6 +30,7 @@ const ProjectsPage = () => {
 	const [projects, setProjects] = useState([]);
 	const [tempProjectsArr, setTempProjectsArr] = useState([]);
 	const [activeModal, setActiveModal] = useState(0);
+	const [activeButton, setActiveButton] = useState(0);
 
 	useEffect(() => {
 		sanityClient
@@ -68,9 +69,11 @@ const ProjectsPage = () => {
 
 	function showAll() {
 		setTempProjectsArr(projects);
+		setActiveButton(0);
 	}
 
 	function showPersonal() {
+		setActiveButton(1);
 		setTempProjectsArr(
 			projects.filter(item => {
 				return item.type === "project";
@@ -79,6 +82,7 @@ const ProjectsPage = () => {
 	}
 
 	function showFreelance() {
+		setActiveButton(2);
 		setTempProjectsArr(
 			projects.filter(item => {
 				return item.type === "freelance";
@@ -103,9 +107,21 @@ const ProjectsPage = () => {
 					<hr className="underline-section" />
 				</div>
 				<div className="filter-button-row">
-					<button onClick={showAll}>All</button>
-					<button onClick={showPersonal}>Personal</button>
-					<button onClick={showFreelance}>Freelance</button>
+					<button
+						className={activeButton === 0 ? "filter-button selected" : "filter-button"}
+						onClick={showAll}>
+						All
+					</button>
+					<button
+						className={activeButton === 1 ? "filter-button selected" : "filter-button"}
+						onClick={showPersonal}>
+						Personal
+					</button>
+					<button
+						className={activeButton === 2 ? "filter-button selected" : "filter-button"}
+						onClick={showFreelance}>
+						Freelance
+					</button>
 				</div>
 				<div className="all-projects-container">
 					{tempProjectsArr.map((item, index) => {

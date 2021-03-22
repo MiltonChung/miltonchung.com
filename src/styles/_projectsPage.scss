@@ -93,6 +93,40 @@ nav.projects-nav {
 			.underline-section {
 				@include underline-mixin($light-blue, 110px);
 			}
+
+			@media (max-width: 600px) {
+				small {
+					font-size: 18px;
+				}
+				h2 {
+					margin-top: -0.2rem;
+					font-size: 40px;
+				}
+			}
+		}
+
+		.filter-button-row {
+			margin-bottom: 2rem;
+			.filter-button {
+				margin-right: 0.5rem;
+				padding: 0.4rem 1rem 0.45rem 1rem;
+				background: #474663;
+				border: 2px solid #474663;
+				color: white;
+				border-radius: 30px;
+				font-family: $lato-font;
+				font-size: 17px;
+				cursor: pointer;
+				outline: none;
+
+				@media (max-width: 600px) {
+					font-size: 15px;
+					padding: 0.4rem 0.7rem 0.45rem 0.7rem;
+				}
+			}
+			.selected {
+				background: $light-blue;
+			}
 		}
 
 		.all-projects-container {
@@ -193,6 +227,12 @@ nav.projects-nav {
 			}
 			.hoverTextBlur.active {
 				display: block;
+			}
+
+			@media (max-width: 600px) {
+				grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+				column-gap: 1.5rem;
+				row-gap: 3rem;
 			}
 		}
 	}
