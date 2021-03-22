@@ -16,6 +16,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 		return (
 			<ReactModal
 				key={item._id}
+				closeTimeoutMS={200}
 				isOpen={activeModal["activeModal"] === index}
 				shouldCloseOnOverlayClick={true}
 				onRequestClose={hideModal}>
