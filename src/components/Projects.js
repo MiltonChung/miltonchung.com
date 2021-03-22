@@ -81,7 +81,7 @@ const Projects = () => {
 				<div className="showcase">
 					<FeaturedProjects featuredProjects={featuredProjects} />
 				</div>
-				<Link to="/projects" className="see-more-button">
+				<Link to="/projects" className="see-more-button" id="project">
 					...see more projects!
 				</Link>
 			</div>

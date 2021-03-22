@@ -32,7 +32,6 @@ const ProjectsPage = () => {
 	const [activeModal, setActiveModal] = useState(0);
 
 	useEffect(() => {
-		console.log("load");
 		sanityClient
 			.fetch(
 				`*[_type == "projects" && featured == false] | order(order asc) {
@@ -94,7 +93,6 @@ const ProjectsPage = () => {
 				<Link to="/" className="breadcrumb-link">
 					Home
 				</Link>
-				{/* <button onClick={goBack}>homeeee</button> */}
 				<p className="breadcrumb-p">/</p>
 				<p className="breadcrumb-p">Projects</p>
 			</div>

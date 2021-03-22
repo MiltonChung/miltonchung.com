@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const ProjectsNav = () => {
 	return (
@@ -9,9 +10,9 @@ const ProjectsNav = () => {
 			</Link>
 			<ul>
 				<li>
-					<Link to="/" className="navbar-back-home">
+					<HashLink to="/#portfolio" className="navbar-back-home">
 						back
-					</Link>
+					</HashLink>
 				</li>
 			</ul>
 		</nav>
