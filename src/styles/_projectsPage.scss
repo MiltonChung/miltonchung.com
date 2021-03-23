@@ -361,6 +361,9 @@ body.ReactModal__Body--open {
 		font-family: $lato-font;
 		font-size: 22px;
 		cursor: pointer;
+		position: absolute;
+		top: 15px;
+		right: 15px;
 	}
 
 	.modal-container {
@@ -374,6 +377,11 @@ body.ReactModal__Body--open {
 			align-self: center;
 			font-size: 42px;
 			margin-bottom: 1rem;
+			margin-top: 1rem;
+
+			@media (max-width: 600px) {
+				font-size: 33px;
+			}
 		}
 
 		.modal-picture {
@@ -414,7 +422,6 @@ body.ReactModal__Body--open {
 		}
 
 		.modal-description {
-			margin-top: 1rem;
 			a {
 				color: $light-blue;
 			}

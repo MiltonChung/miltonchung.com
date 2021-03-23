@@ -29,13 +29,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 				</button>
 				<div className="modal-container">
 					<h3 className="modal-title">{item.title}</h3>
-					<div className="modal-pills">
-						{item.skills.map(skill => (
-							<span className="modal-pill" key={Math.random()}>
-								{skill}
-							</span>
-						))}
-					</div>
+
 					<a href={item.liveLink} target="_blank" rel="noopener noreferrer" title="Go to website">
 						{item.projectPicture.asset.url ? (
 							<img className="modal-picture" src={item.projectPicture.asset.url} alt={item.title} />
@@ -43,7 +37,13 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 							<img className="modal-picture" src={placeholder} alt="placeholder" />
 						)}
 					</a>
-
+					<div className="modal-pills">
+						{item.skills.map(skill => (
+							<span className="modal-pill" key={Math.random()}>
+								{skill}
+							</span>
+						))}
+					</div>
 					<div className="modal-description">
 						<BlockContent blocks={item.description} projectId="w8nlqrwa" dataset="production" />
 					</div>
