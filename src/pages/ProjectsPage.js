@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faGithub } from "@fortawesome/free-brands-svg-icons";
-// import BlockContent from "@sanity/block-content-to-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import BlockContent from "@sanity/block-content-to-react";
 import { Link } from "react-router-dom";
 import sanityClient from "../sanity";
 import ProjectsNav from "../components/ProjectsNav";
 import ReactModal from "react-modal";
+import placeholder from "../assets/placeholder.jpg";
 
 // https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
@@ -17,11 +18,43 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 			<ReactModal
 				key={item._id}
 				closeTimeoutMS={200}
+				contentLabel={item.title}
+				className="Modal"
+				overlayClassName="Overlay"
 				isOpen={activeModal["activeModal"] === index}
 				shouldCloseOnOverlayClick={true}
 				onRequestClose={hideModal}>
-				{item.title}
-				<button onClick={hideModal}>close</button>
+				<button onClick={hideModal} className="modal-close">
+					X
+				</button>
+				<div className="modal-container">
+					<h3 className="modal-title">{item.title}</h3>
+					<a href={item.liveLink} target="_blank" rel="noopener noreferrer" title="Go to website">
+						{item.projectPicture.asset.url ? (
+							<img className="modal-picture" src={item.projectPicture.asset.url} alt={item.title} />
+						) : (
+							<img className="modal-picture" src={placeholder} alt="placeholder" />
+						)}
+					</a>
+					<div className="modal-pills">
+						{item.skills.map(skill => (
+							<span className="modal-pill" key={Math.random()}>
+								{skill}
+							</span>
+						))}
+					</div>
+					<div className="modal-description">
+						<BlockContent blocks={item.description} projectId="w8nlqrwa" dataset="production" />
+					</div>
+					<div className="modal-buttons">
+						<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
+							<FontAwesomeIcon icon={faGithub} /> Code
+						</a>
+						<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
+							Live demo
+						</a>
+					</div>
+				</div>
 			</ReactModal>
 		);
 	});
