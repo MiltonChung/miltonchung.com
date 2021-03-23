@@ -7,6 +7,7 @@ import sanityClient from "../sanity";
 import ProjectsNav from "../components/ProjectsNav";
 import ReactModal from "react-modal";
 import placeholder from "../assets/placeholder.jpg";
+import LoadingIcon from "../components/LoadingIcon";
 
 // https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
@@ -48,12 +49,16 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 						<BlockContent blocks={item.description} projectId="w8nlqrwa" dataset="production" />
 					</div>
 					<div className="modal-buttons">
-						<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
-							<FontAwesomeIcon icon={faGithub} /> Code
-						</a>
-						<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
-							Live demo
-						</a>
+						{item.githubLink && (
+							<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
+								<FontAwesomeIcon icon={faGithub} /> Code
+							</a>
+						)}
+						{item.liveLink && (
+							<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
+								Live demo
+							</a>
+						)}
 					</div>
 				</div>
 			</ReactModal>
@@ -66,11 +71,13 @@ const ProjectsPage = () => {
 	const [tempProjectsArr, setTempProjectsArr] = useState([]);
 	const [activeModal, setActiveModal] = useState(0);
 	const [activeButton, setActiveButton] = useState(0);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
+		setLoading(true);
 		sanityClient
 			.fetch(
-				`*[_type == "projects" && featured == false] | order(order asc) {
+				`*[_type == "projects"] | order(order desc) {
 					_id,
 					title,
 					skills,
@@ -91,6 +98,7 @@ const ProjectsPage = () => {
 			.then(data => {
 				setProjects(data);
 				setTempProjectsArr(data);
+				setLoading(false);
 			});
 	}, []);
 
@@ -135,6 +143,7 @@ const ProjectsPage = () => {
 				<p className="breadcrumb-p">/</p>
 				<p className="breadcrumb-p">Projects</p>
 			</div>
+
 			<div className="all-projects custom-container">
 				<div className="portfolioTitle">
 					<small>All Recent Works</small>
@@ -159,29 +168,38 @@ const ProjectsPage = () => {
 					</button>
 				</div>
 				<div className="all-projects-container">
-					{tempProjectsArr.map((item, index) => {
-						return (
-							<button className="hoverTextBlur" key={item._id} onClick={e => clickHandler(e, index)}>
-								<img
-									className="hoverTextBlur-img"
-									src={item.projectPicture.asset.url}
-									alt={item.title}
-								/>
-								<div className="hoverTextBlur-text hoverTextBlur-blur">
-									<h2 className="hoverTextBlur-title">{item.title}</h2>
-									<h3 className="hoverTextBlur-description">
-										<div className="portfolio-descr-pills">
-											{item.skills.map(skill => (
-												<span className="portfolio-pills-ind" key={Math.random()}>
-													{skill}
-												</span>
-											))}
+					{loading ? (
+						<LoadingIcon />
+					) : (
+						<>
+							{tempProjectsArr.map((item, index) => {
+								return (
+									<button
+										className="hoverTextBlur"
+										key={item._id}
+										onClick={e => clickHandler(e, index)}>
+										<img
+											className="hoverTextBlur-img"
+											src={item.projectPicture.asset.url}
+											alt={item.title}
+										/>
+										<div className="hoverTextBlur-text hoverTextBlur-blur">
+											<h2 className="hoverTextBlur-title">{item.title}</h2>
+											<h3 className="hoverTextBlur-description">
+												<div className="portfolio-descr-pills">
+													{item.skills.map(skill => (
+														<span className="portfolio-pills-ind" key={Math.random()}>
+															{skill}
+														</span>
+													))}
+												</div>
+											</h3>
 										</div>
-									</h3>
-								</div>
-							</button>
-						);
-					})}
+									</button>
+								);
+							})}
+						</>
+					)}
 				</div>
 				<Modals tempProjectsArr={tempProjectsArr} activeModal={activeModal} hideModal={hideModal} />
 			</div>

@@ -5,15 +5,16 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BlockContent from "@sanity/block-content-to-react";
 import { Link } from "react-router-dom";
 import sanityClient from "../sanity";
+import LoadingIcon from "../components/LoadingIcon";
 
-const FeaturedProjects = ({ featuredProjects }) => {
+const FeaturedProjects = ({ featuredProjects, loading }) => {
 	return featuredProjects.map(item => {
 		return (
 			<div className="featured" key={item._id}>
 				<div className="featured-img">
 					<div className="overlap-img">
 						<a rel="noreferrer" target="_blank" href={item.liveLink} title="Go to website">
-							<img src={item.projectPicture.asset.url} alt="acm" />
+							{loading ? <LoadingIcon /> : <img src={item.projectPicture.asset.url} alt="acm" />}
 						</a>
 					</div>
 				</div>
@@ -30,12 +31,16 @@ const FeaturedProjects = ({ featuredProjects }) => {
 						<BlockContent blocks={item.description} projectId="w8nlqrwa" dataset="production" />
 					</div>
 					<div className="featured-buttons">
-						<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
-							<FontAwesomeIcon icon={faGithub} /> Code
-						</a>
-						<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
-							Live demo
-						</a>
+						{item.githubLink && (
+							<a className="btn-portfolio" target="_blank" href={item.githubLink} rel="noreferrer">
+								<FontAwesomeIcon icon={faGithub} /> Code
+							</a>
+						)}
+						{item.liveLink && (
+							<a className="btn-portfolio" rel="noreferrer" target="_blank" href={item.liveLink}>
+								Live demo
+							</a>
+						)}
 					</div>
 				</div>
 			</div>
@@ -45,11 +50,13 @@ const FeaturedProjects = ({ featuredProjects }) => {
 
 const Projects = () => {
 	const [featuredProjects, setFeaturedProjects] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
+		setLoading(true);
 		sanityClient
 			.fetch(
-				`*[_type == "projects" && featured == true] | order(order asc) {
+				`*[_type == "projects" && featured == true] | order(order desc) {
 					_id,
 					title,
 					skills,
@@ -67,7 +74,10 @@ const Projects = () => {
 					}
 				}`
 			)
-			.then(data => setFeaturedProjects(data));
+			.then(data => {
+				setFeaturedProjects(data);
+				setLoading(false);
+			});
 	}, []);
 
 	return (
@@ -79,7 +89,7 @@ const Projects = () => {
 					<hr className="underline-section" />
 				</div>
 				<div className="showcase">
-					<FeaturedProjects featuredProjects={featuredProjects} />
+					<FeaturedProjects featuredProjects={featuredProjects} loading={loading} />
 				</div>
 				<Link to="/projects" className="see-more-button" id="project">
 					...see more projects!
