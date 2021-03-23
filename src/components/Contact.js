@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoadingIcon from "./LoadingIcon";
+import LoadingIconTwo from "./LoadingIconTwo";
 import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
@@ -148,7 +148,7 @@ const Contact = () => {
 
 							{loading ? (
 								<button disabled id="contactButton">
-									<LoadingIcon />
+									<LoadingIconTwo />
 								</button>
 							) : (
 								<button type="submit" id="contactButton">
