@@ -302,7 +302,7 @@ body.ReactModal__Body--open {
 	outline: none;
 	border-radius: 5px;
 	padding: 1.5rem;
-	overflow: auto;
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 
@@ -413,6 +413,7 @@ body.ReactModal__Body--open {
 		}
 
 		.modal-description {
+			margin-top: 1rem;
 			a {
 				color: $light-blue;
 			}
