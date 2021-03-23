@@ -367,6 +367,7 @@ body.ReactModal__Body--open {
 		display: flex;
 		flex-direction: column;
 		width: 90%;
+		min-height: fit-content;
 		margin: 0 auto;
 
 		.modal-title {
