@@ -59,7 +59,7 @@ const Skills = () => {
 						<p>MongoDB</p>
 					</div>
 					<div className="box">
-						<img src={Mongoose} alt="Mongoose" />
+						<img src={Mongoose} alt="Mongoose" className="mongoose" />
 						<p>Mongoose</p>
 					</div>
 					<div className="box">

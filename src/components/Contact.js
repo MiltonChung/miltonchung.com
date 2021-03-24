@@ -164,7 +164,10 @@ const Contact = () => {
 								miltonjchung@gmail.com
 								<span className="email-tooltip-text">Open Mail app</span>
 							</a>
-							<button onClick={() => CopyText(setCopyStatus)} className="tooltip">
+							<button
+								onClick={() => CopyText(setCopyStatus)}
+								className="tooltip"
+								aria-label="copy email">
 								<FontAwesomeIcon className="email" icon={faCopy} />
 								<span className="tooltiptext" id="myTooltip">
 									{copyStatus ? <>Copied to clipboard!</> : <>Copy to clipboard</>}
