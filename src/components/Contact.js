@@ -175,7 +175,7 @@ const Contact = () => {
 							</button>
 						</div>
 					</div>
-					<img src={ContactIllustration} alt="contact illustration" />
+					<img src={ContactIllustration} alt="contact illustration" width="639px" height="476px" />
 				</div>
 			</div>
 		</Element>

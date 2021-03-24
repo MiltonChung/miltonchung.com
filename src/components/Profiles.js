@@ -17,25 +17,25 @@ const Profiles = () => {
 				<div className="web-container">
 					<div className="profile">
 						<a href="https://www.frontendmentor.io/profile/MiltonChung" target="_blank" rel="noreferrer">
-							<img src={FrontendMentor} alt="frontend mentor logo" />
+							<img src={FrontendMentor} alt="frontend mentor logo" width="45px" height="45px" />
 							Frontend Mentor
 						</a>
 					</div>
 					<div className="profile">
 						<a href="https://edabit.com/user/CY5fcK7kzoo56Ysmr" target="_blank" rel="noreferrer">
-							<img src={Edabit} alt="edabit logo" />
+							<img src={Edabit} alt="edabit logo" width="45px" height="45px" />
 							Edabit
 						</a>
 					</div>
 					<div className="profile">
 						<a href="https://exercism.io/profiles/MiltonChung" target="_blank" rel="noreferrer">
-							<img src={Exercism} alt="exercism logo" />
+							<img src={Exercism} alt="exercism logo" width="45px" height="45px" />
 							Exercism
 						</a>
 					</div>
 					<div className="profile">
 						<a href="https://www.hackerrank.com/miltonjchung?hr_r=1" target="_blank" rel="noreferrer">
-							<img src={HackerRank} alt="Hackerrank logo" />
+							<img src={HackerRank} alt="Hackerrank logo" width="45px" height="45px" />
 							HackerRank
 						</a>
 					</div>

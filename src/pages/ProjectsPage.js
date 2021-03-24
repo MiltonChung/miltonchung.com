@@ -33,9 +33,21 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
 
 					<a href={item.liveLink} target="_blank" rel="noopener noreferrer" title="Go to website">
 						{item.projectPicture.asset.url ? (
-							<img className="modal-picture" src={item.projectPicture.asset.url} alt={item.title} />
+							<img
+								className="modal-picture"
+								src={item.projectPicture.asset.url}
+								alt={item.title}
+								width="694.84px"
+								height="401.23px"
+							/>
 						) : (
-							<img className="modal-picture" src={placeholder} alt="placeholder" />
+							<img
+								className="modal-picture"
+								src={placeholder}
+								alt="placeholder"
+								width="694.84px"
+								height="401.23px"
+							/>
 						)}
 					</a>
 					<div className="modal-pills">
@@ -182,6 +194,8 @@ const ProjectsPage = () => {
 											className="hoverTextBlur-img"
 											src={item.projectPicture.asset.url}
 											alt={item.title}
+											width="694.84px"
+											height="401.23px"
 										/>
 										<div className="hoverTextBlur-text hoverTextBlur-blur">
 											<h2 className="hoverTextBlur-title">{item.title}</h2>

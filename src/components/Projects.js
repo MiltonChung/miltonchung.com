@@ -14,7 +14,11 @@ const FeaturedProjects = ({ featuredProjects, loading }) => {
 				<div className="featured-img">
 					<div className="overlap-img">
 						<a rel="noreferrer" target="_blank" href={item.liveLink} title="Go to website">
-							{loading ? <LoadingIcon /> : <img src={item.projectPicture.asset.url} alt="acm" />}
+							{loading ? (
+								<LoadingIcon />
+							) : (
+								<img src={item.projectPicture.asset.url} alt="acm" width="694.84px" height="401.23px" />
+							)}
 						</a>
 					</div>
 				</div>
