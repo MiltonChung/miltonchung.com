@@ -94,6 +94,9 @@ a:hover {
 	scrollbar-width: thin;
 	scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
 }
+img {
+	aspect-ratio: attr(width) / attr(height);
+}
 
 // @import "_base.scss";
 @import "_components.scss";
