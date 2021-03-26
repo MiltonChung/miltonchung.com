@@ -53,5 +53,16 @@
 	.credit {
 		color: $white;
 		font-weight: 300;
+		display: flex;
+		flex-direction: column;
+
+		small {
+			margin-bottom: 0.4rem;
+		}
+
+		a {
+			color: white;
+			font-weight: 500;
+		}
 	}
 }

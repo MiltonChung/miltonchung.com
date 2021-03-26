@@ -33,6 +33,20 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="credit">
+				<small>
+					Created with{" "}
+					<a href="http://reactjs.org/" target="_blank" rel="noopener noreferrer">
+						React
+					</a>{" "}
+					+{" "}
+					<a href="https://www.sanity.io/" target="_blank" rel="noopener noreferrer">
+						Sanity(headless CMS)
+					</a>{" "}
+					and hosted on{" "}
+					<a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
+						Netlify
+					</a>
+				</small>
 				<small>Designed and created by Milton Chung &copy; {currentYear}</small>
 			</div>
 		</footer>
