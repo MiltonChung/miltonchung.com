@@ -7,7 +7,6 @@ const About = () => {
 	return (
 		<Element id="about" className="offset">
 			<div className="about-wrapper custom-container">
-				{/* <div className="blue-bg"></div> */}
 				<div className="profile-pic">
 					<img src={Milton} alt="Milton" width="480px" height="480px" />
 				</div>

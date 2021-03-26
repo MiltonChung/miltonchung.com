@@ -90,7 +90,7 @@ const Projects = () => {
 				<div className="portfolioTitle">
 					<small>Featured Works</small>
 					<h2>Portfolio</h2>
-					<hr className="underline-section" />
+					<div className="underline-section" />
 				</div>
 				<div className="showcase">
 					<FeaturedProjects featuredProjects={featuredProjects} loading={loading} />

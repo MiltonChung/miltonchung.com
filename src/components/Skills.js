@@ -27,7 +27,7 @@ const Skills = () => {
 				<div className="skillsTitle">
 					<small>What I know</small>
 					<h2>My Skills</h2>
-					<hr className="underline-section" />
+					<div className="underline-section" />
 				</div>
 				<div className="skills-container">
 					<div className="box">
