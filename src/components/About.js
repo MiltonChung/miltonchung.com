@@ -1,5 +1,5 @@
 import React from "react";
-import Milton from "../assets/me-opt.jpg";
+import Milton from "../assets/me.jpg";
 import Resume from "../assets/Milton_Chung_Resume_2021.pdf";
 import { Element } from "react-scroll";
 
