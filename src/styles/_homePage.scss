@@ -396,7 +396,6 @@
 	}
 
 	.box {
-		padding: 0.5rem;
 		position: relative;
 		z-index: 5;
 		height: 100%;
@@ -413,6 +412,18 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
+		padding: 0.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			margin-top: 0.3rem;
+			text-decoration: none;
+			color: $dark-purple;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 		img {
 			width: 80%;
 			height: 70%;
@@ -436,7 +447,7 @@
 		}
 	}
 	.box:hover {
-		background: #dadada7e;
+		background: #dadada5d;
 	}
 }
 

@@ -17,13 +17,14 @@ const About = () => {
 						<div className="underline-section"></div>
 					</div>
 					<p>
-						I am a recent graduate from the University of California, Santa Cruz with Bachelor of Arts in
-						Computer Science and Bachelor of Sciences in Cognitive Science. I'm currently a student at
-						Nucamp Coding Bootcamp studying to become a MERN full stack developer. I have experience
-						building websites from the ground up using plain HTML, CSS, and JavaScript, but also using
-						more advanced frameworks and technologies like React, Sass, and Bootstrap to make my websites
-						to the next level. Designing and building websites is my passion and I want to bring designs
-						to life for the world to see.
+						I graduated from the University of California, Santa Cruz with Bachelor of Arts in Computer
+						Science and Bachelor of Sciences in Cognitive Science. I'm a Honors graduate from Nucamp
+						Coding Bootcamp with the focus of learning the MERN stack. I'm currently a fellow at Menon
+						Labs working with their start-up partner Plant Jammer as a Frontend Developer. I have
+						experience building websites from the ground up using plain HTML, CSS, and JavaScript, but
+						also using more advanced frameworks and technologies like React, Sass, and Bootstrap to take
+						my websites to the next level. Designing and building websites is my passion and I want to
+						bring designs to life for the world to see.
 					</p>
 
 					<a href={Resume} target="_blank" rel="noreferrer" type="application/octet-stream">

@@ -32,75 +32,120 @@ const Skills = () => {
 				<div className="skills-container">
 					<div className="box">
 						<img src={HTML} alt="HTML" />
-						<p>HTML</p>
+						<a
+							href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+							target="_blank"
+							rel="noopener noreferrer">
+							HTML
+						</a>
 					</div>
 					<div className="box">
 						<img src={CSS} alt="CSS" />
-						<p>CSS</p>
+						<a
+							href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+							target="_blank"
+							rel="noopener noreferrer">
+							CSS
+						</a>
 					</div>
 					<div className="box">
 						<img src={Bootstrap} alt="Bootstrap" />
-						<p>Bootstrap</p>
+						<a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">
+							Bootstrap
+						</a>
 					</div>
 					<div className="box">
 						<img src={Sass} alt="Sass" />
-						<p>Sass</p>
+						<a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer">
+							Sass
+						</a>
 					</div>
 					<div className="box">
 						<img src={Javascript} alt="Javascript" />
-						<p>JavaScript</p>
+						<a
+							href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+							target="_blank"
+							rel="noopener noreferrer">
+							JavaScript
+						</a>
 					</div>
 					<div className="box">
 						<img src={Reactsvg} alt="React" />
-						<p>React/React Native</p>
+						<a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+							React/React Native
+						</a>
 					</div>
 					<div className="box">
 						<img src={MongoDB} alt="Mongodb" />
-						<p>MongoDB</p>
+						<a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer">
+							MongoDB
+						</a>
 					</div>
 					<div className="box">
 						<img src={Mongoose} alt="Mongoose" className="mongoose" />
-						<p>Mongoose</p>
+						<a href="https://mongoosejs.com/" target="_blank" rel="noopener noreferrer">
+							Mongoose
+						</a>
 					</div>
 					<div className="box">
 						<img src={Express} alt="Express" />
-						<p>Express</p>
+						<a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">
+							Express
+						</a>
 					</div>
 					<div className="box">
 						<img src={Nodejs} alt="Nodejs" />
-						<p>Nodejs</p>
+						<a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
+							Nodejs
+						</a>
 					</div>
 					<div className="box">
 						<img src={NPM} alt="NPM" />
-						<p>NPM</p>
+						<a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">
+							npm
+						</a>
 					</div>
 					<div className="box">
 						<img src={Java} alt="Java" />
-						<p>Java</p>
+						<a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener noreferrer">
+							Java
+						</a>
 					</div>
 					<div className="box">
 						<img src={Python} alt="Python" />
-						<p>Python</p>
+						<a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+							Python
+						</a>
 					</div>
 					<div className="box">
 						<img src={Sql} alt="SQL" />
-						<p>SQL</p>
+						<a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener noreferrer">
+							SQL
+						</a>
 					</div>
 					<div className="box">
 						<img src={VSCode} alt="Visual Studio Code" />
-						<p>Visual Studio Code</p>
+						<a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
+							Visual Studio Code
+						</a>
 					</div>
 					<div className="box">
 						<img src={Figma} alt="Figma" />
-						<p>Figma</p>
+						<a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">
+							Figma
+						</a>
 					</div>
 					<div className="box">
 						<img src={Postman} alt="Postman" />
-						<p>Postman</p>
+						<a href="https://www.postman.com/" target="_blank" rel="noopener noreferrer">
+							Postman
+						</a>
 					</div>
 					<div className="box">
 						<img src={Sanity} alt="Sanity" />
-						<p>Sanity</p>
+						<a href="https://www.sanity.io/" target="_blank" rel="noopener noreferrer">
+							Sanity
+						</a>
 					</div>
 				</div>
 			</div>

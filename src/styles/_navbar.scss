@@ -83,7 +83,8 @@ nav#homeNav {
 		left: 50%;
 		transform: translateX(-50%);
 		text-align: center;
-		background: rgba(17, 17, 17, 0.548) !important;
+		// background: rgba(17, 17, 17, 0.548) !important;
+		background: #2f2e41d3 !important;
 		width: 92%;
 		border-radius: 11px;
 
@@ -118,7 +119,10 @@ nav#homeNav {
 }
 
 nav#homeNav.affix {
-	background-color: rgba(17, 17, 17, 0.548) !important;
+	// background-color: rgba(17, 17, 17, 0.548) !important;
+	background: #2d2f479a !important;
+	// background: #384d6393 !important;
+
 	a.navbar-brand {
 		visibility: visible;
 	}
