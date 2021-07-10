@@ -1,7 +1,6 @@
 import React from "react";
 import Milton from "../assets/me.jpg";
 import Resume from "../assets/Milton_Chung_Resume.pdf";
-import External from '../assets/svg/external.svg'
 import { Element } from "react-scroll";
 
 const About = () => {
