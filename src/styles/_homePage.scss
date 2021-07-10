@@ -76,6 +76,14 @@
 				border: 3px solid $white;
 				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.24);
 				transition: all 0.5s;
+				display: flex;
+				align-items: center;
+				width: fit-content;
+
+				svg {
+					width: 14px;
+					margin-left: 5px;
+				}
 
 				@media (max-width: 1000px) {
 					padding: 0.5rem 1rem;
@@ -89,6 +97,11 @@
 			a:hover {
 				color: $light-blue;
 				background: $white;
+				svg {
+					path {
+						fill: $light-blue;
+					}
+				}
 			}
 		}
 
