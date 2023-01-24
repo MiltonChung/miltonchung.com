@@ -3,7 +3,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import useScrollSpy from 'react-use-scrollspy';
 import { useToggle } from '../src/hooks/useToggle';
-import Milton from '../public/assets/images/me.jpg';
+import MiltonProfile from '../public/assets/images/me.jpg';
 import { Contact } from '../src/components/Contact';
 import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
@@ -75,7 +75,7 @@ const Home = () => {
       <nav
         className={scrollPosition > 499 ? 'fixed-top affix' : 'fixed-top'}
         id="homeNav">
-        <Link href="#hero" scroll={false} className="navbar-brand">
+        <Link href="#landing" scroll={false} className="navbar-brand">
           Milton Chung
         </Link>
         <button className="menu-button" onClick={toggleMenuOpen}>
@@ -95,6 +95,7 @@ const Home = () => {
             <li className="nav-item">
               <Link
                 className="nav-link"
+                scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#portfolio">
                 Portfolio
@@ -103,6 +104,7 @@ const Home = () => {
             <li className="nav-item">
               <Link
                 className="nav-link"
+                scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#skills">
                 Skills
@@ -111,6 +113,7 @@ const Home = () => {
             <li className="nav-item">
               <Link
                 className="nav-link"
+                scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#contact">
                 Contact
@@ -120,7 +123,7 @@ const Home = () => {
         </div>
       </nav>
 
-      <section id="hero">
+      <section id="landing">
         <div className="header-container hero-styles">
           <h1>Hi! I'm Milton Chung.</h1>
           <h2>Front End Developer</h2>
@@ -155,7 +158,7 @@ const Home = () => {
       <section id="about" className="offset">
         <div className="about-wrapper custom-container">
           <div className="profile-pic">
-            <Image src={Milton} alt="Milton profile shot" />
+            <Image src={MiltonProfile} alt="Milton profile shot" />
           </div>
           <div className="about-text">
             <div className="about-title">

@@ -1,262 +1,270 @@
 // Components: anything reusable such as buttons, navbars,
 // cards etc.
 .header-container {
-	width: 85%;
-	max-width: 1400px;
-	margin: auto;
-	@media (max-width: 425px) {
-		width: 94%;
-	}
+  width: 85%;
+  max-width: 1400px;
+  margin: auto;
+  @media (max-width: 425px) {
+    width: 94%;
+  }
 }
 
 .custom-container {
-	width: 85%;
-	max-width: 1400px;
-	margin: auto;
+  width: 85%;
+  max-width: 1400px;
+  margin: auto;
 
-	@media (max-width: 1180px) {
-		width: 92%;
-	}
+  @media (max-width: 1180px) {
+    width: 92%;
+  }
 }
 
 // Buttons
 .btn-outline-square {
-	border: 3px solid #3b87ca;
-	border-radius: 5px;
-	color: white;
-	padding: 0.7rem 1rem;
-	transition: all 0.5s;
-	text-decoration: none;
+  border: 3px solid #3b87ca;
+  border-radius: 5px;
+  color: white;
+  padding: 0.7rem 1rem;
+  transition: all 0.5s;
+  text-decoration: none;
 
-	@media (max-width: 767.5px) {
-		padding: 0.5rem 0.7rem;
-		border: 2.5px solid #3b87ca;
-	}
-	@media (max-width: 425px) {
-		width: 88px;
-	}
+  @media (max-width: 767.5px) {
+    padding: 0.5rem 0.7rem;
+    border: 2.5px solid #3b87ca;
+  }
+  @media (max-width: 425px) {
+    width: 88px;
+  }
 }
 .btn-outline-square:hover {
-	background: #3b87ca;
-	text-decoration: none;
-	border: 3px solid white;
-	color: white;
+  background: #3b87ca;
+  text-decoration: none;
+  border: 3px solid white;
+  color: white;
 }
 .btn-portfolio {
-	background: $dark-purple;
-	border-radius: 5px;
-	border: 3px solid $dark-purple;
-	color: white;
-	padding: 0.56rem 1rem;
-	width: fit-content;
-	height: fit-content;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.5s;
-	text-decoration: none;
-	font-size: 1.1rem;
+  background: $dark-purple;
+  border-radius: 5px;
+  border: 3px solid $dark-purple;
+  color: white;
+  padding: 0.56rem 1rem;
+  width: fit-content;
+  height: fit-content;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
 
-	@media (max-width: 450px) {
-		font-size: 0.88rem;
-	}
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 0.88rem;
+  }
 }
 .btn-portfolio:hover {
-	color: $dark-purple;
-	background: transparent;
+  color: $dark-purple;
+  background: transparent;
 }
 
 // Modals
 .portfolio-modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.5);
-	font-family: $lato-font;
-	&-content {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		margin: auto;
-		width: 70%;
-		max-width: 1500px;
-		height: fit-content;
-		box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-		animation-name: modalopen;
-		animation-duration: 0.4s;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: $lato-font;
+  &-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    max-width: 1500px;
+    height: fit-content;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
 
-		@media (max-width: 1024px) {
-			width: 85%;
-		}
-		@media (max-width: 803px) {
-			width: 91%;
-		}
-		.portfolio-modal-header {
-			padding: 0.2rem 1rem;
-			background: $white;
-			height: fit-content;
-			display: flex;
-			justify-content: flex-end;
-			border: none;
-			.close_modal,
-			.close_modal1,
-			.close_modal2,
-			.close_modal3,
-			.close_modal4,
-			.close_modal5,
-			.close_modal6 {
-				font-size: 35px;
-				display: block;
-				color: $black;
-				float: right;
-				color: gray;
-			}
+    @media (max-width: 1024px) {
+      width: 85%;
+    }
+    @media (max-width: 803px) {
+      width: 91%;
+    }
+    .portfolio-modal-header {
+      padding: 0.2rem 1rem;
+      background: $white;
+      height: fit-content;
+      display: flex;
+      justify-content: flex-end;
+      border: none;
+      .close_modal,
+      .close_modal1,
+      .close_modal2,
+      .close_modal3,
+      .close_modal4,
+      .close_modal5,
+      .close_modal6 {
+        font-size: 35px;
+        display: block;
+        color: $black;
+        float: right;
+        color: gray;
+      }
 
-			.close_modal:hover,
-			.close_modal1:hover,
-			.close_modal2:hover,
-			.close_modal3:hover,
-			.close_modal4:hover,
-			.close_modal5:hover,
-			.close_modal6:hover,
-			.close_modal:focus {
-				color: #000;
-				text-decoration: none;
-				cursor: pointer;
-			}
-		}
-		.portfolio-modal-body {
-			padding: 1.5rem 2rem;
-			background: #fff;
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      .close_modal:hover,
+      .close_modal1:hover,
+      .close_modal2:hover,
+      .close_modal3:hover,
+      .close_modal4:hover,
+      .close_modal5:hover,
+      .close_modal6:hover,
+      .close_modal:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .portfolio-modal-body {
+      padding: 1.5rem 2rem;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-			@media (max-width: 458px) {
-				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-				padding: 1rem 1.3rem;
-			}
-			img {
-				max-width: 100%;
-				height: auto;
-				border: 1px solid black;
-			}
-			.portfolio-modal-text {
-				padding: 0.2rem 0rem 0.2rem 2rem;
+      @media (max-width: 458px) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1rem 1.3rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;
+      }
+      .portfolio-modal-text {
+        padding: 0.2rem 0rem 0.2rem 2rem;
 
-				@media (max-width: 729px) {
-					padding: 0.8rem 0rem;
-				}
+        @media (max-width: 729px) {
+          padding: 0.8rem 0rem;
+        }
 
-				.portfolio-modal-title {
-					margin-bottom: 0.6rem;
-					font-size: 2rem;
+        .portfolio-modal-title {
+          margin-bottom: 0.6rem;
+          font-size: 2rem;
 
-					@media (max-width: 768px) {
-						font-size: 1.5rem;
-					}
-				}
-				.portfolio-modal-pills {
-					margin-bottom: 1.2rem;
-					display: flex;
-					width: fit-content;
-					flex-wrap: wrap;
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+        .portfolio-modal-pills {
+          margin-bottom: 1.2rem;
+          display: flex;
+          width: fit-content;
+          flex-wrap: wrap;
 
-					&-ind {
-						margin-right: 0.3rem;
-						margin-bottom: 0.3rem;
-						font-style: italic;
-						font-weight: 400;
-						background: $light-blue;
-						padding: 0.4rem 0.8rem 0.55rem 0.7rem;
-						color: $white;
-						border-radius: 30px;
-						box-shadow: inset -5px -5px 6px 0px rgba(6, 51, 116, 0.47);
+          &-ind {
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+            font-weight: 400;
+            background: $light-blue;
+            padding: 0.4rem 0.8rem 0.55rem 0.7rem;
+            color: $white;
+            border-radius: 30px;
+            box-shadow: inset -5px -5px 6px 0px rgba(6, 51, 116, 0.47);
 
-						@media (max-width: 768px) {
-							padding: 0.3rem 0.7rem 0.45rem 0.6rem;
-							font-size: 0.86rem;
-						}
-					}
-				}
-				.portfolio-modal-descriptions {
-					margin-bottom: 1.5rem;
-				}
-				.portfolio-modal-buttons {
-					display: flex;
-					a {
-						margin-right: 1rem;
-						display: flex;
-						align-items: center;
-						svg {
-							margin-right: 0.2rem;
-						}
-					}
-				}
-			}
-		}
-	}
+            @media (max-width: 768px) {
+              padding: 0.3rem 0.7rem 0.45rem 0.6rem;
+              font-size: 0.86rem;
+            }
+          }
+        }
+        .portfolio-modal-descriptions {
+          margin-bottom: 1.5rem;
+        }
+        .portfolio-modal-buttons {
+          display: flex;
+          a {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes modalopen {
-	from {
-		opacity: 0;
-		transform: scale(0.5);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .lds-facebook {
-	display: inline-block;
-	position: relative;
-	justify-self: center;
-	align-self: center;
-	width: 80px;
-	height: 80px;
+  display: inline-block;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  width: 80px;
+  height: 80px;
 }
 .lds-facebook div {
-	display: inline-block;
-	position: absolute;
-	left: 8px;
-	width: 16px;
-	background: $dark-purple;
-	animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: $dark-purple;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 .lds-facebook div:nth-child(1) {
-	left: 8px;
-	animation-delay: -0.24s;
+  left: 8px;
+  animation-delay: -0.24s;
 }
 .lds-facebook div:nth-child(2) {
-	left: 32px;
-	animation-delay: -0.12s;
+  left: 32px;
+  animation-delay: -0.12s;
 }
 .lds-facebook div:nth-child(3) {
-	left: 56px;
-	animation-delay: 0;
+  left: 56px;
+  animation-delay: 0;
 }
 @keyframes lds-facebook {
-	0% {
-		top: 8px;
-		height: 64px;
-	}
-	50%,
-	100% {
-		top: 24px;
-		height: 32px;
-	}
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
 }
 
 // Mixins
 @mixin underline-mixin($color, $width) {
-	border-bottom: 3px solid $color;
-	width: $width;
-	margin-top: -6.5px;
+  border-bottom: 3px solid $color;
+  width: $width;
+  margin-top: -6.5px;
 }

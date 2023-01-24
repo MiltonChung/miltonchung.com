@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import * as React from 'react';
+import Link from 'next/link';
 
 const ProjectsNav = () => {
   return (
@@ -18,4 +18,4 @@ const ProjectsNav = () => {
   );
 };
 
-export default ProjectsNav;
+export { ProjectsNav };

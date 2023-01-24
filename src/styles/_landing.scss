@@ -1,11 +1,11 @@
-#hero {
+#landing {
   background-image: linear-gradient(
       to right,
       rgba(29, 30, 38, 0.9),
       rgba(29, 30, 38, 0.7),
       rgba(29, 30, 38, 0.54)
     ),
-    url("../../public/assets/landing-opt.jpg");
+    url('../../public/assets/landing-opt.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -4,6 +4,7 @@ import sanityClient from '../sanity';
 import { LoadingIcon } from './LoadingIcon';
 import Link from 'next/link';
 import { FComponent } from '../types/commons';
+import { GithubIcon } from '../Icons';
 
 type FeaturedProjectsProps = {
   featuredProjects: {
@@ -77,7 +78,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                   target="_blank"
                   href={item.githubLink}
                   rel="noreferrer">
-                  GITHUB Code
+                  <GithubIcon /> Code
                 </a>
               )}
               {item.liveLink && (

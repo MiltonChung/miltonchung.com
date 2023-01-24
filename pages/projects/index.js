@@ -1,15 +1,15 @@
-import ReactModal from "react-modal";
-import sanityClient from "../../src/sanity";
-import React, { useEffect, useState } from "react";
-import placeholder from "../../public/assets/placeholder.jpg";
-import LoadingIcon from "../../src/components/LoadingIcon";
-import ProjectsNav from "../../src/components/ProjectsNav";
-import BlockContent from "@sanity/block-content-to-react";
-import Link from "next/link";
+import ReactModal from 'react-modal';
+import sanityClient from '../../src/sanity';
+import React, { useEffect, useState } from 'react';
+import placeholder from '../../public/assets/placeholder.jpg';
+import LoadingIcon from '../../src/components/LoadingIcon';
+import { ProjectsNav } from '../../src/components/ProjectsNav';
+import BlockContent from '@sanity/block-content-to-react';
+import Link from 'next/link';
 
 // https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 
 const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
   return tempProjectsArr.map((item, index) => {
@@ -20,10 +20,9 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
         contentLabel={item.title}
         className="Modal"
         overlayClassName="Overlay"
-        isOpen={activeModal["activeModal"] === index}
+        isOpen={activeModal['activeModal'] === index}
         shouldCloseOnOverlayClick={true}
-        onRequestClose={hideModal}
-      >
+        onRequestClose={hideModal}>
         <button onClick={hideModal} className="modal-close">
           X
         </button>
@@ -34,8 +33,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
             href={item.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            title="Go to website"
-          >
+            title="Go to website">
             {item.projectPicture.asset.url ? (
               <img
                 className="modal-picture"
@@ -55,7 +53,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
             )}
           </a>
           <div className="modal-pills">
-            {item.skills.map((skill) => (
+            {item.skills.map(skill => (
               <span className="modal-pill" key={Math.random()}>
                 {skill}
               </span>
@@ -74,8 +72,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
                 className="btn-portfolio"
                 target="_blank"
                 href={item.githubLink}
-                rel="noreferrer"
-              >
+                rel="noreferrer">
                 GITHUB ICON Code
               </a>
             )}
@@ -84,8 +81,7 @@ const Modals = ({ tempProjectsArr, activeModal, hideModal }) => {
                 className="btn-portfolio"
                 rel="noreferrer"
                 target="_blank"
-                href={item.liveLink}
-              >
+                href={item.liveLink}>
                 Live demo
               </a>
             )}
@@ -125,7 +121,7 @@ const ProjectsPage = () => {
 					}
 				}`
       )
-      .then((data) => {
+      .then(data => {
         setProjects(data);
         setTempProjectsArr(data);
         setLoading(false);
@@ -148,8 +144,8 @@ const ProjectsPage = () => {
   function showPersonal() {
     setActiveButton(1);
     setTempProjectsArr(
-      projects.filter((item) => {
-        return item.type === "project";
+      projects.filter(item => {
+        return item.type === 'project';
       })
     );
   }
@@ -157,8 +153,8 @@ const ProjectsPage = () => {
   function showFreelance() {
     setActiveButton(2);
     setTempProjectsArr(
-      projects.filter((item) => {
-        return item.type === "freelance";
+      projects.filter(item => {
+        return item.type === 'freelance';
       })
     );
   }
@@ -182,27 +178,18 @@ const ProjectsPage = () => {
         </div>
         <div className="filter-button-row">
           <button
-            className={
-              activeButton === 0 ? "filter-button selected" : "filter-button"
-            }
-            onClick={showAll}
-          >
+            className={activeButton === 0 ? 'filter-button selected' : 'filter-button'}
+            onClick={showAll}>
             All
           </button>
           <button
-            className={
-              activeButton === 1 ? "filter-button selected" : "filter-button"
-            }
-            onClick={showPersonal}
-          >
+            className={activeButton === 1 ? 'filter-button selected' : 'filter-button'}
+            onClick={showPersonal}>
             Personal
           </button>
           <button
-            className={
-              activeButton === 2 ? "filter-button selected" : "filter-button"
-            }
-            onClick={showFreelance}
-          >
+            className={activeButton === 2 ? 'filter-button selected' : 'filter-button'}
+            onClick={showFreelance}>
             Freelance
           </button>
         </div>
@@ -216,8 +203,7 @@ const ProjectsPage = () => {
                   <button
                     className="hoverTextBlur"
                     key={item._id}
-                    onClick={(e) => clickHandler(e, index)}
-                  >
+                    onClick={e => clickHandler(e, index)}>
                     <img
                       className="hoverTextBlur-img"
                       src={item.projectPicture.asset.url}
@@ -229,11 +215,8 @@ const ProjectsPage = () => {
                       <h2 className="hoverTextBlur-title">{item.title}</h2>
                       <h3 className="hoverTextBlur-description">
                         <div className="portfolio-descr-pills">
-                          {item.skills.map((skill) => (
-                            <span
-                              className="portfolio-pills-ind"
-                              key={Math.random()}
-                            >
+                          {item.skills.map(skill => (
+                            <span className="portfolio-pills-ind" key={Math.random()}>
                               {skill}
                             </span>
                           ))}

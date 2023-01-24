@@ -1,7 +1,7 @@
 // === Typography =======================================
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rubik:wght@300;400;500;700;900&display=swap");
-$rubik-font: "Rubik", sans-serif;
-$lato-font: "Lato", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rubik:wght@300;400;500;700;900&display=swap');
+$rubik-font: 'Rubik', sans-serif;
+$lato-font: 'Lato', sans-serif;
 
 $body-font-size: 16px;
 
@@ -56,7 +56,7 @@ $black: #000;
 
 .offset:before {
   display: block;
-  content: "";
+  content: '';
   height: 3.7rem;
   margin-top: -3.7rem;
 }
@@ -101,13 +101,10 @@ img {
   aspect-ratio: attr(width) / attr(height);
 }
 
-// @import "_base.scss";
-@import "_components.scss";
-// @import "_layout.scss";
-
-@import "_navbar.scss";
-@import "_landing.scss";
-@import "_homePage.scss";
-@import "_projectsPage.scss";
-@import "_footer.scss";
-@import "_loadingIconTwo.scss";
+@import '_components.scss';
+@import '_navbar.scss';
+@import '_landing.scss';
+@import '_homePage.scss';
+@import '_projectsPage.scss';
+@import '_footer.scss';
+@import '_loadingIconTwo.scss';
