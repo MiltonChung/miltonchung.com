@@ -67,26 +67,25 @@ const Home = () => {
 
   const activeSection = useScrollSpy({
     sectionElementRefs: sectionRefs,
-    offsetPx: -80
+    offsetPx: -55
   });
 
   return (
     <div className="home" ref={sectionRefs[0]}>
-      <nav
-        className={scrollPosition > 499 ? 'fixed-top affix' : 'fixed-top'}
-        id="homeNav">
-        <Link href="#landing" scroll={false} className="navbar-brand">
+      <nav className={scrollPosition > 499 ? 'affix' : null} id="homeNav">
+        <Link href="#landing" scroll={false} className="navbar-brand font-bold">
           Milton Chung
         </Link>
         <button className="menu-button" onClick={toggleMenuOpen}>
           <HamburgerIcon />
         </button>
+
         <div className={isMenuOpen ? 'nav-links-m' : 'nav-links'}>
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                className="nav-link"
+                className={activeSection === 1 ? 'nav-link active-nav' : 'nav-link'}
                 href="#about"
                 scroll={false}>
                 About
@@ -94,7 +93,7 @@ const Home = () => {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={activeSection === 2 ? 'nav-link active-nav' : 'nav-link'}
                 scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#portfolio">
@@ -103,7 +102,7 @@ const Home = () => {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={activeSection === 3 ? 'nav-link active-nav' : 'nav-link'}
                 scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#skills">
@@ -112,7 +111,7 @@ const Home = () => {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link"
+                className={activeSection === 4 ? 'nav-link active-nav' : 'nav-link'}
                 scroll={false}
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
                 href="#contact">
@@ -123,7 +122,9 @@ const Home = () => {
         </div>
       </nav>
 
-      <section id="landing">
+      {/* Add certifications and links */}
+
+      <section id="landing" ref={sectionRefs[0]}>
         <div className="header-container hero-styles">
           <h1>Hi! I'm Milton Chung.</h1>
           <h2>Front End Developer</h2>
@@ -155,7 +156,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="about" className="offset">
+      <section id="about" className="offset" ref={sectionRefs[1]}>
         <div className="about-wrapper custom-container">
           <div className="profile-pic">
             <Image src={MiltonProfile} alt="Milton profile shot" />
@@ -204,11 +205,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="offset">
+      <section id="portfolio" className="offset" ref={sectionRefs[2]}>
         <Projects />
       </section>
 
-      <section id="skills" className="offset">
+      <section id="skills" className="offset" ref={sectionRefs[3]}>
         <div className="custom-container skills-styles">
           <div className="skillsTitle">
             <small>What I know</small>
@@ -322,11 +323,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" className="offset">
+      <section id="contact" className="offset" ref={sectionRefs[4]}>
         <Contact />
       </section>
 
-      <section id="profiles">
+      <section id="profiles" ref={sectionRefs[5]}>
         <div className="custom-container web-styles">
           <div className="webTitle">
             <small>Links to my profiles</small>

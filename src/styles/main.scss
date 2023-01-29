@@ -1,79 +1,23 @@
-// === Typography =======================================
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rubik:wght@300;400;500;700;900&display=swap');
-$rubik-font: 'Rubik', sans-serif;
-$lato-font: 'Lato', sans-serif;
-
-$body-font-size: 16px;
+@import './system/system';
+@import '_navbar.scss';
+@import '_components.scss';
+@import '_landing.scss';
+@import '_homePage.scss';
+@import '_projectsPage.scss';
+@import '_footer.scss';
+@import '_loadingIconTwo.scss';
 
 html {
   scroll-behavior: smooth;
-  font-size: $body-font-size;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $rubik-font;
-}
-p,
-span,
-button,
-small,
-a {
-  font-family: $lato-font;
-  margin: 0;
-  padding: 0;
-}
-p {
-  line-height: 1.5;
-}
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-// === Colors =======================================
-// $light-blue: #3b87ca;
-$light-blue: #3378c1;
-$light-gray: #f1f1f1;
-$dark-purple: #2f2e41;
-$white: #fff;
-$black: #000;
-
-// === Resets =======================================
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.offset:before {
-  display: block;
-  content: '';
-  height: 3.7rem;
-  margin-top: -3.7rem;
-}
-body {
-  line-height: normal;
-}
-button:hover,
-a:hover {
-  text-decoration: none;
+  color: $colors-text;
 }
 
 // === Browser Changes ================================
 ::selection {
-  background: #cc9afa8f; /* WebKit/Blink Browsers */
+  background: $highlight-purple; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #cc9afa8f; /* Gecko Browsers */
+  background: $highlight-purple; /* Gecko Browsers */
 }
 
 /* width */
@@ -100,11 +44,3 @@ a:hover {
 img {
   aspect-ratio: attr(width) / attr(height);
 }
-
-@import '_components.scss';
-@import '_navbar.scss';
-@import '_landing.scss';
-@import '_homePage.scss';
-@import '_projectsPage.scss';
-@import '_footer.scss';
-@import '_loadingIconTwo.scss';

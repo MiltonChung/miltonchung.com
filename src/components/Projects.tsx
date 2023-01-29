@@ -3,7 +3,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import sanityClient from '../sanity';
 import { LoadingIcon } from './LoadingIcon';
 import Link from 'next/link';
-import { FComponent } from '../types/commons';
+import { FComponent, SanityAsset } from '../types/commons';
 import { GithubIcon } from '../Icons';
 
 type FeaturedProjectsProps = {
@@ -16,13 +16,7 @@ type FeaturedProjectsProps = {
     liveLink: string;
     order: number;
     featured: boolean;
-    projectPicture: {
-      asset: {
-        _id: string;
-        url: string;
-      };
-      alt: string;
-    };
+    projectPicture: SanityAsset;
   }[];
   loading: boolean;
 };

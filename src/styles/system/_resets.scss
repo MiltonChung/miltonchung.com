@@ -1,0 +1,49 @@
+// === Resets =======================================
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+p,
+span,
+button,
+small,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+svg {
+  display: block;
+}
+
+.offset:before {
+  display: block;
+  content: '';
+  height: 3.7rem;
+  margin-top: -3.7rem;
+}
+body {
+  line-height: normal;
+}
+button:hover,
+a:hover {
+  text-decoration: none;
+}

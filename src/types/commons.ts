@@ -13,3 +13,11 @@ export type FComponent<T = Record<string, unknown>, S = unknown> = (
   props: ComponentProps<T>,
   ref: React.MutableRefObject<S>
 ) => JSX.Element;
+
+export type SanityAsset = {
+  asset: {
+    url: string;
+    _id: string;
+  };
+  alt?: string;
+};
