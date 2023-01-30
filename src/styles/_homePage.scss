@@ -180,17 +180,16 @@
 }
 
 #about {
-  padding-bottom: 2rem;
+  background: $white;
+  padding: 7rem 0 4.5rem 0;
+
   .about-wrapper {
-    z-index: 1;
-    margin: 4rem auto;
+    padding: 1.5rem 1rem 1.5rem 0;
     display: flex;
     flex-direction: row;
     min-height: fit-content;
     height: 100%;
     position: relative;
-    padding: 1.5rem 1rem;
-    padding-left: 0;
 
     &::before {
       content: '';
@@ -199,108 +198,95 @@
       top: 0;
       width: 82%;
       height: 100%;
-      z-index: -1;
+      z-index: 1;
       background: $light-blue;
-      border-radius: 5px;
+      border-radius: 11px;
     }
-    .profile-pic {
+
+    .about-me-pic {
       flex: 1.5;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      z-index: 2;
 
       img {
-        width: 80%;
+        width: 90%;
         height: auto;
-        border-radius: 5px;
+        border-radius: 11px;
         box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.24);
       }
     }
 
-    .about-text {
-      flex: 2;
-      padding: 1.5rem 0;
-      color: white;
+    .about-me-text-wrapper {
+      flex: 2.5;
+      padding: 1.5rem 0.5rem 1.5rem 0;
+      color: $white;
+      z-index: 2;
 
-      .about-title {
-        margin-bottom: 1.5rem;
-        small {
-          font-size: 20px;
-          font-weight: 400;
-          color: $white;
-        }
-        h2 {
-          margin-top: -0.5rem;
-          margin-left: -0.12rem;
-          font-size: 46px;
-          margin-bottom: 0.6rem;
-          font-weight: 500;
-        }
-        .underline-section {
-          @include underline-mixin($white, 120px);
-        }
-      }
-      p {
+      p.about-me-text {
         margin-bottom: 2.3rem;
-        font-size: 18px;
+        font-size: $text-md;
         letter-spacing: 0.5px;
-        font-weight: 300;
+        @extend .font-thin;
       }
+
       a {
         background: $light-blue;
         border-radius: 5px;
         color: $white;
         padding: 0.7rem 1.2rem;
-        font-size: 21px;
-        font-weight: 500;
+        font-size: $text-md;
+        @extend .font-medium;
         text-decoration: none;
         border: 3px solid $white;
         box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.24);
-        transition: all 0.5s;
+        transition: all 0.35s;
         display: flex;
-        align-items: center;
+        align-items: baseline;
         width: fit-content;
 
         svg {
-          width: 14px;
-          margin-left: 5px;
-        }
+          width: 16px;
+          margin-left: 10px;
 
-        @media (max-width: 1000px) {
-          padding: 0.5rem 1rem;
-          border: 1.5px solid $white;
-          span {
-            font-size: 21px;
+          path {
+            transition: all 0.35s;
+            color: $white;
           }
         }
-      }
 
-      a:hover {
-        color: $light-blue;
-        background: $white;
-        svg {
-          path {
+        &:hover {
+          color: $light-blue;
+          background: $white;
+
+          svg path {
             fill: $light-blue;
           }
         }
       }
     }
 
-    @media (max-width: 767.5px) {
+    @media (max-width: $screen-base) {
       display: flex;
       flex-direction: column;
-      margin: 4rem auto 1rem auto;
       padding: 0;
+
       &::before {
         background: none;
       }
-      .profile-pic {
-        justify-content: center;
+
+      .about-me-pic img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: top;
       }
 
-      .about-text {
-        color: $black;
+      .about-me-text-wrapper {
+        color: $colors-text;
         padding: 2rem 0;
+
         .about-title {
           small {
             color: $light-blue;
@@ -309,94 +295,50 @@
             @include underline-mixin($light-blue, 120px);
           }
         }
-        p {
-          margin-bottom: 2rem;
+
+        p.about-me-text {
+          margin-bottom: 1.25rem;
+          @include font-normal;
         }
+
         a {
           border: 3px solid $light-blue;
           padding: 0.5rem 1rem;
+          font-size: $text-base;
+
+          svg {
+            width: 12px;
+            margin-left: 6px;
+          }
         }
       }
-    }
-  }
-
-  .about-container {
-    display: flex;
-    width: 85%;
-    margin: 0 auto;
-    padding: 2rem;
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 80%;
-      height: 100%;
-      z-index: -1;
-      background: pink;
-    }
-
-    .picture-p {
-      flex: 1.5;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      img {
-        width: 80%;
-        height: auto;
-      }
-    }
-
-    .about-text {
-      flex: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 }
 
 #portfolio {
   background: $light-gray;
-  padding-top: 4.7rem;
-  padding-bottom: 4.7rem;
-  margin-top: 2rem;
-  .portfolio-styles {
+  padding: 4.5rem 0;
+
+  .portfolio-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .portfolioTitle {
-      margin-bottom: 1rem;
-      small {
-        font-size: 20px;
-        font-weight: 400;
-        color: #2e70b8;
-      }
-      h2 {
-        margin-top: -0.5rem;
-        margin-left: -0.12rem;
-        font-size: 46px;
-        margin-bottom: 0.2rem;
-        font-weight: 500;
-      }
-      .underline-section {
-        @include underline-mixin($light-blue, 110px);
-      }
-    }
-    .showcase {
+
+    .portfolio-projects-showcase {
       display: flex;
       flex-direction: column;
 
-      .featured {
+      .featured-project {
         display: flex;
         margin: 1.5rem 0 4rem 0;
-        &-img {
+
+        .project-img {
           width: 56%;
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
+
           .overlap-img {
             background: $light-blue;
             padding: 2rem 1rem;
@@ -414,7 +356,7 @@
           }
         }
 
-        &-content {
+        .project-content {
           width: 41%;
           margin-left: auto;
 
@@ -528,6 +470,7 @@
         }
       }
     }
+
     .see-more-button {
       margin-top: 2rem;
       align-self: center;
@@ -552,9 +495,9 @@
 }
 
 #skills {
-  padding-top: 4.7rem;
-  margin-top: 2rem;
-  padding-bottom: 2rem;
+  background: $white;
+  padding: 4.5rem 0;
+
   .skills-styles {
     .skillsTitle {
       margin-bottom: 2rem;
@@ -645,9 +588,7 @@
 
 #contact {
   background: $light-gray;
-  padding-top: 4.7rem;
-  margin-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 4.5rem 0;
 
   .contact-styles {
     .contactTitle {
@@ -872,6 +813,7 @@
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   background: $light-blue;
+
   .webTitle {
     margin-bottom: 1.5rem;
     small {

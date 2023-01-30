@@ -1,24 +1,75 @@
-import React from 'react';
-import BlockContent from '@sanity/block-content-to-react';
-import sanityClient from '../sanity';
-import { LoadingIcon } from './LoadingIcon';
 import Link from 'next/link';
-import { FComponent, SanityAsset } from '../types/commons';
+import * as React from 'react';
+import sanityClient from '../sanity';
 import { GithubIcon } from '../Icons';
+import { LoadingIcon } from './LoadingIcon';
+import BlockContent from '@sanity/block-content-to-react';
+import type { FComponent, SanityAsset } from '../types/commons';
+
+type Project = {
+  _id: string;
+  title: string;
+  skills: string[];
+  description: string;
+  githubLink: string;
+  liveLink: string;
+  order: number;
+  featured: boolean;
+  projectPicture: SanityAsset;
+};
 
 type FeaturedProjectsProps = {
-  featuredProjects: {
-    _id: string;
-    title: string;
-    skills: string[];
-    description: string;
-    githubLink: string;
-    liveLink: string;
-    order: number;
-    featured: boolean;
-    projectPicture: SanityAsset;
-  }[];
+  featuredProjects: Project[];
   loading: boolean;
+};
+
+const Projects = () => {
+  const [featuredProjects, setFeaturedProjects] = React.useState<Project[]>([]);
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setLoading(true);
+    sanityClient
+      .fetch(
+        `*[_type == "projects" && featured == true] | order(order desc) {
+					_id,
+					title,
+					skills,
+					description,
+					githubLink,
+					liveLink,
+					order,
+					featured,
+					projectPicture{
+						asset->{
+							_id,
+							url
+						},
+						alt
+					}
+				}`
+      )
+      .then(data => {
+        setFeaturedProjects(data);
+        setLoading(false);
+      });
+  }, []);
+
+  return (
+    <div className="portfolio-wrapper custom-container ">
+      <div className="section-title">
+        <small>Featured Works</small>
+        <h2>Portfolio</h2>
+        <div className="underline-section" />
+      </div>
+
+      <FeaturedProjects featuredProjects={featuredProjects} loading={loading} />
+
+      <Link href="/projects" className="see-more-button" id="project">
+        ...see more projects!
+      </Link>
+    </div>
+  );
 };
 
 const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
@@ -26,10 +77,10 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
   loading
 }) => {
   return (
-    <>
+    <div className="portfolio-projects-showcase">
       {featuredProjects.map(item => (
-        <div className="featured" key={item._id}>
-          <div className="featured-img">
+        <div className="featured-project" key={item._id}>
+          <div className="project-img">
             <div className="overlap-img">
               <a
                 rel="noreferrer"
@@ -49,7 +100,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
               </a>
             </div>
           </div>
-          <div className="featured-content">
+          <div className="project-content">
             <h3 className="featured-title">{item.title}</h3>
             <div className="featured-pills">
               {item.skills.map(skill => (
@@ -87,56 +138,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
             </div>
           </div>
         </div>
-      ))}{' '}
-    </>
-  );
-};
-
-const Projects = () => {
-  const [featuredProjects, setFeaturedProjects] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    setLoading(true);
-    sanityClient
-      .fetch(
-        `*[_type == "projects" && featured == true] | order(order desc) {
-					_id,
-					title,
-					skills,
-					description,
-					githubLink,
-					liveLink,
-					order,
-					featured,
-					projectPicture{
-						asset->{
-							_id,
-							url
-						},
-						alt
-					}
-				}`
-      )
-      .then(data => {
-        setFeaturedProjects(data);
-        setLoading(false);
-      });
-  }, []);
-
-  return (
-    <div className="custom-container portfolio-styles">
-      <div className="portfolioTitle">
-        <small>Featured Works</small>
-        <h2>Portfolio</h2>
-        <div className="underline-section" />
-      </div>
-      <div className="showcase">
-        <FeaturedProjects featuredProjects={featuredProjects} loading={loading} />
-      </div>
-      <Link href="/projects" className="see-more-button" id="project">
-        ...see more projects!
-      </Link>
+      ))}
     </div>
   );
 };

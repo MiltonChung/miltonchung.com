@@ -15,6 +15,7 @@ import {
   EdabitLogo,
   ExercismLogo,
   ExpressLogo,
+  ExternalIcon,
   FigmaLogo,
   FrontendMentorLogo,
   GithubIcon,
@@ -165,16 +166,16 @@ const Home = () => {
 
       <section aria-label="about" id="about" className="offset" ref={sectionRefs[1]}>
         <div className="about-wrapper custom-container">
-          <div className="profile-pic">
+          <div className="about-me-pic">
             <Image src={MiltonProfile} alt="Milton profile shot" />
           </div>
-          <div className="about-text">
-            <div className="about-title">
+          <div className="about-me-text-wrapper">
+            <div className="section-title-white">
               <small>A little</small>
               <h2>About me</h2>
-              <div className="underline-section"></div>
+              <div className="underline-section" />
             </div>
-            <p>
+            <p className="about-me-text">
               I graduated from the University of California, Santa Cruz with Bachelor of
               Arts in Computer Science and Bachelor of Sciences in Cognitive Science. I'm
               a Honors graduate from Nucamp Coding Bootcamp with the focus of learning the
@@ -189,24 +190,10 @@ const Home = () => {
             <a
               href="/assets/Milton_Chung_Resume.pdf"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer nofollow"
               type="application/octet-stream">
               <span>My Resume</span>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.99997 0L13.293 3.293L6.29297 10.293L7.70697 11.707L14.707 4.707L18 8V0H9.99997Z"
-                  fill="white"
-                />
-                <path
-                  d="M16 16H2V2H9L7 0H2C0.897 0 0 0.897 0 2V16C0 17.103 0.897 18 2 18H16C17.103 18 18 17.103 18 16V11L16 9V16Z"
-                  fill="white"
-                />
-              </svg>
+              <ExternalIcon />
             </a>
           </div>
         </div>

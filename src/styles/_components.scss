@@ -1,6 +1,13 @@
 // Components: anything reusable such as buttons, navbars,
 // cards etc.
 
+// Mixins
+@mixin underline-mixin($color, $width) {
+  border-bottom: 3px solid $color;
+  width: $width;
+  margin-top: -6.5px;
+}
+
 .custom-container {
   width: 85%;
   max-width: 1400px;
@@ -8,6 +15,40 @@
 
   @media (max-width: 1180px) {
     width: 92%;
+  }
+}
+
+.section-title {
+  margin-bottom: 1rem;
+
+  small {
+    font-size: $text-lg;
+    color: $baby-blue;
+  }
+  h2 {
+    margin: -0.5rem 0 0.6rem -0.12rem;
+    font-size: $text-3xl;
+    @extend .font-medium;
+  }
+  .underline-section {
+    @include underline-mixin($light-blue, 110px);
+  }
+}
+
+.section-title-white {
+  margin-bottom: 1rem;
+
+  small {
+    font-size: $text-lg;
+    color: $white;
+  }
+  h2 {
+    margin: -0.5rem 0 0.6rem -0.12rem;
+    font-size: $text-3xl;
+    @extend .font-medium;
+  }
+  .underline-section {
+    @include underline-mixin($white, 120px);
   }
 }
 
@@ -252,11 +293,4 @@
     top: 24px;
     height: 32px;
   }
-}
-
-// Mixins
-@mixin underline-mixin($color, $width) {
-  border-bottom: 3px solid $color;
-  width: $width;
-  margin-top: -6.5px;
 }
