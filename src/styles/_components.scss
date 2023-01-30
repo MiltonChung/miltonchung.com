@@ -1,13 +1,5 @@
 // Components: anything reusable such as buttons, navbars,
 // cards etc.
-.header-container {
-  width: 85%;
-  max-width: 1400px;
-  margin: auto;
-  @media (max-width: 425px) {
-    width: 94%;
-  }
-}
 
 .custom-container {
   width: 85%;

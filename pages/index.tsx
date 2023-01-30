@@ -8,6 +8,7 @@ import { Contact } from '../src/components/Contact';
 import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
+import LandingImage from '../public/assets/landing-opt.jpg';
 import {
   CodepenLogo,
   CssLogo,
@@ -71,7 +72,7 @@ const Home = () => {
   });
 
   return (
-    <div className="home" ref={sectionRefs[0]}>
+    <main className="home" ref={sectionRefs[0]}>
       <nav className={scrollPosition > 499 ? 'affix' : null} id="homeNav">
         <Link href="#landing" scroll={false} className="navbar-brand font-bold">
           Milton Chung
@@ -91,6 +92,7 @@ const Home = () => {
                 About
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 className={activeSection === 2 ? 'nav-link active-nav' : 'nav-link'}
@@ -100,6 +102,7 @@ const Home = () => {
                 Portfolio
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 className={activeSection === 3 ? 'nav-link active-nav' : 'nav-link'}
@@ -109,6 +112,7 @@ const Home = () => {
                 Skills
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 className={activeSection === 4 ? 'nav-link active-nav' : 'nav-link'}
@@ -124,11 +128,13 @@ const Home = () => {
 
       {/* Add certifications and links */}
 
-      <section id="landing" ref={sectionRefs[0]}>
-        <div className="header-container hero-styles">
-          <h1>Hi! I'm Milton Chung.</h1>
-          <h2>Front End Developer</h2>
-          <div className="btn-row">
+      <section role="banner" id="landing" ref={sectionRefs[0]}>
+        {/* <Image className="landing-image" src={LandingImage} alt="landing" priority /> */}
+        <div className="landing-container">
+          <h1>Milton Chung</h1>
+          <h2>Front-End Engineer</h2>
+
+          <div className="landing-buttons-row">
             <Link className="btn-outline-square" href="#portfolio" scroll={false}>
               Portfolio
             </Link>
@@ -136,27 +142,28 @@ const Home = () => {
               Contact
             </Link>
           </div>
-          <div className="icons">
-            <a
+
+          <div className="landing-icons-row">
+            <Link
               href="https://github.com/miltonchung"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer nofollow"
               title="Github">
               <GithubIcon />
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="https://www.linkedin.com/in/miltonchung/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer nofollow"
               title="LinkedIn">
               <LinkedinIcon />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      <section id="about" className="offset" ref={sectionRefs[1]}>
+      <section aria-label="about" id="about" className="offset" ref={sectionRefs[1]}>
         <div className="about-wrapper custom-container">
           <div className="profile-pic">
             <Image src={MiltonProfile} alt="Milton profile shot" />
@@ -205,11 +212,15 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="offset" ref={sectionRefs[2]}>
+      <section
+        aria-label="portfolio"
+        id="portfolio"
+        className="offset"
+        ref={sectionRefs[2]}>
         <Projects />
       </section>
 
-      <section id="skills" className="offset" ref={sectionRefs[3]}>
+      <section aria-label="skills" id="skills" className="offset" ref={sectionRefs[3]}>
         <div className="custom-container skills-styles">
           <div className="skillsTitle">
             <small>What I know</small>
@@ -323,11 +334,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="contact" className="offset" ref={sectionRefs[4]}>
+      <section aria-label="contact" id="contact" className="offset" ref={sectionRefs[4]}>
         <Contact />
       </section>
 
-      <section id="profiles" ref={sectionRefs[5]}>
+      <section aria-label="profiles" id="profiles" ref={sectionRefs[5]}>
         <div className="custom-container web-styles">
           <div className="webTitle">
             <small>Links to my profiles</small>
@@ -380,7 +391,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

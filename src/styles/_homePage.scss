@@ -1,3 +1,184 @@
+#landing {
+  background-image: linear-gradient(
+      to right,
+      rgba(29, 30, 38, 0.9),
+      rgba(29, 30, 38, 0.7),
+      rgba(29, 30, 38, 0.54)
+    ),
+    url('../../public/assets/landing-opt.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+    background-attachment: scroll;
+  }
+
+  .landing-image {
+    min-height: 100vh;
+    position: absolute;
+    z-index: -99;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .landing-container {
+    height: 100vh;
+    width: 85%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $white;
+    margin: auto;
+
+    @media (max-width: $screen-xs) {
+      width: 94%;
+    }
+
+    h1 {
+      font-size: 133px;
+      @extend .font-medium;
+      line-height: 7rem;
+      text-shadow: 3px 3px 4px $dark-blue;
+    }
+
+    h2 {
+      font-size: 55px;
+      @extend .font-normal;
+      margin-bottom: 1.5rem;
+      text-shadow: 3px 3px 4px $dark-blue;
+    }
+
+    .landing-buttons-row {
+      display: flex;
+      margin-bottom: 0.8rem;
+
+      a {
+        font-size: $text-md;
+        width: fit-content;
+        letter-spacing: 0.65px;
+
+        &:first-child {
+          margin-right: 0.8rem;
+        }
+      }
+    }
+
+    .landing-icons-row {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0.2rem;
+
+      a {
+        svg {
+          width: 40px;
+          height: 40px;
+          color: $white;
+          transition: all 0.25s;
+
+          &:hover {
+            color: $light-blue;
+          }
+        }
+
+        &:first-child {
+          margin-right: 1.25rem;
+        }
+      }
+    }
+
+    @media (max-width: $screen-lg) {
+      h1 {
+        font-size: 96px;
+        line-height: 6rem;
+      }
+
+      h2 {
+        font-size: 45px;
+      }
+    }
+
+    @media (max-width: $screen-base) {
+      h1 {
+        font-size: 70px;
+        line-height: 5rem;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 35px;
+        text-align: center;
+      }
+
+      .landing-buttons-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        gap: 0.75rem;
+
+        a {
+          font-size: $text-base;
+
+          &:first-child {
+            justify-self: flex-end;
+            margin: unset;
+          }
+        }
+      }
+
+      .landing-icons-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        gap: 0.75rem;
+
+        a {
+          &:first-child {
+            justify-self: flex-end;
+            margin: unset;
+          }
+
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      h1 {
+        font-size: 60px;
+        line-height: 4rem;
+      }
+
+      h2 {
+        font-size: 30px;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      h1 {
+        font-size: 50px;
+        line-height: 3.5rem;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+    }
+
+    @media (max-width: $screen-2xs) {
+      h1 {
+        font-size: 43px;
+      }
+    }
+  }
+}
+
 #about {
   padding-bottom: 2rem;
   .about-wrapper {

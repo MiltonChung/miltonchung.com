@@ -11,9 +11,17 @@ nav#homeNav {
   left: 0;
   z-index: 99;
 
+  &.affix {
+    background: $dark-purple-alpha;
+
+    a.navbar-brand {
+      visibility: visible;
+    }
+  }
+
   a.navbar-brand {
     font-size: $text-xl;
-    color: white;
+    color: $white;
     visibility: hidden;
     display: flex;
     align-items: center;
@@ -36,7 +44,7 @@ nav#homeNav {
     svg {
       width: 25px;
       height: 25px;
-      color: white;
+      color: $white;
     }
   }
 
@@ -49,28 +57,30 @@ nav#homeNav {
 
     ul.navbar-nav {
       display: flex;
+
       li.nav-item {
         padding: 0 0.5rem;
         list-style-type: none;
 
-        .active-nav {
-          border-bottom: 4px solid $light-blue;
-        }
-
         a.nav-link {
+          color: $white;
+          font-size: $text-md;
           text-decoration: none;
-          color: white;
-          font-size: 20px;
-          font-weight: 400;
+          @extend .font-normal;
           width: fit-content;
           height: fit-content;
           margin-left: 1rem;
           padding: 0;
-          cursor: pointer;
-        }
-        a.nav-link:hover {
-          color: rgb(179, 179, 179);
-          border-bottom: 4px solid $light-blue;
+          transition: all 0.35s;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            border-bottom: 4px solid $light-blue;
+          }
+
+          &.active-nav {
+            border-bottom: 4px solid $light-blue;
+          }
         }
       }
     }
@@ -80,49 +90,52 @@ nav#homeNav {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 120%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 4rem;
+    right: 1rem;
     text-align: center;
-    // background: rgba(17, 17, 17, 0.548) !important;
-    background: #2f2e41d3 !important;
-    width: 92%;
-    border-radius: 11px;
+    background: $dark-purple-alpha;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 280px;
 
     ul.navbar-nav {
       list-style-type: none;
+
       li.nav-item {
         padding: 1rem;
-        width: 100%;
+
         a.nav-link {
           cursor: pointer;
           text-decoration: none;
-          color: white;
-          font-size: 22px;
-          font-weight: 500;
-        }
-        a.nav-link:hover {
-          color: rgb(179, 179, 179);
-          border-bottom: 4px solid $light-blue;
+          color: $white;
+          font-size: $text-md;
+          @extend .font-normal;
+          text-align: center;
+          transition: all 0.35s;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            border-bottom: 4px solid $light-blue;
+          }
         }
       }
     }
+
+    @media (max-width: $screen-xs) {
+      width: 90%;
+      min-width: unset;
+      margin: 0 auto;
+    }
   }
-  @media (max-width: 768px) {
+
+  @media (max-width: $screen-base) {
     justify-content: space-between;
+
     .menu-button {
       display: block;
     }
     .nav-links {
       display: none;
     }
-  }
-}
-
-nav#homeNav.affix {
-  background: #2d2f479a !important;
-
-  a.navbar-brand {
-    visibility: visible;
   }
 }
