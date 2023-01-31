@@ -5,6 +5,7 @@ import { GithubIcon } from '../Icons';
 import { LoadingIcon } from './LoadingIcon';
 import BlockContent from '@sanity/block-content-to-react';
 import type { FComponent, SanityAsset } from '../types/commons';
+import { Pills } from './Pills';
 
 type Project = {
   _id: string;
@@ -20,15 +21,15 @@ type Project = {
 
 type FeaturedProjectsProps = {
   featuredProjects: Project[];
-  loading: boolean;
+  isLoading: boolean;
 };
 
 const Projects = () => {
   const [featuredProjects, setFeaturedProjects] = React.useState<Project[]>([]);
-  const [loading, setLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     sanityClient
       .fetch(
         `*[_type == "projects" && featured == true] | order(order desc) {
@@ -51,7 +52,7 @@ const Projects = () => {
       )
       .then(data => {
         setFeaturedProjects(data);
-        setLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
@@ -63,9 +64,9 @@ const Projects = () => {
         <div className="underline-section" />
       </div>
 
-      <FeaturedProjects featuredProjects={featuredProjects} loading={loading} />
+      <FeaturedProjects featuredProjects={featuredProjects} isLoading={isLoading} />
 
-      <Link href="/projects" className="see-more-button" id="project">
+      <Link href="/projects" className="see-more-button">
         ...see more projects!
       </Link>
     </div>
@@ -74,71 +75,68 @@ const Projects = () => {
 
 const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
   featuredProjects,
-  loading
+  isLoading
 }) => {
   return (
     <div className="portfolio-projects-showcase">
-      {featuredProjects.map(item => (
-        <div className="featured-project" key={item._id}>
-          <div className="project-img">
-            <div className="overlap-img">
-              <a
-                rel="noreferrer"
-                target="_blank"
-                href={item.liveLink}
-                title="Go to website">
-                {loading ? (
-                  <LoadingIcon />
-                ) : (
-                  <img
-                    src={item.projectPicture.asset.url}
-                    alt="acm"
-                    width="694.84px"
-                    height="401.23px"
+      {isLoading ? (
+        <LoadingIcon />
+      ) : (
+        featuredProjects.map((item, index) => (
+          <>
+            <div className="featured-project" key={item._id}>
+              <div className="project-img">
+                <a
+                  className="project-img-link"
+                  rel="noreferrer nofollow"
+                  target="_blank"
+                  href={item.liveLink}
+                  title="Go to website">
+                  <div className="background-blue" />
+                  <img src={item.projectPicture.asset.url} alt="acm project" />
+                </a>
+              </div>
+
+              <div className="project-content">
+                <h3 className="title">{item.title}</h3>
+                <Pills pills={item.skills} />
+
+                <div className="description">
+                  <BlockContent
+                    blocks={item.description}
+                    projectId="w8nlqrwa"
+                    dataset="production"
                   />
-                )}
-              </a>
+                </div>
+
+                <div className="button-row">
+                  {item.githubLink && (
+                    <a
+                      className="btn-portfolio"
+                      target="_blank"
+                      href={item.githubLink}
+                      rel="noreferrer nofollow">
+                      <GithubIcon /> Code
+                    </a>
+                  )}
+                  {item.liveLink && (
+                    <a
+                      className="btn-portfolio"
+                      rel="noreferrer nofollow"
+                      target="_blank"
+                      href={item.liveLink}>
+                      Live demo
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* add border below except last one */}
             </div>
-          </div>
-          <div className="project-content">
-            <h3 className="featured-title">{item.title}</h3>
-            <div className="featured-pills">
-              {item.skills.map(skill => (
-                <span className="featured-pill" key={Math.random()}>
-                  {skill}
-                </span>
-              ))}
-            </div>
-            <div className="featured-description">
-              <BlockContent
-                blocks={item.description}
-                projectId="w8nlqrwa"
-                dataset="production"
-              />
-            </div>
-            <div className="featured-buttons">
-              {item.githubLink && (
-                <a
-                  className="btn-portfolio"
-                  target="_blank"
-                  href={item.githubLink}
-                  rel="noreferrer">
-                  <GithubIcon /> Code
-                </a>
-              )}
-              {item.liveLink && (
-                <a
-                  className="btn-portfolio"
-                  rel="noreferrer"
-                  target="_blank"
-                  href={item.liveLink}>
-                  Live demo
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      ))}
+            {index !== featuredProjects.length - 1 && <div className="border-bottom" />}
+          </>
+        ))
+      )}
     </div>
   );
 };
