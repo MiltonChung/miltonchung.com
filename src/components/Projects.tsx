@@ -83,8 +83,8 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
         <LoadingIcon />
       ) : (
         featuredProjects.map((item, index) => (
-          <>
-            <div className="featured-project" key={item._id}>
+          <React.Fragment key={item._id}>
+            <div className="featured-project">
               <div className="project-img">
                 <a
                   className="project-img-link"
@@ -130,11 +130,9 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                   )}
                 </div>
               </div>
-
-              {/* add border below except last one */}
             </div>
             {index !== featuredProjects.length - 1 && <div className="border-bottom" />}
-          </>
+          </React.Fragment>
         ))
       )}
     </div>

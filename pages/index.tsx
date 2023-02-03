@@ -9,6 +9,7 @@ import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
 import LandingImage from '../public/assets/landing-opt.jpg';
+import { skills } from '../src/utils/constants';
 import {
   CodepenLogo,
   CssLogo,
@@ -208,14 +209,27 @@ const Home = () => {
       </section>
 
       <section aria-label="skills" id="skills" className="offset" ref={sectionRefs[3]}>
-        <div className="custom-container skills-styles">
-          <div className="skillsTitle">
+        <div className="custom-container">
+          <div className="section-title">
             <small>What I know</small>
             <h2>My Skills</h2>
             <div className="underline-section" />
           </div>
+
           <div className="skills-container">
-            <div className="box">
+            {skills.map(({ logo: Logo, link, name }) => {
+              return (
+                <div className="skill-box" key={name}>
+                  <Logo />
+
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    {name}
+                  </a>
+                </div>
+              );
+            })}
+
+            {/* <div className="skill-box">
               <HtmlLogo />
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/HTML"
@@ -224,7 +238,7 @@ const Home = () => {
                 HTML
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <CssLogo />
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/CSS"
@@ -233,13 +247,13 @@ const Home = () => {
                 CSS
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <SassLogo />
               <a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer">
                 Sass
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <JavascriptLogo />
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
@@ -248,7 +262,7 @@ const Home = () => {
                 JavaScript
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <TypescriptLogo />
               <a
                 href="https://www.typescriptlang.org/"
@@ -257,37 +271,37 @@ const Home = () => {
                 TypeScript
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <ReactLogo />
               <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
                 React
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <ExpressLogo />
               <a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">
                 Express
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <NodejsLogo />
               <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
                 Nodejs
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <NpmLogo />
               <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">
                 npm
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <PythonLogo />
               <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
                 Python
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <VSCodeLogo />
               <a
                 href="https://code.visualstudio.com/"
@@ -296,13 +310,13 @@ const Home = () => {
                 Visual Studio Code
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <FigmaLogo />
               <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">
                 Figma
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <PostmanLogo />
               <a
                 href="https://www.postman.com/"
@@ -311,12 +325,12 @@ const Home = () => {
                 Postman
               </a>
             </div>
-            <div className="box">
+            <div className="skill-box">
               <SanityLogo />
               <a href="https://www.sanity.io/" target="_blank" rel="noopener noreferrer">
                 Sanity
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
