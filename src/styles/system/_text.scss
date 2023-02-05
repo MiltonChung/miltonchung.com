@@ -85,6 +85,8 @@ p,
 span,
 button,
 small,
+label,
+::placeholder,
 a {
   @extend %font-lato;
 }

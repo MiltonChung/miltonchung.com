@@ -548,221 +548,239 @@
   background: $light-gray;
   padding: 4.5rem 0;
 
-  .contact-styles {
-    .contactTitle {
-      small {
-        font-size: 20px;
-        font-weight: 400;
-        color: #2e70b8;
-      }
-      h2 {
-        margin-top: -0.5rem;
-        margin-left: -0.12rem;
-        font-size: 46px;
-        margin-bottom: 0.6rem;
-        font-weight: 500;
-      }
-      .underline-section {
-        @include underline-mixin($light-blue, 110px);
-      }
+  .contact-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin-top: 1rem;
+    column-gap: 1.5rem;
+    @media (max-width: 430px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    .contact-body {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      margin-top: 1rem;
-      column-gap: 1.5rem;
-      @media (max-width: 430px) {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-      form {
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.5rem;
+      max-width: 500px;
+
+      .input-container {
         display: flex;
         flex-direction: column;
-        font-family: $lato-font;
-        margin-top: 1.5rem;
-        max-width: 500px;
-        ::placeholder {
-          /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: rgb(185, 185, 185);
-          opacity: 1; /* Firefox */
-        }
 
-        :-ms-input-placeholder {
-          /* Internet Explorer 10-11 */
-          color: rgb(185, 185, 185);
-        }
-
-        ::-ms-input-placeholder {
-          /* Microsoft Edge */
-          color: rgb(185, 185, 185);
-        }
         label {
-          margin: 0;
-          margin-top: 0.5rem;
-          p {
-            margin: 0.2rem 0;
-            font-size: 1.2rem;
+          display: inline-block;
+          text-align: left;
+          margin-bottom: 0.25rem;
+          width: 100%;
+          @extend .font-normal;
+          color: $colors-text;
+          font-size: $text-md;
+        }
+
+        .input-line {
+          display: flex;
+          flex-direction: column;
+          border: $deep-ocean-blue solid 2px;
+          border-radius: 5px;
+          padding: 0.5rem 0.75rem;
+          height: 3rem;
+          background: $white;
+
+          &:focus-within {
+            box-shadow: 0 0 0 2px $highlight-purple;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            position: relative;
+          }
+
+          input {
+            position: relative;
+            margin: auto 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-width: 0px;
+            padding: 0px;
+            color: $colors-text;
+
+            &::placeholder {
+              color: rgb(185, 185, 185);
+              opacity: 1;
+            }
+
+            &:focus {
+              outline: none;
+            }
+
+            &:disabled {
+              background-color: #9e9e9e;
+              cursor: not-allowed;
+            }
+          }
+
+          .input-disabled {
+            background-color: #9e9e9e;
+            cursor: not-allowed;
           }
         }
-        input {
-          width: 100%;
-          border-radius: 5px;
-          border: #9e9e9e solid 2px;
-          padding: 0.7rem 0.5rem;
-          // margin-bottom: 0.5rem;
-        }
-        textarea {
-          width: 100%;
-          border-radius: 5px;
-          border: #9e9e9e solid 2px;
-          padding: 0.5rem 0.5rem;
-          margin: 0;
-          resize: vertical;
-        }
-        small {
-          display: none;
-        }
-        small.error {
-          display: block;
-          color: red;
-          margin-top: 0.15rem;
-          margin-left: 0.3rem;
-        }
-        button {
-          background: $light-blue;
-          border-radius: 5px;
-          border: 3px solid $light-blue;
-          color: white;
-          padding: 0.8rem 1rem;
-          width: fit-content;
-          font-weight: 600;
-          cursor: pointer;
-          transition: color 0.5s, background 0.5s;
-          margin-bottom: 1rem;
-          margin-top: 0.9rem;
-          font-size: 1.1rem;
-          font-weight: 500;
-        }
-        button:hover {
-          color: $light-blue;
-          background: transparent;
-        }
-        button:disabled {
-          background: #5185b3;
-          border: 3px solid #5185b3;
-          color: rgb(219, 219, 219);
-          position: relative;
-          padding: 0.5rem 1rem;
-          width: 147.41px;
-          height: 52.59px;
-        }
-        button:disabled:hover {
-          opacity: 1;
-          cursor: not-allowed;
+
+        .input-errors {
+          color: $error-red;
+          font-size: $text-xs;
+          margin-left: 0.25rem;
         }
       }
-      h3 {
-        margin: 1rem 0;
-        font-size: 1.75rem;
+
+      ::placeholder {
+        color: rgb(185, 185, 185);
+        opacity: 1; /* Firefox */
+      }
+
+      textarea {
+        width: 100%;
+        border-radius: 5px;
+        border: #9e9e9e solid 2px;
+        padding: 0.5rem 0.5rem;
+        margin: 0;
+        resize: vertical;
+      }
+
+      button {
+        background: $light-blue;
+        border-radius: 5px;
+        border: 3px solid $light-blue;
+        color: white;
+        padding: 0.8rem 1rem;
+        width: fit-content;
+        font-weight: 600;
+        cursor: pointer;
+        transition: color 0.5s, background 0.5s;
+        margin-bottom: 1rem;
+        margin-top: 0.9rem;
+        font-size: 1.1rem;
         font-weight: 500;
       }
-      .myEmail {
-        display: flex;
-        align-items: center;
-        margin-bottom: 2rem;
-
-        a {
-          color: #2268b3;
-          font-size: 1.2rem;
-          text-decoration: none;
-          margin-right: 0.5rem;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-
-        button {
-          padding: 0.5rem 0.7rem;
-          background: $light-blue;
-          outline: none;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          svg {
-            color: white;
-            width: 14px;
-            height: auto;
-          }
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-
-        .tooltip {
-          position: relative;
-          display: inline-block;
-        }
-
-        .tooltip .tooltiptext,
-        .tooltip .email-tooltip-text {
-          visibility: hidden;
-          width: 89px;
-          background-color: #555;
-          color: #fff;
-          text-align: center;
-          border-radius: 6px;
-          padding: 8px 10px;
-          position: absolute;
-          z-index: 1;
-          bottom: 120%;
-          left: 50%;
-          margin-left: -42px;
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-        .tooltip .email-tooltip-text {
-          width: fit-content;
-          font-size: 15px;
-        }
-
-        .tooltip .tooltiptext::after,
-        .tooltip .email-tooltip-text::after {
-          content: '';
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          margin-left: -5px;
-          border-width: 5px;
-          border-style: solid;
-          border-color: #555 transparent transparent transparent;
-        }
-
-        .tooltip:hover .tooltiptext,
-        .tooltip:hover .email-tooltip-text {
-          visibility: visible;
-          opacity: 1;
-        }
+      button:hover {
+        color: $light-blue;
+        background: transparent;
       }
-      img {
-        width: 100%;
-        height: auto;
+      button:disabled {
+        background: #5185b3;
+        border: 3px solid #5185b3;
+        color: rgb(219, 219, 219);
+        position: relative;
+        padding: 0.5rem 1rem;
+        width: 147.41px;
+        height: 52.59px;
+      }
+      button:disabled:hover {
+        opacity: 1;
+        cursor: not-allowed;
       }
     }
-    .Toastify__toast-container {
-      width: fit-content;
-      .submit-feedback {
-        background: #07bc0c;
-        color: white;
-        font-size: 20px;
-        font-family: $lato-font;
-        width: fit-content;
-        padding: 8px 0.8rem 8px 1rem;
-        .Toastify__toast-body {
-          margin-right: 5px;
+    h3 {
+      margin: 1rem 0;
+      font-size: 1.75rem;
+      font-weight: 500;
+    }
+    .myEmail {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      a {
+        color: #2268b3;
+        font-size: 1.2rem;
+        text-decoration: none;
+        margin-right: 0.5rem;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      button {
+        padding: 0.5rem 0.7rem;
+        background: $light-blue;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        svg {
+          color: white;
+          width: 14px;
+          height: auto;
+        }
+        &:hover {
+          opacity: 0.8;
         }
       }
-      .Toastify__progress-bar {
-        background: $dark-purple;
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
       }
+
+      .tooltip .tooltiptext,
+      .tooltip .email-tooltip-text {
+        visibility: hidden;
+        width: 89px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 120%;
+        left: 50%;
+        margin-left: -42px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .tooltip .email-tooltip-text {
+        width: fit-content;
+        font-size: 15px;
+      }
+
+      .tooltip .tooltiptext::after,
+      .tooltip .email-tooltip-text::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext,
+      .tooltip:hover .email-tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .Toastify__toast-container {
+    width: fit-content;
+    .submit-feedback {
+      background: #07bc0c;
+      color: white;
+      font-size: 20px;
+      font-family: $lato-font;
+      width: fit-content;
+      padding: 8px 0.8rem 8px 1rem;
+      .Toastify__toast-body {
+        margin-right: 5px;
+      }
+    }
+    .Toastify__progress-bar {
+      background: $dark-purple;
     }
   }
 }

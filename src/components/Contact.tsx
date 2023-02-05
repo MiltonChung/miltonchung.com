@@ -5,8 +5,15 @@ import { LoadingIconTwo } from './LoadingIconTwo';
 import { toast, ToastContainer } from 'react-toastify';
 import { CopyIcon, ContactIllustration } from '../Icons';
 import { useToggle } from '../hooks/useToggle';
+import { Input } from './common/Input';
 
 type ContactForm = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type FormValues = {
   name: string;
   email: string;
   message: string;
@@ -22,7 +29,7 @@ const Contact = () => {
     formState: { errors },
     handleSubmit,
     reset
-  } = useForm();
+  } = useForm<FormValues>();
 
   React.useEffect(() => {
     emailjs.init(process.env.REACT_APP_PUBLIC_KEY);
@@ -77,15 +84,70 @@ const Contact = () => {
 
   return (
     <div className="custom-container contact-styles">
-      <div className="contactTitle">
+      <div className="section-title">
         <small>Let's talk!</small>
         <h2>Contact Me</h2>
         <div className="underline-section" />
       </div>
+
       <div className="contact-body">
         <div className="contact-body-left">
-          <form id="gform" name="gform" onSubmit={handleSubmit(onSubmit)} noValidate>
-            <label>
+          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <Input
+              name="name"
+              label="Full Name"
+              placeholder="Ecma Script"
+              type="text"
+              errors={errors}
+              {...register('name', {
+                required: {
+                  value: true,
+                  message: 'Please enter your name'
+                },
+                maxLength: {
+                  value: 30,
+                  message: 'Please use 30 characters or less'
+                }
+              })}
+            />
+
+            <Input
+              name="email"
+              label="Email Address"
+              placeholder="ecmascript@example.com"
+              type="email"
+              errors={errors}
+              {...register('email', {
+                required: true,
+                pattern:
+                  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+              })}
+            />
+
+            <Input
+              name="message"
+              label="Message"
+              placeholder="ecmascript@example.com"
+              type="text"
+              errors={errors}
+              {...register('email', {
+                required: true,
+                pattern:
+                  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+              })}
+            />
+
+            <textarea
+              name="message"
+              {...register('message', {
+                required: true
+              })}
+              cols={30}
+              rows={8}
+              placeholder="Hello world!"
+            />
+
+            {/* <label>
               <p>Full Name:*</p>
               <input
                 type="text"
@@ -143,7 +205,7 @@ const Contact = () => {
               {errors.message && (
                 <span className="errorMessage">Please enter a message</span>
               )}
-            </small>
+            </small> */}
 
             {loading ? (
               <button disabled id="contactButton">
