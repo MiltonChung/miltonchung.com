@@ -2,26 +2,26 @@ import * as React from 'react';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
 import { FComponent } from '../../types/commons';
 
-type InputNativeProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
+type TextareaNativeProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLTextAreaElement>,
+  HTMLTextAreaElement
 >;
 
-type InputProps = {
+type TextareaProps = {
   name: string;
   label: string;
-  type?: 'text' | 'number' | 'email';
   placeholder?: string;
   errors?: FieldErrors;
   disabled?: boolean;
   className?: string;
   ariaLabel?: string;
-} & InputNativeProps;
+  cols?: number;
+  rows?: number;
+} & TextareaNativeProps;
 
-const Input: FComponent<InputProps> = React.forwardRef(
+const Textarea: FComponent<TextareaProps> = React.forwardRef(
   (
     {
-      type = 'text',
       name,
       placeholder = '',
       label,
@@ -29,7 +29,8 @@ const Input: FComponent<InputProps> = React.forwardRef(
       disabled = false,
       className = '',
       ariaLabel,
-      autoComplete = 'off',
+      cols,
+      rows,
       ...props
     },
     ref
@@ -38,15 +39,16 @@ const Input: FComponent<InputProps> = React.forwardRef(
       <div className={className ? `${className} field-container` : 'field-container'}>
         <label htmlFor={name}>{label}</label>
 
-        <div className={disabled ? `input-disabled input-line` : 'input-line'}>
-          <input
+        <div className={disabled ? `textarea-disabled textarea-line` : 'textarea-line'}>
+          <textarea
             aria-label={ariaLabel}
-            type={type}
             name={name}
             id={name}
             ref={ref}
+            cols={cols}
+            rows={rows}
             placeholder={placeholder}
-            autoComplete={autoComplete}
+            autoComplete="off"
             disabled={disabled}
             {...props}
           />
@@ -61,4 +63,4 @@ const Input: FComponent<InputProps> = React.forwardRef(
   }
 );
 
-export { Input };
+export { Textarea };

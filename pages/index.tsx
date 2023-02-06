@@ -171,7 +171,8 @@ const Home = () => {
             <Image src={MiltonProfile} alt="Milton profile shot" />
           </div>
           <div className="about-me-text-wrapper">
-            <div className="section-title-white">
+            <div
+              className={width > MOBILE_WIDTH ? 'section-title-white' : 'section-title'}>
               <small>A little</small>
               <h2>About me</h2>
               <div className="underline-section" />

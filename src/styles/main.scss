@@ -1,5 +1,4 @@
 @import './system/system';
-@import '_components.scss';
 @import './components/components';
 @import '_navbar.scss';
 @import '_homePage.scss';
@@ -14,10 +13,7 @@ html {
 
 // === Browser Changes ================================
 ::selection {
-  background: $highlight-purple; /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: $highlight-purple; /* Gecko Browsers */
+  background: $highlight-purple;
 }
 
 /* width */

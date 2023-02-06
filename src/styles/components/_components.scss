@@ -1,1 +1,108 @@
 @import '_pills.scss';
+@import '_form.scss';
+@import '_tooltip.scss';
+@import '_animations.scss';
+@import '_modal.scss';
+@import '_buttons.scss';
+
+.custom-container {
+  width: 85%;
+  max-width: 1400px;
+  margin: auto;
+
+  @media (max-width: 1180px) {
+    width: 92%;
+  }
+}
+
+.section-title {
+  margin-bottom: 1rem;
+
+  small {
+    font-size: $text-lg;
+    color: $baby-blue;
+  }
+  h2 {
+    margin: -0.5rem 0 0.6rem -0.12rem;
+    font-size: $text-4xl;
+    @extend .font-medium;
+  }
+  .underline-section {
+    @include underline-mixin($light-blue, 110px);
+  }
+
+  @media (max-width: $screen-base) {
+    margin-bottom: 0.5rem;
+    small {
+      font-size: $text-md;
+    }
+    h2 {
+      font-size: $text-3xl;
+      line-height: 3.25rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+}
+
+.section-title-white {
+  margin-bottom: 1rem;
+
+  small {
+    font-size: $text-lg;
+    color: $white;
+  }
+  h2 {
+    margin: -0.5rem 0 0.6rem -0.12rem;
+    font-size: $text-4xl;
+    @extend .font-medium;
+  }
+  .underline-section {
+    @include underline-mixin($white, 120px);
+  }
+
+  @media (max-width: $screen-base) {
+    margin-bottom: 0.5rem;
+    small {
+      font-size: $text-md;
+    }
+    h2 {
+      font-size: $text-3xl;
+      line-height: 3.25rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+}
+
+.Toastify__toast-container {
+  .toastify-custom {
+    font-size: $text-base;
+    font-family: $lato-font;
+    width: fit-content;
+    min-width: 320px;
+    padding: 0.5rem 0.8rem 0.5rem 1rem;
+
+    @media (max-width: $screen-sm) {
+      min-width: unset;
+      width: 300px;
+    }
+  }
+
+  .submit-form-success {
+    background: $light-blue;
+    color: $white;
+    font-size: $text-md;
+
+    .Toastify__close-button {
+      color: $white;
+      opacity: 0.87;
+    }
+  }
+
+  .error-toast {
+    font-size: $text-base;
+  }
+
+  .Toastify__progress-bar {
+    background: $dark-purple;
+  }
+}
