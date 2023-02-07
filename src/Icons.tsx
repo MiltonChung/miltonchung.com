@@ -21,7 +21,6 @@ import ReactLogo from '../public/assets/logos/react.svg';
 import ExpressLogo from '../public/assets/logos/express.svg';
 import MongoDbLogo from '../public/assets/logos/mongodb.svg';
 import PostmanLogo from '../public/assets/logos/postman.svg';
-import MongooseLogo from '../public/assets/logos/mongoose.png';
 import JavascriptLogo from '../public/assets/logos/javascript.svg';
 import TypescriptLogo from '../public/assets/logos/typescript.svg';
 import FrontendMentorLogo from '../public/assets/logos/frontendmentor.png';
@@ -55,7 +54,6 @@ export {
   ExpressLogo,
   MongoDbLogo,
   PostmanLogo,
-  MongooseLogo,
   JavascriptLogo,
   TypescriptLogo,
   FrontendMentorLogo,

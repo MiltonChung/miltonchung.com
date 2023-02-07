@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FComponent } from '../types/commons';
+import { FComponent } from '../../types/commons';
 
 type PillsProps = {
   pills: string[];

@@ -5,7 +5,7 @@ import { GithubIcon } from '../Icons';
 import { LoadingIcon } from './LoadingIcon';
 import BlockContent from '@sanity/block-content-to-react';
 import type { FComponent, SanityAsset } from '../types/commons';
-import { Pills } from './Pills';
+import { Pills } from './common/Pills';
 
 type Project = {
   _id: string;

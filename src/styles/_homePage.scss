@@ -73,8 +73,8 @@
 
       a {
         svg {
-          width: 40px;
-          height: 40px;
+          width: 35px;
+          height: 35px;
           color: $white;
           transition: all 0.25s;
 
@@ -84,7 +84,7 @@
         }
 
         &:first-child {
-          margin-right: 1.25rem;
+          margin-right: 1rem;
         }
       }
     }
@@ -667,70 +667,44 @@
   padding-bottom: 2.5rem;
   background: $light-blue;
 
-  .webTitle {
-    margin-bottom: 1.5rem;
-    small {
-      font-size: 20px;
-      font-weight: 400;
-      color: $white;
-
-      @media (max-width: 388px) {
-        font-size: 16px;
-      }
-    }
-    h2 {
-      margin-top: -0.5rem;
-      margin-left: -0.12rem;
-      color: $white;
-      font-size: 2rem;
-      line-height: 1.2;
-      font-weight: 500;
-      margin-bottom: 0.7rem;
-      margin-top: 0.03rem;
-      @media (max-width: 460px) {
-        font-size: 1.7rem;
-      }
-      @media (max-width: 388px) {
-        font-size: 1.4rem;
-        margin-top: -0.1rem;
-      }
-    }
-    .underline-section {
-      @include underline-mixin($white, 139px);
-    }
-  }
-  .web-container {
+  .profiles-container {
     width: 100%;
-    margin: auto;
+    margin: 2rem auto 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-items: center;
     align-items: center;
-    column-gap: 0.8rem;
-    row-gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 1.25rem;
+
     .profile {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       width: 100%;
 
-      img {
+      img,
+      svg {
         width: 45px;
         height: 45px;
         margin-right: 0.35rem;
       }
       a {
-        font-size: 1.1rem;
+        font-size: $text-md;
         color: $white;
-        text-decoration: underline;
-        transition: all 0.23s;
+        text-decoration: none;
         letter-spacing: 0.7px;
         display: flex;
         align-items: center;
-        justify-content: center;
+
+        span {
+          border-bottom: 1px solid transparent;
+          padding-bottom: 0.05rem;
+          transition: all 0.23s;
+        }
       }
-      a:hover {
-        text-decoration: none;
+      &:hover a span {
+        border-bottom: 1px solid $white;
       }
     }
   }

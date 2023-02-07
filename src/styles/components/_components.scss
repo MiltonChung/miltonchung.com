@@ -31,33 +31,16 @@
     @include underline-mixin($light-blue, 110px);
   }
 
-  @media (max-width: $screen-base) {
-    margin-bottom: 0.5rem;
+  &.white-title {
     small {
-      font-size: $text-md;
+      color: $white;
     }
     h2 {
-      font-size: $text-3xl;
-      line-height: 3.25rem;
-      margin-bottom: 0.4rem;
+      color: $white;
     }
-  }
-}
-
-.section-title-white {
-  margin-bottom: 1rem;
-
-  small {
-    font-size: $text-lg;
-    color: $white;
-  }
-  h2 {
-    margin: -0.5rem 0 0.6rem -0.12rem;
-    font-size: $text-4xl;
-    @extend .font-medium;
-  }
-  .underline-section {
-    @include underline-mixin($white, 120px);
+    .underline-section {
+      @include underline-mixin($white, 120px);
+    }
   }
 
   @media (max-width: $screen-base) {

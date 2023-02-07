@@ -1,7 +1,12 @@
 import {
+  CodepenLogo,
   CssLogo,
+  EdabitLogo,
+  ExercismLogo,
   ExpressLogo,
   FigmaLogo,
+  FrontendMentorLogo,
+  HackerRankLogo,
   HtmlLogo,
   JavascriptLogo,
   NodejsLogo,
@@ -16,6 +21,39 @@ import {
 } from '../Icons';
 
 export const MOBILE_WIDTH = 768;
+
+export const profiles = [
+  {
+    link: 'https://www.frontendmentor.io/profile/MiltonChung',
+    logo: FrontendMentorLogo,
+    alt: 'frontend mentor logo',
+    name: 'Frontend Mentor'
+  },
+  {
+    link: 'https://edabit.com/user/CY5fcK7kzoo56Ysmr',
+    logo: EdabitLogo,
+    alt: 'edabit logo',
+    name: 'Edabit'
+  },
+  {
+    link: 'https://exercism.io/profiles/MiltonChung',
+    logo: ExercismLogo,
+    alt: 'exercism logo',
+    name: 'Exercism'
+  },
+  {
+    link: 'https://www.hackerrank.com/miltonjchung?hr_r=1',
+    logo: HackerRankLogo,
+    alt: 'hackerrank logo',
+    name: 'HackerRank'
+  },
+  {
+    link: 'https://codepen.io/miltonchung',
+    logo: CodepenLogo,
+    alt: 'codepen logo',
+    name: 'Codepen'
+  }
+];
 
 export const skills = [
   {

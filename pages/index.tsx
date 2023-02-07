@@ -1,40 +1,15 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import * as React from 'react';
 import useScrollSpy from 'react-use-scrollspy';
+import { Skills } from '../src/components/Skills';
 import { useToggle } from '../src/hooks/useToggle';
-import MiltonProfile from '../public/assets/images/me.jpg';
 import { Contact } from '../src/components/Contact';
+import { Profiles } from '../src/components/Profiles';
 import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
-import LandingImage from '../public/assets/landing-opt.jpg';
-import { skills } from '../src/utils/constants';
-import {
-  CodepenLogo,
-  CssLogo,
-  EdabitLogo,
-  ExercismLogo,
-  ExpressLogo,
-  ExternalIcon,
-  FigmaLogo,
-  FrontendMentorLogo,
-  GithubIcon,
-  HackerRankLogo,
-  HamburgerIcon,
-  HtmlLogo,
-  JavascriptLogo,
-  LinkedinIcon,
-  NodejsLogo,
-  NpmLogo,
-  PostmanLogo,
-  PythonLogo,
-  ReactLogo,
-  SanityLogo,
-  SassLogo,
-  TypescriptLogo,
-  VSCodeLogo
-} from '../src/Icons';
+import { GithubIcon, HamburgerIcon, LinkedinIcon } from '../src/Icons';
+import { AboutMe } from '../src/components/AboutMe';
 
 const Home = () => {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);
@@ -128,8 +103,6 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Add certifications and links */}
-
       <section role="banner" id="landing" ref={sectionRefs[0]}>
         {/* <Image className="landing-image" src={LandingImage} alt="landing" priority /> */}
         <div className="landing-container">
@@ -166,39 +139,7 @@ const Home = () => {
       </section>
 
       <section aria-label="about" id="about" className="offset" ref={sectionRefs[1]}>
-        <div className="about-wrapper custom-container">
-          <div className="about-me-pic">
-            <Image src={MiltonProfile} alt="Milton profile shot" />
-          </div>
-          <div className="about-me-text-wrapper">
-            <div
-              className={width > MOBILE_WIDTH ? 'section-title-white' : 'section-title'}>
-              <small>A little</small>
-              <h2>About me</h2>
-              <div className="underline-section" />
-            </div>
-            <p className="about-me-text">
-              I graduated from the University of California, Santa Cruz with Bachelor of
-              Arts in Computer Science and Bachelor of Sciences in Cognitive Science. I'm
-              a Honors graduate from Nucamp Coding Bootcamp with the focus of learning the
-              MERN stack. I'm currently a Jr. Software Engineer at TARTLE making the world
-              a better place. I have experience building websites from the ground up using
-              plain HTML, CSS, and JavaScript, but also using more advanced frameworks and
-              technologies like React, Sass, and Bootstrap to take my websites to the next
-              level. Designing and building websites is my passion and I want to bring
-              designs to life for the world to see.
-            </p>
-
-            <a
-              href="/assets/Milton_Chung_Resume.pdf"
-              target="_blank"
-              rel="noreferrer nofollow"
-              type="application/octet-stream">
-              <span>My Resume</span>
-              <ExternalIcon />
-            </a>
-          </div>
-        </div>
+        <AboutMe />
       </section>
 
       <section
@@ -210,27 +151,7 @@ const Home = () => {
       </section>
 
       <section aria-label="skills" id="skills" className="offset" ref={sectionRefs[3]}>
-        <div className="custom-container">
-          <div className="section-title">
-            <small>What I know</small>
-            <h2>My Skills</h2>
-            <div className="underline-section" />
-          </div>
-
-          <div className="skills-container">
-            {skills.map(({ logo: Logo, link, name }) => {
-              return (
-                <div className="skill-box" key={name}>
-                  <Logo />
-
-                  <a href={link} target="_blank" rel="noopener noreferrer">
-                    {name}
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <Skills />
       </section>
 
       <section aria-label="contact" id="contact" className="offset" ref={sectionRefs[4]}>
@@ -238,58 +159,10 @@ const Home = () => {
       </section>
 
       <section aria-label="profiles" id="profiles" ref={sectionRefs[5]}>
-        <div className="custom-container web-styles">
-          <div className="webTitle">
-            <small>Links to my profiles</small>
-            <h2>Coding Challenge Websites!</h2>
-            <div className="underline-section"></div>
-          </div>
-          <div className="web-container">
-            <div className="profile">
-              <a
-                href="https://www.frontendmentor.io/profile/MiltonChung"
-                target="_blank"
-                rel="noreferrer">
-                <Image src={FrontendMentorLogo} alt="frontend mentor logo" />
-                Frontend Mentor
-              </a>
-            </div>
-            <div className="profile">
-              <a
-                href="https://edabit.com/user/CY5fcK7kzoo56Ysmr"
-                target="_blank"
-                rel="noreferrer">
-                <Image src={EdabitLogo} alt="edabit logo" />
-                Edabit
-              </a>
-            </div>
-            <div className="profile">
-              <a
-                href="https://exercism.io/profiles/MiltonChung"
-                target="_blank"
-                rel="noreferrer">
-                <Image src={ExercismLogo} alt="exercism logo" />
-                Exercism
-              </a>
-            </div>
-            <div className="profile">
-              <a
-                href="https://www.hackerrank.com/miltonjchung?hr_r=1"
-                target="_blank"
-                rel="noreferrer">
-                <HackerRankLogo />
-                HackerRank
-              </a>
-            </div>
-            <div className="profile">
-              <a href="https://codepen.io/miltonchung" target="_blank" rel="noreferrer">
-                <CodepenLogo />
-                Codepen
-              </a>
-            </div>
-          </div>
-        </div>
+        <Profiles />
       </section>
+
+      {/* Add certifications and links */}
     </main>
   );
 };
