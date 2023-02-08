@@ -1,68 +1,69 @@
 #footer {
-	background: #2f2e41;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-bottom: 1.8rem;
-	text-align: center;
+  background: $dark-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.8rem;
+  text-align: center;
 
-	.scroll-to-top {
-		width: 100%;
-		background: #3c3b53;
-		outline: none;
-		border: none;
-		color: white;
-		font-family: $lato-font;
-		font-size: 15px;
-		padding: 0.7rem 0;
-		cursor: pointer;
-		&:hover {
-			background: #474663;
-		}
-	}
+  button.scroll-to-top {
+    width: 100%;
+    background: $pastel-muted-purple;
+    outline: none;
+    border: none;
+    color: $white;
+    font-size: $text-base;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s;
 
-	.icon-set {
-		display: flex;
-		margin-bottom: 1rem;
-		padding-top: 2rem;
+    &:hover {
+      background: #404057;
+    }
+  }
 
-		.social {
-			background: #363636;
-			padding: 0.5rem;
-			transition: all 0.4s;
-			border-radius: 5px;
-			a {
-				color: white;
-				svg {
-					width: 35px;
-					height: 35px;
-				}
-			}
-		}
-		.social:first-child {
-			margin-right: 1rem;
-		}
-		.social:hover {
-			a {
-				color: $light-blue;
-			}
-		}
-	}
+  .social-container {
+    display: flex;
+    margin: 2rem 0 1rem 0;
 
-	.credit {
-		color: $white;
-		font-weight: 300;
-		display: flex;
-		flex-direction: column;
+    .social {
+      background: $pastel-gray;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
 
-		small {
-			margin-bottom: 0.4rem;
-		}
+      &:first-child {
+        margin-right: 1rem;
+      }
 
-		a {
-			color: white;
-			font-weight: 500;
-		}
-	}
+      &:hover svg {
+        color: $light-blue;
+      }
+
+      svg {
+        transition: all 0.3s;
+        color: $white;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .credit-container {
+    color: $white;
+    @extend .font-thin;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    small {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: $white;
+      @extend .font-medium;
+    }
+  }
 }

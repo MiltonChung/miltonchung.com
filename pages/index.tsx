@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import * as React from 'react';
-import useScrollSpy from 'react-use-scrollspy';
 import { Skills } from '../src/components/Skills';
+import { Link as ScrollLink } from 'react-scroll';
 import { useToggle } from '../src/hooks/useToggle';
+import { AboutMe } from '../src/components/AboutMe';
 import { Contact } from '../src/components/Contact';
 import { Profiles } from '../src/components/Profiles';
 import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
 import { GithubIcon, HamburgerIcon, LinkedinIcon } from '../src/Icons';
-import { AboutMe } from '../src/components/AboutMe';
 
 const Home = () => {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);
@@ -35,25 +35,18 @@ const Home = () => {
     }
   }, [width, isMenuOpen]);
 
-  const sectionRefs = [
-    React.useRef(null),
-    React.useRef(null),
-    React.useRef(null),
-    React.useRef(null),
-    React.useRef(null)
-  ];
-
-  const activeSection = useScrollSpy({
-    sectionElementRefs: sectionRefs,
-    offsetPx: -55
-  });
-
   return (
-    <main className="home" ref={sectionRefs[0]}>
-      <nav className={scrollPosition > 499 ? 'affix' : null} id="homeNav">
-        <Link href="#landing" scroll={false} className="navbar-brand font-bold">
+    <main className="home">
+      <nav className={scrollPosition > 499 ? 'affix' : null} id="home-nav">
+        <ScrollLink
+          to="landing"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          delay={100}
+          className="navbar-brand font-bold">
           Milton Chung
-        </Link>
+        </ScrollLink>
         <button className="menu-button" onClick={toggleMenuOpen}>
           <HamburgerIcon />
         </button>
@@ -61,49 +54,61 @@ const Home = () => {
         <div className={isMenuOpen ? 'nav-links-m' : 'nav-links'}>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link
+              <ScrollLink
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                className={activeSection === 1 ? 'nav-link active-nav' : 'nav-link'}
-                href="#about"
-                scroll={false}>
+                activeClass="active-nav"
+                className="nav-link"
+                to="about"
+                spy={true}
+                smooth={true}
+                duration={1000}>
                 About
-              </Link>
+              </ScrollLink>
             </li>
 
             <li className="nav-item">
-              <Link
-                className={activeSection === 2 ? 'nav-link active-nav' : 'nav-link'}
-                scroll={false}
+              <ScrollLink
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                href="#portfolio">
+                activeClass="active-nav"
+                className="nav-link"
+                to="portfolio"
+                spy={true}
+                smooth={true}
+                duration={1000}>
                 Portfolio
-              </Link>
+              </ScrollLink>
             </li>
 
             <li className="nav-item">
-              <Link
-                className={activeSection === 3 ? 'nav-link active-nav' : 'nav-link'}
-                scroll={false}
+              <ScrollLink
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                href="#skills">
+                activeClass="active-nav"
+                className="nav-link"
+                to="skills"
+                spy={true}
+                smooth={true}
+                duration={1000}>
                 Skills
-              </Link>
+              </ScrollLink>
             </li>
 
             <li className="nav-item">
-              <Link
-                className={activeSection === 4 ? 'nav-link active-nav' : 'nav-link'}
-                scroll={false}
+              <ScrollLink
                 onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                href="#contact">
+                activeClass="active-nav"
+                className="nav-link"
+                to="contact"
+                spy={true}
+                smooth={true}
+                duration={1000}>
                 Contact
-              </Link>
+              </ScrollLink>
             </li>
           </ul>
         </div>
       </nav>
 
-      <section role="banner" id="landing" ref={sectionRefs[0]}>
+      <section aria-label="landing" id="landing" role="banner">
         {/* <Image className="landing-image" src={LandingImage} alt="landing" priority /> */}
         <div className="landing-container">
           <h1>Milton Chung</h1>
@@ -138,27 +143,23 @@ const Home = () => {
         </div>
       </section>
 
-      <section aria-label="about" id="about" className="offset" ref={sectionRefs[1]}>
+      <section aria-label="about" id="about" className="offset">
         <AboutMe />
       </section>
 
-      <section
-        aria-label="portfolio"
-        id="portfolio"
-        className="offset"
-        ref={sectionRefs[2]}>
+      <section aria-label="portfolio" id="portfolio" className="offset">
         <Projects />
       </section>
 
-      <section aria-label="skills" id="skills" className="offset" ref={sectionRefs[3]}>
+      <section aria-label="skills" id="skills" className="offset">
         <Skills />
       </section>
 
-      <section aria-label="contact" id="contact" className="offset" ref={sectionRefs[4]}>
+      <section aria-label="contact" id="contact" className="offset">
         <Contact />
       </section>
 
-      <section aria-label="profiles" id="profiles" ref={sectionRefs[5]}>
+      <section aria-label="profiles" id="profiles">
         <Profiles />
       </section>
 

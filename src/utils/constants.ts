@@ -1,14 +1,17 @@
 import {
   CodepenLogo,
+  ConvexLogo,
   CssLogo,
   EdabitLogo,
   ExercismLogo,
   ExpressLogo,
   FigmaLogo,
   FrontendMentorLogo,
+  GithubIcon,
   HackerRankLogo,
   HtmlLogo,
   JavascriptLogo,
+  LinkedinIcon,
   NodejsLogo,
   NpmLogo,
   PostmanLogo,
@@ -122,8 +125,26 @@ export const skills = [
     link: 'https://www.postman.com/'
   },
   {
+    logo: ConvexLogo,
+    name: 'Convex',
+    link: 'https://www.convex.dev/'
+  },
+  {
     logo: SanityLogo,
     name: 'Sanity',
     link: 'https://www.sanity.io/'
+  }
+];
+
+export const footerSocials = [
+  {
+    link: 'https://github.com/miltonchung',
+    logo: GithubIcon,
+    title: 'Github'
+  },
+  {
+    link: 'https://www.linkedin.com/in/miltonchung',
+    logo: LinkedinIcon,
+    title: 'LinkedIn'
   }
 ];

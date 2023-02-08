@@ -11,7 +11,7 @@ import BlockContent, { BlockContentProps } from '@sanity/block-content-to-react'
 
 // https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
-ReactModal.setAppElement('#root');
+// ReactModal.setAppElement('#root');
 
 type Project = {
   _id: string;
@@ -95,7 +95,7 @@ const Projects = () => {
 
   return (
     <div className="projects-page ">
-      <nav className="projects-nav">
+      <nav id="projects-nav">
         <Link href="/" className="project-navbar-brand">
           Milton Chung
         </Link>
