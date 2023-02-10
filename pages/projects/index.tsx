@@ -99,13 +99,10 @@ const Projects = () => {
         <Link href="/" className="project-navbar-brand">
           Milton Chung
         </Link>
-        <ul>
-          <li>
-            <Link href="/#portfolio" className="navbar-back-home">
-              back
-            </Link>
-          </li>
-        </ul>
+
+        <Link href="/#portfolio" className="navbar-back-home">
+          back
+        </Link>
       </nav>
 
       <div className="breadcrumb">
