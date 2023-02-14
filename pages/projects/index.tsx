@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import ReactModal from 'react-modal';
-import { CloseIcon } from '../../src/Icons';
+import { CloseIcon, GithubIcon } from '../../src/Icons';
 import sanityClient from '../../src/sanity';
 import React, { useEffect, useState } from 'react';
 import placeholder from '../../public/assets/placeholder.jpg';
@@ -262,7 +262,7 @@ const Modals: FComponent<ModalProps> = ({
                     target="_blank"
                     href={item.githubLink}
                     rel="noreferrer">
-                    GITHUB ICON Code
+                    <GithubIcon /> Code
                   </a>
                 )}
                 {item.liveLink && (
