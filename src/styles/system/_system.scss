@@ -1,0 +1,12 @@
+$screen-2xs: 370px;
+$screen-xs: 480px;
+$screen-sm: 600px;
+$screen-base: 768px;
+$screen-md: 900px;
+$screen-lg: 1024px;
+$screen-xl: 1200px;
+
+@import '_resets.scss';
+@import '_colors.scss';
+@import '_text.scss';
+@import '_mixins.scss';

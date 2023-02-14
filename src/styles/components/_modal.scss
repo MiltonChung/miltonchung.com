@@ -1,0 +1,336 @@
+.ReactModalPortal {
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+
+  .ReactModal__Content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 400ms ease, opacity 200ms ease;
+  }
+
+  .ReactModal__Content--after-open {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 400ms ease, opacity 200ms ease;
+  }
+
+  .ReactModal__Content--before-close {
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 400ms ease-out, opacity 200ms ease;
+  }
+}
+
+body.ReactModal__Body--open {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin-right: 15px;
+  @media (max-width: 520px) {
+    margin-right: 0;
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+}
+
+.Modal {
+  position: absolute;
+  top: 2%;
+  left: 25%;
+  right: 25%;
+  bottom: 2%;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border-radius: 5px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    top: 4%;
+    left: 20%;
+    right: 20%;
+    bottom: 4%;
+  }
+
+  @media (max-width: 600px) {
+    top: 5%;
+    left: 17%;
+    right: 17%;
+    bottom: 5%;
+  }
+
+  @media (max-width: 520px) {
+    top: 5%;
+    left: 13%;
+    right: 13%;
+    bottom: 5%;
+    padding: 1rem;
+  }
+
+  @media (max-width: 500px) {
+    top: 5%;
+    left: 8%;
+    right: 8%;
+    bottom: 5%;
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    box-shadow: unset;
+    background: transparent;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(161, 161, 161) !important;
+    border-radius: 20px;
+    border: transparent;
+  }
+
+  .modal-close {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: $lato-font;
+    font-size: 22px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: fit-content;
+    margin: 0 auto;
+
+    .modal-title {
+      align-self: center;
+      font-size: 42px;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+
+      @media (max-width: 600px) {
+        font-size: 33px;
+      }
+    }
+
+    .modal-picture {
+      border-radius: 5px;
+      width: 100%;
+      height: auto;
+      align-self: center;
+      box-shadow: 1px 1px 15px rgba(143, 143, 143, 0.678);
+    }
+
+    .modal-pills {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0 0.5rem 0;
+      width: fit-content;
+      flex-wrap: wrap;
+
+      .modal-pill {
+        margin-right: 0.4rem;
+        font-style: italic;
+        font-weight: 300;
+        background: $light-blue;
+        padding: 0.2rem 0.6rem 0.35rem 0.5rem;
+        color: $white;
+        border-radius: 30px;
+        box-shadow: 1px 1px 3px rgba(6, 51, 116, 0.47);
+        font-size: 18px;
+
+        @media (max-width: 768px) {
+          padding: 0.3rem 0.7rem 0.45rem 0.6rem;
+          font-size: 14px;
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        justify-content: flex-start;
+      }
+    }
+
+    .modal-description {
+      a {
+        color: $light-blue;
+      }
+    }
+
+    .modal-buttons {
+      margin: 1.9rem 0;
+      display: flex;
+      a:first-child {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.portfolio-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: $lato-font;
+  &-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    max-width: 1500px;
+    height: fit-content;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+
+    @media (max-width: 1024px) {
+      width: 85%;
+    }
+    @media (max-width: 803px) {
+      width: 91%;
+    }
+    .portfolio-modal-header {
+      padding: 0.2rem 1rem;
+      background: $white;
+      height: fit-content;
+      display: flex;
+      justify-content: flex-end;
+      border: none;
+      .close_modal,
+      .close_modal1,
+      .close_modal2,
+      .close_modal3,
+      .close_modal4,
+      .close_modal5,
+      .close_modal6 {
+        font-size: 35px;
+        display: block;
+        color: $black;
+        float: right;
+        color: gray;
+      }
+
+      .close_modal:hover,
+      .close_modal1:hover,
+      .close_modal2:hover,
+      .close_modal3:hover,
+      .close_modal4:hover,
+      .close_modal5:hover,
+      .close_modal6:hover,
+      .close_modal:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .portfolio-modal-body {
+      padding: 1.5rem 2rem;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+      @media (max-width: 458px) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1rem 1.3rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;
+      }
+      .portfolio-modal-text {
+        padding: 0.2rem 0rem 0.2rem 2rem;
+
+        @media (max-width: 729px) {
+          padding: 0.8rem 0rem;
+        }
+
+        .portfolio-modal-title {
+          margin-bottom: 0.6rem;
+          font-size: 2rem;
+
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+        .portfolio-modal-pills {
+          margin-bottom: 1.2rem;
+          display: flex;
+          width: fit-content;
+          flex-wrap: wrap;
+
+          &-ind {
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+            font-weight: 400;
+            background: $light-blue;
+            padding: 0.4rem 0.8rem 0.55rem 0.7rem;
+            color: $white;
+            border-radius: 30px;
+            box-shadow: inset -5px -5px 6px 0px rgba(6, 51, 116, 0.47);
+
+            @media (max-width: 768px) {
+              padding: 0.3rem 0.7rem 0.45rem 0.6rem;
+              font-size: 0.86rem;
+            }
+          }
+        }
+        .portfolio-modal-descriptions {
+          margin-bottom: 1.5rem;
+        }
+        .portfolio-modal-buttons {
+          display: flex;
+          a {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

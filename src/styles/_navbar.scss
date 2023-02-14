@@ -1,137 +1,187 @@
-nav#homeNav {
-	background-color: transparent;
-	height: 60px;
-	transition: all 0.5s;
-	display: flex;
-	width: 100%;
-	padding: 0 1.4rem;
-	margin: 0rem auto 1rem auto;
-	position: relative;
-	z-index: 100;
-
-	a.navbar-brand {
-		font-size: 23px;
-		font-weight: 600;
-		color: white;
-		visibility: hidden;
-		display: flex;
-		align-items: center;
-		margin-right: 1rem;
-		white-space: nowrap;
-		text-decoration: none;
-		cursor: pointer;
-		&:hover {
-			color: rgb(179, 179, 179);
-		}
-	}
-
-	.menu-button {
-		display: none;
-		background: none;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		margin: 0.5rem 0.24rem 0 0;
-		svg {
-			width: 30px !important;
-			height: 30px;
-			color: white;
-		}
-	}
-
-	.nav-links {
-		width: 100%;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		text-decoration: none;
-
-		ul.navbar-nav {
-			display: flex;
-			li.nav-item {
-				padding: 0 0.5rem;
-				list-style-type: none;
-
-				.active-nav {
-					border-bottom: 4px solid $light-blue;
-				}
-
-				a.nav-link {
-					text-decoration: none;
-					color: white;
-					font-size: 20px;
-					font-weight: 400;
-					width: fit-content;
-					height: fit-content;
-					margin-left: 1rem;
-					padding: 0;
-					cursor: pointer;
-				}
-				a.nav-link:hover {
-					color: rgb(179, 179, 179);
-					border-bottom: 4px solid $light-blue;
-				}
-			}
-		}
-	}
-
-	.nav-links-m {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		top: 120%;
-		left: 50%;
-		transform: translateX(-50%);
-		text-align: center;
-		// background: rgba(17, 17, 17, 0.548) !important;
-		background: #2f2e41d3 !important;
-		width: 92%;
-		border-radius: 11px;
-
-		ul.navbar-nav {
-			list-style-type: none;
-			li.nav-item {
-				padding: 1rem;
-				width: 100%;
-				a.nav-link {
-					cursor: pointer;
-					text-decoration: none;
-					color: white;
-					font-size: 22px;
-					font-weight: 500;
-				}
-				a.nav-link:hover {
-					color: rgb(179, 179, 179);
-					border-bottom: 4px solid $light-blue;
-				}
-			}
-		}
-	}
-	@media (max-width: 768px) {
-		justify-content: space-between;
-		.menu-button {
-			display: block;
-		}
-		.nav-links {
-			display: none;
-		}
-	}
+%nav-common {
+  display: flex;
+  height: 60px;
+  transition: all 0.45s;
+  padding: 0 1.4rem;
+  margin: 0rem auto 1rem auto;
 }
 
-nav#homeNav.affix {
-	// background-color: rgba(17, 17, 17, 0.548) !important;
-	background: #2d2f479a !important;
-	// background: #384d6393 !important;
+nav#home-nav {
+  @extend %nav-common;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
 
-	a.navbar-brand {
-		visibility: visible;
-	}
+  &.affix {
+    background: $dark-purple-alpha;
+
+    a.navbar-brand {
+      visibility: visible;
+    }
+  }
+
+  a.navbar-brand {
+    font-size: $text-xl;
+    color: $white;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(211, 211, 211);
+    }
+  }
+
+  .menu-button {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    svg {
+      width: 25px;
+      height: 25px;
+      color: $white;
+    }
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    ul.navbar-nav {
+      display: flex;
+
+      li.nav-item {
+        padding: 0 0.5rem;
+        list-style-type: none;
+
+        a.nav-link {
+          color: $white;
+          font-size: $text-md;
+          text-decoration: none;
+          @extend .font-normal;
+          width: fit-content;
+          height: fit-content;
+          margin-left: 1rem;
+          padding: 0;
+          transition: all 0.35s;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            border-bottom: 4px solid $light-blue;
+          }
+
+          &.active-nav {
+            border-bottom: 4px solid $light-blue;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-links-m {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 4rem;
+    right: 1rem;
+    text-align: center;
+    background: $dark-purple-alpha;
+    border-radius: 10px;
+    width: 40%;
+    min-width: 280px;
+
+    ul.navbar-nav {
+      list-style-type: none;
+
+      li.nav-item {
+        padding: 1rem;
+
+        a.nav-link {
+          cursor: pointer;
+          text-decoration: none;
+          color: $white;
+          font-size: $text-md;
+          @extend .font-normal;
+          text-align: center;
+          transition: all 0.35s;
+          border-bottom: 4px solid transparent;
+
+          &:hover {
+            border-bottom: 4px solid $light-blue;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-xs) {
+      width: 90%;
+      min-width: unset;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: $screen-base) {
+    justify-content: space-between;
+
+    .menu-button {
+      display: block;
+    }
+    .nav-links {
+      display: none;
+    }
+  }
 }
 
-nav#homeNav.fixed-top {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 1030;
+nav#projects-nav {
+  @extend %nav-common;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  background-color: $dark-purple-alpha;
+
+  a.project-navbar-brand {
+    font-size: 23px;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: rgb(179, 179, 179);
+    }
+  }
+
+  a.navbar-back-home {
+    text-decoration: none;
+    color: $white;
+    font-size: 20px;
+    font-weight: 400;
+    width: fit-content;
+    padding: 0;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+
+    &:hover {
+      color: rgb(179, 179, 179);
+      border-bottom: 4px solid $light-blue;
+    }
+  }
 }

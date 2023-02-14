@@ -1,0 +1,143 @@
+.field-container {
+  display: flex;
+  flex-direction: column;
+  font-family: $lato-font;
+
+  label {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    color: $colors-text;
+    font-size: $text-md;
+    @extend .font-normal;
+  }
+
+  .field-errors {
+    color: $error-red;
+    font-size: $text-xs;
+    margin-left: 0.25rem;
+  }
+
+  @media (max-width: $screen-base) {
+    label {
+      font-size: $text-base;
+      margin-bottom: 0.1rem;
+    }
+
+    input,
+    textarea {
+      font-size: $text-sm;
+    }
+  }
+}
+
+.input-line {
+  display: flex;
+  flex-direction: column;
+  border: $deep-ocean-blue solid 2px;
+  border-radius: 5px;
+  padding: 0.5rem 0.75rem;
+  height: 3rem;
+  background: $white;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px $highlight-purple;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    position: relative;
+  }
+
+  input {
+    position: relative;
+    margin: auto 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-width: 0px;
+    padding: 0px;
+    color: $colors-text;
+    font-size: $text-md;
+
+    &::placeholder {
+      color: rgb(185, 185, 185);
+      opacity: 1;
+      font-size: $text-base;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+  }
+
+  .input-disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+}
+
+.textarea-line {
+  display: flex;
+  flex-direction: column;
+  border: $deep-ocean-blue solid 2px;
+  border-radius: 5px;
+  background: $white;
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px $highlight-purple;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    position: relative;
+  }
+
+  textarea {
+    position: relative;
+    resize: vertical;
+    margin: auto 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-width: 0px;
+    padding: 0.75rem;
+    color: $colors-text;
+    cursor: auto;
+    font-size: $text-base;
+
+    &::placeholder {
+      color: rgb(185, 185, 185);
+      opacity: 1;
+      font-size: $text-base;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: #9e9e9e;
+      cursor: not-allowed;
+    }
+
+    &::-webkit-scrollbar {
+      width: 9px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $dark-purple;
+    }
+  }
+
+  .textarea-disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+}

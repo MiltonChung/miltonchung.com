@@ -1,0 +1,52 @@
+.btn-outline-square {
+  border: 3px solid #3b87ca;
+  border-radius: 5px;
+  color: white;
+  padding: 0.7rem 1rem;
+  transition: all 0.5s;
+  text-decoration: none;
+
+  @media (max-width: 767.5px) {
+    padding: 0.5rem 0.7rem;
+    border: 2.5px solid #3b87ca;
+  }
+  @media (max-width: 425px) {
+    width: 88px;
+  }
+}
+.btn-outline-square:hover {
+  background: #3b87ca;
+  text-decoration: none;
+  border: 3px solid white;
+  color: white;
+}
+.btn-portfolio {
+  background: $dark-purple;
+  border-radius: 5px;
+  border: 3px solid $dark-purple;
+  color: white;
+  padding: 0.56rem 1rem;
+  width: fit-content;
+  height: fit-content;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 0.88rem;
+  }
+}
+.btn-portfolio:hover {
+  color: $dark-purple;
+  background: transparent;
+}

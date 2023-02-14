@@ -1,0 +1,25 @@
+.pills-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.3rem 0;
+  width: fit-content;
+  flex-wrap: wrap;
+
+  .pill {
+    margin-bottom: 0.4rem;
+    color: $white;
+    font-size: $text-base;
+    @extend .font-medium;
+    background: $pastel-purple;
+    padding: 0.2rem 0.7rem 0.3rem 0.7rem;
+    border-radius: 30px;
+
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
+
+    @media (max-width: $screen-base) {
+      font-size: $text-sm;
+    }
+  }
+}

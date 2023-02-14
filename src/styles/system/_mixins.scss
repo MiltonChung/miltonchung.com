@@ -1,0 +1,5 @@
+@mixin underline-mixin($color, $width) {
+  border-bottom: 3px solid $color;
+  width: $width;
+  margin-top: -6.5px;
+}
