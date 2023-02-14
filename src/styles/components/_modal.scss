@@ -198,139 +198,139 @@ body.ReactModal__Body--open {
   }
 }
 
-// .portfolio-modal {
-//   display: none;
-//   position: fixed;
-//   z-index: 1;
-//   left: 0;
-//   top: 0;
-//   height: 100%;
-//   width: 100%;
-//   overflow: auto;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   font-family: $lato-font;
-//   &-content {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     margin: auto;
-//     width: 70%;
-//     max-width: 1500px;
-//     height: fit-content;
-//     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-//     animation-name: modalopen;
-//     animation-duration: 0.4s;
+.portfolio-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: $lato-font;
+  &-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    max-width: 1500px;
+    height: fit-content;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
 
-//     @media (max-width: 1024px) {
-//       width: 85%;
-//     }
-//     @media (max-width: 803px) {
-//       width: 91%;
-//     }
-//     .portfolio-modal-header {
-//       padding: 0.2rem 1rem;
-//       background: $white;
-//       height: fit-content;
-//       display: flex;
-//       justify-content: flex-end;
-//       border: none;
-//       .close_modal,
-//       .close_modal1,
-//       .close_modal2,
-//       .close_modal3,
-//       .close_modal4,
-//       .close_modal5,
-//       .close_modal6 {
-//         font-size: 35px;
-//         display: block;
-//         color: $black;
-//         float: right;
-//         color: gray;
-//       }
+    @media (max-width: 1024px) {
+      width: 85%;
+    }
+    @media (max-width: 803px) {
+      width: 91%;
+    }
+    .portfolio-modal-header {
+      padding: 0.2rem 1rem;
+      background: $white;
+      height: fit-content;
+      display: flex;
+      justify-content: flex-end;
+      border: none;
+      .close_modal,
+      .close_modal1,
+      .close_modal2,
+      .close_modal3,
+      .close_modal4,
+      .close_modal5,
+      .close_modal6 {
+        font-size: 35px;
+        display: block;
+        color: $black;
+        float: right;
+        color: gray;
+      }
 
-//       .close_modal:hover,
-//       .close_modal1:hover,
-//       .close_modal2:hover,
-//       .close_modal3:hover,
-//       .close_modal4:hover,
-//       .close_modal5:hover,
-//       .close_modal6:hover,
-//       .close_modal:focus {
-//         color: #000;
-//         text-decoration: none;
-//         cursor: pointer;
-//       }
-//     }
-//     .portfolio-modal-body {
-//       padding: 1.5rem 2rem;
-//       background: #fff;
-//       display: grid;
-//       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      .close_modal:hover,
+      .close_modal1:hover,
+      .close_modal2:hover,
+      .close_modal3:hover,
+      .close_modal4:hover,
+      .close_modal5:hover,
+      .close_modal6:hover,
+      .close_modal:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .portfolio-modal-body {
+      padding: 1.5rem 2rem;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-//       @media (max-width: 458px) {
-//         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-//         padding: 1rem 1.3rem;
-//       }
-//       img {
-//         max-width: 100%;
-//         height: auto;
-//         border: 1px solid black;
-//       }
-//       .portfolio-modal-text {
-//         padding: 0.2rem 0rem 0.2rem 2rem;
+      @media (max-width: 458px) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 1rem 1.3rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;
+      }
+      .portfolio-modal-text {
+        padding: 0.2rem 0rem 0.2rem 2rem;
 
-//         @media (max-width: 729px) {
-//           padding: 0.8rem 0rem;
-//         }
+        @media (max-width: 729px) {
+          padding: 0.8rem 0rem;
+        }
 
-//         .portfolio-modal-title {
-//           margin-bottom: 0.6rem;
-//           font-size: 2rem;
+        .portfolio-modal-title {
+          margin-bottom: 0.6rem;
+          font-size: 2rem;
 
-//           @media (max-width: 768px) {
-//             font-size: 1.5rem;
-//           }
-//         }
-//         .portfolio-modal-pills {
-//           margin-bottom: 1.2rem;
-//           display: flex;
-//           width: fit-content;
-//           flex-wrap: wrap;
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+        .portfolio-modal-pills {
+          margin-bottom: 1.2rem;
+          display: flex;
+          width: fit-content;
+          flex-wrap: wrap;
 
-//           &-ind {
-//             margin-right: 0.3rem;
-//             margin-bottom: 0.3rem;
-//             font-style: italic;
-//             font-weight: 400;
-//             background: $light-blue;
-//             padding: 0.4rem 0.8rem 0.55rem 0.7rem;
-//             color: $white;
-//             border-radius: 30px;
-//             box-shadow: inset -5px -5px 6px 0px rgba(6, 51, 116, 0.47);
+          &-ind {
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+            font-weight: 400;
+            background: $light-blue;
+            padding: 0.4rem 0.8rem 0.55rem 0.7rem;
+            color: $white;
+            border-radius: 30px;
+            box-shadow: inset -5px -5px 6px 0px rgba(6, 51, 116, 0.47);
 
-//             @media (max-width: 768px) {
-//               padding: 0.3rem 0.7rem 0.45rem 0.6rem;
-//               font-size: 0.86rem;
-//             }
-//           }
-//         }
-//         .portfolio-modal-descriptions {
-//           margin-bottom: 1.5rem;
-//         }
-//         .portfolio-modal-buttons {
-//           display: flex;
-//           a {
-//             margin-right: 1rem;
-//             display: flex;
-//             align-items: center;
-//             svg {
-//               margin-right: 0.2rem;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+            @media (max-width: 768px) {
+              padding: 0.3rem 0.7rem 0.45rem 0.6rem;
+              font-size: 0.86rem;
+            }
+          }
+        }
+        .portfolio-modal-descriptions {
+          margin-bottom: 1.5rem;
+        }
+        .portfolio-modal-buttons {
+          display: flex;
+          a {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            svg {
+              margin-right: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
