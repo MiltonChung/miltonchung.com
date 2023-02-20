@@ -5,7 +5,7 @@ import { profiles } from '../utils/constants';
 const Profiles = () => {
   return (
     <div className="custom-container">
-      <div className="section-title white-title">
+      <div className="section-title-white always-white">
         <small>Links to my profiles</small>
         <h2>Find Me On</h2>
         <div className="underline-section" />

@@ -8,10 +8,12 @@ import placeholder from '../../public/assets/placeholder.jpg';
 import { LoadingIcon } from '../../src/components/LoadingIcon';
 import { FComponent, SanityAsset } from '../../src/types/commons';
 import BlockContent, { BlockContentProps } from '@sanity/block-content-to-react';
+import { classNames } from '../../src/utils';
+import { Pills } from '../../src/components/common/Pills';
 
 // https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
-// ReactModal.setAppElement('#root');
+ReactModal.setAppElement('#root');
 
 type Project = {
   _id: string;
@@ -29,8 +31,10 @@ type Project = {
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [tempProjectsArr, setTempProjectsArr] = useState<Project[]>([]);
+
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -70,37 +74,35 @@ const Projects = () => {
     setActiveModalIndex(null);
   };
 
-  const showAllProjects = () => {
-    setTempProjectsArr(projects);
-    setActiveButtonIndex(0);
-  };
-
-  const showPersonalProjects = () => {
-    setActiveButtonIndex(1);
-    setTempProjectsArr(
-      projects.filter(item => {
-        return item.type === 'project';
-      })
-    );
-  };
-
-  const showFreelanceProjects = () => {
-    setActiveButtonIndex(2);
-    setTempProjectsArr(
-      projects.filter(item => {
-        return item.type === 'freelance';
-      })
-    );
+  const onChangeProject = (type?: Project['type']) => {
+    if (type === 'project') {
+      setActiveButtonIndex(1);
+      setTempProjectsArr(
+        projects.filter(item => {
+          return item.type === 'project';
+        })
+      );
+    } else if (type === 'freelance') {
+      setActiveButtonIndex(2);
+      setTempProjectsArr(
+        projects.filter(item => {
+          return item.type === 'freelance';
+        })
+      );
+    } else {
+      setActiveButtonIndex(0);
+      setTempProjectsArr(projects);
+    }
   };
 
   return (
     <div className="projects-page ">
       <nav id="projects-nav">
-        <Link href="/" className="project-navbar-brand">
+        <Link href="/" className="navbar-brand">
           Milton Chung
         </Link>
 
-        <Link href="/#portfolio" className="navbar-back-home">
+        <Link href="/#portfolio" className="nav-link">
           back
         </Link>
       </nav>
@@ -109,39 +111,35 @@ const Projects = () => {
         <Link href="/" className="breadcrumb-link">
           Home
         </Link>
-        <p className="breadcrumb-p">/</p>
-        <p className="breadcrumb-p">Projects</p>
+        <p className="breadcrumb-divider">/</p>
+        <p className="breadcrumb-current">Projects</p>
       </div>
 
       <div className="all-projects custom-container">
-        <div className="portfolioTitle">
+        <div className="section-title">
           <small>All Recent Works</small>
           <h2>Portfolio</h2>
-          <hr className="underline-section" />
+          <div className="underline-section" />
         </div>
+
         <div className="filter-button-row">
           <button
-            className={
-              activeButtonIndex === 0 ? 'filter-button selected' : 'filter-button'
-            }
-            onClick={showAllProjects}>
+            className={classNames('filter-button', activeButtonIndex === 0 && 'selected')}
+            onClick={() => onChangeProject()}>
             All
           </button>
           <button
-            className={
-              activeButtonIndex === 1 ? 'filter-button selected' : 'filter-button'
-            }
-            onClick={showPersonalProjects}>
+            className={classNames('filter-button', activeButtonIndex === 1 && 'selected')}
+            onClick={() => onChangeProject('project')}>
             Personal
           </button>
           <button
-            className={
-              activeButtonIndex === 2 ? 'filter-button selected' : 'filter-button'
-            }
-            onClick={showFreelanceProjects}>
+            className={classNames('filter-button', activeButtonIndex === 2 && 'selected')}
+            onClick={() => onChangeProject('freelance')}>
             Freelance
           </button>
         </div>
+
         <div className="all-projects-container">
           {isLoading ? (
             <LoadingIcon />
@@ -149,35 +147,37 @@ const Projects = () => {
             <>
               {tempProjectsArr.map((item, index) => {
                 return (
-                  <button
-                    className="hoverTextBlur"
-                    key={item._id}
-                    onClick={() => onClickProject(index)}>
-                    <img
-                      className="hoverTextBlur-img"
-                      src={item.projectPicture.asset.url}
-                      alt={item.title}
-                      width="694.84px"
-                      height="401.23px"
-                    />
-                    <div className="hoverTextBlur-text hoverTextBlur-blur">
-                      <h2 className="hoverTextBlur-title">{item.title}</h2>
-                      <h3 className="hoverTextBlur-description">
-                        <div className="portfolio-descr-pills">
-                          {item.skills.map(skill => (
-                            <span className="portfolio-pills-ind" key={Math.random()}>
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
+                  <React.Fragment key={item._id}>
+                    <button
+                      className="project-card"
+                      onClick={() => onClickProject(index)}>
+                      <img
+                        className="project-card-img"
+                        src={item.projectPicture.asset.url}
+                        alt={item.title}
+                      />
+                      <div className="project-card-text">
+                        <h2 className="project-card-title">{item.title}</h2>
+                        <h3 className="project-card-description">
+                          <Pills pills={item.skills} />
+                        </h3>
+                      </div>
+                    </button>
+                    <div
+                      onClick={() => onClickProject(index)}
+                      className="mobile-card-description">
+                      <h2 className="project-card-title">{item.title}</h2>
+                      <h3 className="project-card-description">
+                        <Pills pills={item.skills} />
                       </h3>
                     </div>
-                  </button>
+                  </React.Fragment>
                 );
               })}
             </>
           )}
         </div>
+
         <Modals
           tempProjectsArr={tempProjectsArr}
           activeModalIndex={activeModalIndex}
@@ -207,14 +207,15 @@ const Modals: FComponent<ModalProps> = ({
             key={item._id}
             closeTimeoutMS={200}
             contentLabel={item.title}
-            className="Modal"
-            overlayClassName="Overlay"
+            className="modal-content"
+            overlayClassName="modal-overlay"
             isOpen={activeModalIndex === index}
             shouldCloseOnOverlayClick={true}
             onRequestClose={hideModal}>
             <button onClick={hideModal} className="modal-close">
               <CloseIcon />
             </button>
+
             <div className="modal-container">
               <h3 className="modal-title">{item.title}</h3>
 
@@ -228,8 +229,6 @@ const Modals: FComponent<ModalProps> = ({
                     className="modal-picture"
                     src={item.projectPicture.asset.url}
                     alt={item.title}
-                    width="694.84px"
-                    height="401.23px"
                   />
                 ) : (
                   <Image
@@ -241,13 +240,9 @@ const Modals: FComponent<ModalProps> = ({
                   />
                 )}
               </a>
-              <div className="modal-pills">
-                {item.skills.map(skill => (
-                  <span className="modal-pill" key={Math.random()}>
-                    {skill}
-                  </span>
-                ))}
-              </div>
+
+              <Pills pills={item.skills} />
+
               <div className="modal-description">
                 <BlockContent
                   blocks={item.description}
@@ -255,25 +250,29 @@ const Modals: FComponent<ModalProps> = ({
                   dataset="production"
                 />
               </div>
+
               <div className="modal-buttons">
-                {item.githubLink && (
+                <button className="btn-secondary" onClick={hideModal}>
+                  Close
+                </button>
+                {item.githubLink ? (
                   <a
-                    className="btn-portfolio"
+                    className="btn-primary"
                     target="_blank"
                     href={item.githubLink}
                     rel="noreferrer">
                     <GithubIcon /> Code
                   </a>
-                )}
-                {item.liveLink && (
+                ) : null}
+                {item.liveLink ? (
                   <a
-                    className="btn-portfolio"
+                    className="btn-primary"
                     rel="noreferrer"
                     target="_blank"
                     href={item.liveLink}>
                     Live demo
                   </a>
-                )}
+                ) : null}
               </div>
             </div>
           </ReactModal>

@@ -4,6 +4,23 @@
   transition: all 0.45s;
   padding: 0 1.4rem;
   margin: 0rem auto 1rem auto;
+
+  a.navbar-brand {
+    font-size: $text-xl;
+    color: $white;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    @extend .font-bold;
+
+    &:hover {
+      color: rgb(211, 211, 211);
+    }
+  }
 }
 
 nav#home-nav {
@@ -20,22 +37,6 @@ nav#home-nav {
 
     a.navbar-brand {
       visibility: visible;
-    }
-  }
-
-  a.navbar-brand {
-    font-size: $text-xl;
-    color: $white;
-    visibility: hidden;
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    white-space: nowrap;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-      color: rgb(211, 211, 211);
     }
   }
 
@@ -154,33 +155,27 @@ nav#projects-nav {
   position: relative;
   background-color: $dark-purple-alpha;
 
-  a.project-navbar-brand {
-    font-size: 23px;
-    font-weight: 600;
-    color: white;
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    white-space: nowrap;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      color: rgb(179, 179, 179);
-    }
+  a.navbar-brand {
+    visibility: visible;
   }
 
-  a.navbar-back-home {
-    text-decoration: none;
+  a.nav-link {
     color: $white;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: $text-md;
+    text-decoration: none;
+    @extend .font-normal;
     width: fit-content;
+    height: fit-content;
+    margin-left: 1rem;
     padding: 0;
-    cursor: pointer;
+    transition: all 0.35s;
     border-bottom: 4px solid transparent;
 
     &:hover {
-      color: rgb(179, 179, 179);
+      border-bottom: 4px solid $light-blue;
+    }
+
+    &.active-nav {
       border-bottom: 4px solid $light-blue;
     }
   }

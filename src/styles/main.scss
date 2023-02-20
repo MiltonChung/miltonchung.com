@@ -11,32 +11,24 @@ html {
   font-size: 16px;
 }
 
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
 // === Browser Changes ================================
 ::selection {
   background: $highlight-purple;
 }
 
-/* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  background: transparent;
+  background: rgba(133, 135, 160, 0.4);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#87b6df, $light-blue);
-  border-radius: 20px;
-  border: transparent;
-}
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
-}
-img {
-  aspect-ratio: attr(width) / attr(height);
+  background: $dark-purple-alpha;
+  border-radius: 50px;
 }

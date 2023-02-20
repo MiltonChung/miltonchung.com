@@ -10,7 +10,7 @@ const AboutMe = () => {
         <Image src={MiltonProfile} alt="Milton profile shot" />
       </div>
       <div className="about-me-text-wrapper">
-        <div className="section-title white-title">
+        <div className="section-title-white">
           <small>A little</small>
           <h2>About me</h2>
           <div className="underline-section" />

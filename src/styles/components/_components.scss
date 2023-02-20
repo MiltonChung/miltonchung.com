@@ -4,6 +4,7 @@
 @import '_animations.scss';
 @import '_modal.scss';
 @import '_buttons.scss';
+@import '_breadcrumb.scss';
 
 .custom-container {
   width: 85%;
@@ -31,18 +32,6 @@
     @include underline-mixin($light-blue, 110px);
   }
 
-  &.white-title {
-    small {
-      color: $white;
-    }
-    h2 {
-      color: $white;
-    }
-    .underline-section {
-      @include underline-mixin($white, 120px);
-    }
-  }
-
   @media (max-width: $screen-base) {
     margin-bottom: 0.5rem;
     small {
@@ -52,6 +41,33 @@
       font-size: $text-3xl;
       line-height: 3.25rem;
       margin-bottom: 0.4rem;
+    }
+  }
+}
+
+.section-title-white {
+  @extend .section-title;
+  small {
+    color: $white;
+  }
+  h2 {
+    color: $white;
+  }
+  .underline-section {
+    @include underline-mixin($white, 120px);
+  }
+
+  @media (max-width: $screen-base) {
+    &:not(.always-white) {
+      small {
+        color: $baby-blue;
+      }
+      h2 {
+        color: $colors-text;
+      }
+      .underline-section {
+        @include underline-mixin($light-blue, 110px);
+      }
     }
   }
 }

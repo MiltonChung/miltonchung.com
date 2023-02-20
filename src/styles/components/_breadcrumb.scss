@@ -1,0 +1,22 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 0 1.4rem;
+  margin-bottom: 2rem;
+  font-size: $text-md;
+
+  .breadcrumb-link {
+    color: $light-blue;
+    text-decoration: none;
+    margin-top: 1px;
+    @extend .font-bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .breadcrumb-divider {
+    margin: 0 0.3rem;
+  }
+}

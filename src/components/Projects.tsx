@@ -112,7 +112,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                 <div className="button-row">
                   {item.githubLink && (
                     <a
-                      className="btn-portfolio"
+                      className="btn-primary"
                       target="_blank"
                       href={item.githubLink}
                       rel="noreferrer nofollow">
@@ -121,7 +121,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                   )}
                   {item.liveLink && (
                     <a
-                      className="btn-portfolio"
+                      className="btn-primary"
                       rel="noreferrer nofollow"
                       target="_blank"
                       href={item.liveLink}>
