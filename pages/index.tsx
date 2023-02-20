@@ -44,7 +44,7 @@ const Home = () => {
           smooth={true}
           duration={1000}
           delay={100}
-          className="navbar-brand font-bold">
+          className="navbar-brand">
           Milton Chung
         </ScrollLink>
         <button className="menu-button" onClick={toggleMenuOpen}>
