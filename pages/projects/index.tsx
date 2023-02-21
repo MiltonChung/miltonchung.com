@@ -1,17 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import * as React from 'react';
 import ReactModal from 'react-modal';
-import { CloseIcon, GithubIcon } from '../../src/Icons';
 import sanityClient from '../../src/sanity';
-import React, { useEffect, useState } from 'react';
+import { classNames } from '../../src/utils';
+import { CloseIcon, GithubIcon } from '../../src/Icons';
+import { Pills } from '../../src/components/common/Pills';
 import placeholder from '../../public/assets/placeholder.jpg';
-import { LoadingIcon } from '../../src/components/LoadingIcon';
 import { FComponent, SanityAsset } from '../../src/types/commons';
 import BlockContent, { BlockContentProps } from '@sanity/block-content-to-react';
-import { classNames } from '../../src/utils';
-import { Pills } from '../../src/components/common/Pills';
-
-// https://stackoverflow.com/questions/45536886/render-multiple-modals-correctly-with-map-in-react-bootstrap
 
 ReactModal.setAppElement('#root');
 
@@ -28,43 +25,14 @@ type Project = {
   projectPicture: SanityAsset;
 };
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [tempProjectsArr, setTempProjectsArr] = useState<Project[]>([]);
+type ProjectsProps = {
+  allProjects: Project[];
+};
 
-  const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
-  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    sanityClient
-      .fetch(
-        `*[_type == "projects"] | order(order desc) {
-					_id,
-					title,
-					skills,
-					description,
-					githubLink,
-					liveLink,
-					order,
-					type,
-					featured,
-					projectPicture{
-						asset->{
-							_id,
-							url
-						},
-					}
-				}`
-      )
-      .then(data => {
-        setProjects(data);
-        setTempProjectsArr(data);
-        setIsLoading(false);
-      });
-  }, []);
+const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
+  const [tempProjectsArr, setTempProjectsArr] = React.useState<Project[]>(allProjects);
+  const [activeModalIndex, setActiveModalIndex] = React.useState<number | null>(null);
+  const [activeButtonIndex, setActiveButtonIndex] = React.useState(0);
 
   const onClickProject = (index: number) => {
     setActiveModalIndex(index);
@@ -78,20 +46,20 @@ const Projects = () => {
     if (type === 'project') {
       setActiveButtonIndex(1);
       setTempProjectsArr(
-        projects.filter(item => {
+        allProjects.filter(item => {
           return item.type === 'project';
         })
       );
     } else if (type === 'freelance') {
       setActiveButtonIndex(2);
       setTempProjectsArr(
-        projects.filter(item => {
+        allProjects.filter(item => {
           return item.type === 'freelance';
         })
       );
     } else {
       setActiveButtonIndex(0);
-      setTempProjectsArr(projects);
+      setTempProjectsArr(allProjects);
     }
   };
 
@@ -141,41 +109,33 @@ const Projects = () => {
         </div>
 
         <div className="all-projects-container">
-          {isLoading ? (
-            <LoadingIcon />
-          ) : (
-            <>
-              {tempProjectsArr.map((item, index) => {
-                return (
-                  <React.Fragment key={item._id}>
-                    <button
-                      className="project-card"
-                      onClick={() => onClickProject(index)}>
-                      <img
-                        className="project-card-img"
-                        src={item.projectPicture.asset.url}
-                        alt={item.title}
-                      />
-                      <div className="project-card-text">
-                        <h2 className="project-card-title">{item.title}</h2>
-                        <h3 className="project-card-description">
-                          <Pills pills={item.skills} />
-                        </h3>
-                      </div>
-                    </button>
-                    <div
-                      onClick={() => onClickProject(index)}
-                      className="mobile-card-description">
-                      <h2 className="project-card-title">{item.title}</h2>
-                      <h3 className="project-card-description">
-                        <Pills pills={item.skills} />
-                      </h3>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
-            </>
-          )}
+          {tempProjectsArr.map((item, index) => {
+            return (
+              <React.Fragment key={item._id}>
+                <button className="project-card" onClick={() => onClickProject(index)}>
+                  <img
+                    className="project-card-img"
+                    src={item.projectPicture.asset.url}
+                    alt={item.title}
+                  />
+                  <div className="project-card-text">
+                    <h2 className="project-card-title">{item.title}</h2>
+                    <h3 className="project-card-description">
+                      <Pills pills={item.skills} />
+                    </h3>
+                  </div>
+                </button>
+                <div
+                  onClick={() => onClickProject(index)}
+                  className="mobile-card-description">
+                  <h2 className="project-card-title">{item.title}</h2>
+                  <h3 className="project-card-description">
+                    <Pills pills={item.skills} />
+                  </h3>
+                </div>
+              </React.Fragment>
+            );
+          })}
         </div>
 
         <Modals
@@ -252,12 +212,12 @@ const Modals: FComponent<ModalProps> = ({
               </div>
 
               <div className="modal-buttons">
-                <button className="btn-secondary" onClick={hideModal}>
+                <button className="btn-dark-secondary" onClick={hideModal}>
                   Close
                 </button>
                 {item.githubLink ? (
                   <a
-                    className="btn-primary"
+                    className="btn-dark-primary"
                     target="_blank"
                     href={item.githubLink}
                     rel="noreferrer">
@@ -266,7 +226,7 @@ const Modals: FComponent<ModalProps> = ({
                 ) : null}
                 {item.liveLink ? (
                   <a
-                    className="btn-primary"
+                    className="btn-dark-primary"
                     rel="noreferrer"
                     target="_blank"
                     href={item.liveLink}>
@@ -281,5 +241,31 @@ const Modals: FComponent<ModalProps> = ({
     </>
   );
 };
+
+export async function getStaticProps() {
+  const allProjects = await sanityClient.fetch(
+    `*[_type == "projects"] | order(order desc) {
+  				_id,
+  				title,
+  				skills,
+  				description,
+  				githubLink,
+  				liveLink,
+  				order,
+  				type,
+  				featured,
+  				projectPicture{
+  					asset->{
+  						_id,
+  						url
+  					},
+  				}
+  			}`
+  );
+
+  return {
+    props: { allProjects }
+  };
+}
 
 export default Projects;

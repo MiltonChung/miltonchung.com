@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import * as React from 'react';
+import sanityClient from '../src/sanity';
 import { Skills } from '../src/components/Skills';
 import { Link as ScrollLink } from 'react-scroll';
 import { useToggle } from '../src/hooks/useToggle';
@@ -10,8 +11,25 @@ import { Projects } from '../src/components/Projects';
 import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
 import { GithubIcon, HamburgerIcon, LinkedinIcon } from '../src/Icons';
+import type { FComponent, SanityAsset } from '../src/types/commons';
 
-const Home = () => {
+export type FeaturedProject = {
+  _id: string;
+  title: string;
+  skills: string[];
+  projectPicture: SanityAsset;
+  order: number;
+  liveLink: string;
+  githubLink: string;
+  featured: boolean;
+  description: string;
+};
+
+type HomeProps = {
+  featuredProjects: FeaturedProject[];
+};
+
+const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
   const [isMenuOpen, toggleMenuOpen] = useToggle(false);
   const [scrollPosition, setScrollPosition] = React.useState(0);
   const { width } = useWindowDimensions();
@@ -61,7 +79,7 @@ const Home = () => {
                 to="about"
                 spy={true}
                 smooth={true}
-                duration={1000}>
+                duration={400}>
                 About
               </ScrollLink>
             </li>
@@ -74,7 +92,7 @@ const Home = () => {
                 to="portfolio"
                 spy={true}
                 smooth={true}
-                duration={1000}>
+                duration={400}>
                 Portfolio
               </ScrollLink>
             </li>
@@ -87,7 +105,7 @@ const Home = () => {
                 to="skills"
                 spy={true}
                 smooth={true}
-                duration={1000}>
+                duration={400}>
                 Skills
               </ScrollLink>
             </li>
@@ -100,7 +118,7 @@ const Home = () => {
                 to="contact"
                 spy={true}
                 smooth={true}
-                duration={1000}>
+                duration={400}>
                 Contact
               </ScrollLink>
             </li>
@@ -115,12 +133,22 @@ const Home = () => {
           <h2>Front-End Engineer</h2>
 
           <div className="landing-buttons-row">
-            <Link className="btn-outline-square" href="#portfolio" scroll={false}>
+            <ScrollLink
+              className="btn-blue-secondary transparent"
+              to="portfolio"
+              spy={true}
+              smooth={true}
+              duration={400}>
               Portfolio
-            </Link>
-            <Link className="btn-outline-square" href="#contact" scroll={false}>
+            </ScrollLink>
+            <ScrollLink
+              className="btn-blue-secondary transparent"
+              to="contact"
+              spy={true}
+              smooth={true}
+              duration={400}>
               Contact
-            </Link>
+            </ScrollLink>
           </div>
 
           <div className="landing-icons-row">
@@ -148,7 +176,7 @@ const Home = () => {
       </section>
 
       <section aria-label="portfolio" id="portfolio" className="offset">
-        <Projects />
+        <Projects featuredProjects={featuredProjects} />
       </section>
 
       <section aria-label="skills" id="skills" className="offset">
@@ -167,5 +195,31 @@ const Home = () => {
     </main>
   );
 };
+
+export async function getStaticProps() {
+  const featuredProjects = await sanityClient.fetch(
+    `*[_type == "projects" && featured == true] | order(order desc) {
+					_id,
+					title,
+					skills,
+					description,
+					githubLink,
+					liveLink,
+					order,
+					featured,
+					projectPicture{
+						asset->{
+							_id,
+							url
+						},
+						alt
+					}
+				}`
+  );
+
+  return {
+    props: { featuredProjects }
+  };
+}
 
 export default Home;

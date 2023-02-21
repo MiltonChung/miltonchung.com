@@ -231,24 +231,12 @@
         @extend .font-thin;
       }
 
-      a {
-        background: $light-blue;
-        border-radius: 5px;
-        color: $white;
-        padding: 0.7rem 1.2rem;
-        font-size: $text-md;
-        @extend .font-medium;
-        text-decoration: none;
+      a.btn-blue-primary {
         border: 3px solid $white;
-        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.24);
-        transition: all 0.35s;
-        display: flex;
-        align-items: baseline;
-        width: fit-content;
 
         svg {
-          width: 16px;
           margin-left: 10px;
+          margin-right: 0;
 
           path {
             transition: all 0.35s;
@@ -256,13 +244,8 @@
           }
         }
 
-        &:hover {
-          color: $light-blue;
-          background: $white;
-
-          svg path {
-            fill: $light-blue;
-          }
+        &:hover svg path {
+          fill: $light-blue;
         }
       }
     }
@@ -458,22 +441,8 @@
       }
     }
 
-    .see-more-button {
+    .btn-blue-primary {
       align-self: center;
-      padding: 0.8rem 1.5rem;
-      background: $light-blue;
-      border: $light-blue solid 3px;
-      color: $white;
-      border-radius: 5px;
-      font-size: $text-md;
-      transition: all 0.3s;
-      text-decoration: none;
-
-      &:hover {
-        color: $light-blue;
-        background: transparent;
-        text-decoration: underline;
-      }
     }
   }
 }

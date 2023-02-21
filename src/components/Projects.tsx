@@ -1,61 +1,16 @@
 import Link from 'next/link';
 import * as React from 'react';
-import sanityClient from '../sanity';
 import { GithubIcon } from '../Icons';
-import { LoadingIcon } from './LoadingIcon';
-import BlockContent from '@sanity/block-content-to-react';
-import type { FComponent, SanityAsset } from '../types/commons';
 import { Pills } from './common/Pills';
+import { FeaturedProject } from '../../pages';
+import BlockContent from '@sanity/block-content-to-react';
+import type { FComponent } from '../types/commons';
 
-type Project = {
-  _id: string;
-  title: string;
-  skills: string[];
-  description: string;
-  githubLink: string;
-  liveLink: string;
-  order: number;
-  featured: boolean;
-  projectPicture: SanityAsset;
+type ProjectsProps = {
+  featuredProjects: FeaturedProject[];
 };
 
-type FeaturedProjectsProps = {
-  featuredProjects: Project[];
-  isLoading: boolean;
-};
-
-const Projects = () => {
-  const [featuredProjects, setFeaturedProjects] = React.useState<Project[]>([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsLoading(true);
-    sanityClient
-      .fetch(
-        `*[_type == "projects" && featured == true] | order(order desc) {
-					_id,
-					title,
-					skills,
-					description,
-					githubLink,
-					liveLink,
-					order,
-					featured,
-					projectPicture{
-						asset->{
-							_id,
-							url
-						},
-						alt
-					}
-				}`
-      )
-      .then(data => {
-        setFeaturedProjects(data);
-        setIsLoading(false);
-      });
-  }, []);
-
+const Projects: FComponent<ProjectsProps> = ({ featuredProjects = [] }) => {
   return (
     <div className="portfolio-wrapper custom-container ">
       <div className="section-title">
@@ -64,25 +19,8 @@ const Projects = () => {
         <div className="underline-section" />
       </div>
 
-      <FeaturedProjects featuredProjects={featuredProjects} isLoading={isLoading} />
-
-      <Link href="/projects" className="see-more-button">
-        ...see more projects!
-      </Link>
-    </div>
-  );
-};
-
-const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
-  featuredProjects,
-  isLoading
-}) => {
-  return (
-    <div className="portfolio-projects-showcase">
-      {isLoading ? (
-        <LoadingIcon />
-      ) : (
-        featuredProjects.map((item, index) => (
+      <div className="portfolio-projects-showcase">
+        {featuredProjects.map((item, index) => (
           <React.Fragment key={item._id}>
             <div className="featured-project">
               <div className="project-img">
@@ -112,7 +50,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                 <div className="button-row">
                   {item.githubLink && (
                     <a
-                      className="btn-primary"
+                      className="btn-dark-primary"
                       target="_blank"
                       href={item.githubLink}
                       rel="noreferrer nofollow">
@@ -121,7 +59,7 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
                   )}
                   {item.liveLink && (
                     <a
-                      className="btn-primary"
+                      className="btn-dark-primary"
                       rel="noreferrer nofollow"
                       target="_blank"
                       href={item.liveLink}>
@@ -133,8 +71,12 @@ const FeaturedProjects: FComponent<FeaturedProjectsProps> = ({
             </div>
             {index !== featuredProjects.length - 1 && <div className="border-bottom" />}
           </React.Fragment>
-        ))
-      )}
+        ))}
+      </div>
+
+      <Link href="/projects" className="btn-blue-primary">
+        ...see more projects!
+      </Link>
     </div>
   );
 };
