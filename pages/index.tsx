@@ -54,80 +54,8 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
   }, [width, isMenuOpen]);
 
   return (
-    <main className="home">
-      <nav className={scrollPosition > 499 ? 'affix' : null} id="home-nav">
-        <ScrollLink
-          to="landing"
-          spy={true}
-          smooth={true}
-          duration={1000}
-          delay={100}
-          className="navbar-brand">
-          Milton Chung
-        </ScrollLink>
-        <button className="menu-button" onClick={toggleMenuOpen}>
-          <HamburgerIcon />
-        </button>
-
-        <div className={isMenuOpen ? 'nav-links-m' : 'nav-links'}>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <ScrollLink
-                onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                activeClass="active-nav"
-                className="nav-link"
-                to="about"
-                spy={true}
-                smooth={true}
-                duration={400}>
-                About
-              </ScrollLink>
-            </li>
-
-            <li className="nav-item">
-              <ScrollLink
-                onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                activeClass="active-nav"
-                className="nav-link"
-                to="portfolio"
-                spy={true}
-                smooth={true}
-                duration={400}>
-                Portfolio
-              </ScrollLink>
-            </li>
-
-            <li className="nav-item">
-              <ScrollLink
-                onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                activeClass="active-nav"
-                className="nav-link"
-                to="skills"
-                spy={true}
-                smooth={true}
-                duration={400}>
-                Skills
-              </ScrollLink>
-            </li>
-
-            <li className="nav-item">
-              <ScrollLink
-                onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                activeClass="active-nav"
-                className="nav-link"
-                to="contact"
-                spy={true}
-                smooth={true}
-                duration={400}>
-                Contact
-              </ScrollLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <section aria-label="landing" id="landing" role="banner">
-        {/* <Image className="landing-image" src={LandingImage} alt="landing" priority /> */}
+    <>
+      <header aria-label="landing" id="landing">
         <div className="landing-container">
           <h1>Milton Chung</h1>
           <h2>Front-End Engineer</h2>
@@ -156,7 +84,7 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
               href="https://github.com/miltonchung"
               target="_blank"
               rel="noreferrer nofollow"
-              title="Github">
+              title="Go to my Github">
               <GithubIcon />
             </Link>
 
@@ -164,35 +92,111 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
               href="https://www.linkedin.com/in/miltonchung/"
               target="_blank"
               rel="noreferrer nofollow"
-              title="LinkedIn">
+              title="Go to my LinkedIn">
               <LinkedinIcon />
             </Link>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section aria-label="about" id="about" className="offset">
-        <AboutMe />
-      </section>
+      <main className="home">
+        <nav className={scrollPosition > 499 ? 'affix' : null} id="home-nav">
+          <ScrollLink
+            to="landing"
+            spy={true}
+            smooth={true}
+            duration={1000}
+            delay={100}
+            className="navbar-brand">
+            Milton Chung
+          </ScrollLink>
+          <button
+            aria-label="hamberger menu"
+            type="button"
+            className="menu-button"
+            onClick={toggleMenuOpen}>
+            <HamburgerIcon />
+          </button>
 
-      <section aria-label="portfolio" id="portfolio" className="offset">
-        <Projects featuredProjects={featuredProjects} />
-      </section>
+          <div className={isMenuOpen ? 'nav-links-m' : 'nav-links'}>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <ScrollLink
+                  onClick={width <= 768 ? () => toggleMenuOpen() : null}
+                  activeClass="active-nav"
+                  className="nav-link"
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  duration={400}>
+                  About
+                </ScrollLink>
+              </li>
 
-      <section aria-label="skills" id="skills" className="offset">
-        <Skills />
-      </section>
+              <li className="nav-item">
+                <ScrollLink
+                  onClick={width <= 768 ? () => toggleMenuOpen() : null}
+                  activeClass="active-nav"
+                  className="nav-link"
+                  to="portfolio"
+                  spy={true}
+                  smooth={true}
+                  duration={400}>
+                  Portfolio
+                </ScrollLink>
+              </li>
 
-      <section aria-label="contact" id="contact" className="offset">
-        <Contact />
-      </section>
+              <li className="nav-item">
+                <ScrollLink
+                  onClick={width <= 768 ? () => toggleMenuOpen() : null}
+                  activeClass="active-nav"
+                  className="nav-link"
+                  to="skills"
+                  spy={true}
+                  smooth={true}
+                  duration={400}>
+                  Skills
+                </ScrollLink>
+              </li>
 
-      <section aria-label="profiles" id="profiles">
-        <Profiles />
-      </section>
+              <li className="nav-item">
+                <ScrollLink
+                  onClick={width <= 768 ? () => toggleMenuOpen() : null}
+                  activeClass="active-nav"
+                  className="nav-link"
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  duration={400}>
+                  Contact
+                </ScrollLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-      {/* Add certifications and links */}
-    </main>
+        <section aria-label="about" id="about" className="offset">
+          <AboutMe />
+        </section>
+
+        <section aria-label="portfolio" id="portfolio" className="offset">
+          <Projects featuredProjects={featuredProjects} />
+        </section>
+
+        <section aria-label="skills" id="skills" className="offset">
+          <Skills />
+        </section>
+
+        <section aria-label="contact" id="contact" className="offset">
+          <Contact />
+        </section>
+
+        <section aria-label="profiles" id="profiles">
+          <Profiles />
+        </section>
+        {/* Add certifications and links */}
+      </main>
+    </>
   );
 };
 

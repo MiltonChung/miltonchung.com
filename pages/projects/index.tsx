@@ -64,7 +64,7 @@ const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
   };
 
   return (
-    <div className="projects-page ">
+    <main className="projects-page ">
       <nav id="projects-nav">
         <Link href="/" className="navbar-brand">
           Milton Chung
@@ -92,16 +92,19 @@ const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
 
         <div className="filter-button-row">
           <button
+            type="button"
             className={classNames('filter-button', activeButtonIndex === 0 && 'selected')}
             onClick={() => onChangeProject()}>
             All
           </button>
           <button
+            type="button"
             className={classNames('filter-button', activeButtonIndex === 1 && 'selected')}
             onClick={() => onChangeProject('project')}>
             Personal
           </button>
           <button
+            type="button"
             className={classNames('filter-button', activeButtonIndex === 2 && 'selected')}
             onClick={() => onChangeProject('freelance')}>
             Freelance
@@ -112,7 +115,7 @@ const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
           {tempProjectsArr.map((item, index) => {
             return (
               <React.Fragment key={item._id}>
-                <button className="project-card" onClick={() => onClickProject(index)}>
+                <div className="project-card" onClick={() => onClickProject(index)}>
                   <img
                     className="project-card-img"
                     src={item.projectPicture.asset.url}
@@ -120,18 +123,18 @@ const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
                   />
                   <div className="project-card-text">
                     <h2 className="project-card-title">{item.title}</h2>
-                    <h3 className="project-card-description">
+                    <div className="project-card-description">
                       <Pills pills={item.skills} />
-                    </h3>
+                    </div>
                   </div>
-                </button>
+                </div>
                 <div
                   onClick={() => onClickProject(index)}
                   className="mobile-card-description">
                   <h2 className="project-card-title">{item.title}</h2>
-                  <h3 className="project-card-description">
+                  <div className="project-card-description">
                     <Pills pills={item.skills} />
-                  </h3>
+                  </div>
                 </div>
               </React.Fragment>
             );
@@ -144,7 +147,7 @@ const Projects: FComponent<ProjectsProps> = ({ allProjects }) => {
           hideModal={hideModal}
         />
       </div>
-    </div>
+    </main>
   );
 };
 

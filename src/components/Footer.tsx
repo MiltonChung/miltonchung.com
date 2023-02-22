@@ -11,7 +11,11 @@ const Footer = () => {
 
   return (
     <footer id="footer">
-      <button className="scroll-to-top" onClick={scrollToTop}>
+      <button
+        aria-label="scroll to top"
+        type="button"
+        className="scroll-to-top"
+        onClick={scrollToTop}>
         Back to top
       </button>
 
