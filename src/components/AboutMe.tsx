@@ -30,6 +30,7 @@ const AboutMe = () => {
         <a
           href="/assets/Milton_Chung_Resume.pdf"
           target="_blank"
+          className="btn-blue-primary"
           rel="noreferrer nofollow"
           type="application/octet-stream">
           <span>My Resume</span>

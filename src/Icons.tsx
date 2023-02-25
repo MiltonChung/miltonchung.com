@@ -29,6 +29,7 @@ import ExercismLogo from '../public/assets/logos/exercism.png';
 import HackerRankLogo from '../public/assets/logos/hackerrank.svg';
 import CodepenLogo from '../public/assets/logos/codepen.svg';
 import ConvexLogo from '../public/assets/logos/convex.svg';
+import NextjsLogo from '../public/assets/logos/nextjs.svg';
 
 // Big SVGs
 import ContactIllustration from '../public/assets/svg/contact.svg';
@@ -62,5 +63,6 @@ export {
   ExercismLogo,
   HackerRankLogo,
   CodepenLogo,
-  ConvexLogo
+  ConvexLogo,
+  NextjsLogo
 };

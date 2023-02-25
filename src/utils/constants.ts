@@ -4,7 +4,6 @@ import {
   CssLogo,
   EdabitLogo,
   ExercismLogo,
-  ExpressLogo,
   FigmaLogo,
   FrontendMentorLogo,
   GithubIcon,
@@ -12,6 +11,7 @@ import {
   HtmlLogo,
   JavascriptLogo,
   LinkedinIcon,
+  NextjsLogo,
   NodejsLogo,
   NpmLogo,
   PostmanLogo,
@@ -89,10 +89,15 @@ export const skills = [
     name: 'React',
     link: 'https://reactjs.org/'
   },
+  // {
+  //   logo: ExpressLogo,
+  //   name: 'Express',
+  //   link: 'https://expressjs.com/'
+  // },
   {
-    logo: ExpressLogo,
-    name: 'Express',
-    link: 'https://expressjs.com/'
+    logo: NextjsLogo,
+    name: 'Next.js',
+    link: 'https://nextjs.org/'
   },
   {
     logo: NodejsLogo,

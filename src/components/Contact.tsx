@@ -101,7 +101,7 @@ const Contact = () => {
 
       <div className="contact-body">
         <div className="contact-body-left">
-          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form aria-label="contact me" onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
               name="name"
               label="Full Name"
@@ -178,6 +178,7 @@ const Contact = () => {
 
             <button
               onClick={copyText}
+              type="button"
               className="tooltip-container copy-button"
               aria-label="copy email">
               <CopyIcon />
