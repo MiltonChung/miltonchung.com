@@ -202,7 +202,7 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
 
 export async function getStaticProps() {
   const featuredProjects = await sanityClient.fetch(
-    `*[_type == "projects" && featured == true] | order(order desc) {
+    `*[_type == "projects" && featured == true && showing == true] | order(order asc) {
 					_id,
 					title,
 					skills,

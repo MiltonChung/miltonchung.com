@@ -247,7 +247,7 @@ const Modals: FComponent<ModalProps> = ({
 
 export async function getStaticProps() {
   const allProjects = await sanityClient.fetch(
-    `*[_type == "projects"] | order(order desc) {
+    `*[_type == "projects" && showing == true] | order(order asc) {
   				_id,
   				title,
   				skills,
