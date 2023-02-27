@@ -15,16 +15,34 @@ const AboutMe = () => {
           <h2>About me</h2>
           <div className="underline-section" />
         </div>
+
         <p className="about-me-text">
-          I graduated from the University of California, Santa Cruz with Bachelor of Arts
-          in Computer Science and Bachelor of Sciences in Cognitive Science. I'm a Honors
-          graduate from Nucamp Coding Bootcamp with the focus of learning the MERN stack.
-          I'm currently a Jr. Software Engineer at TARTLE making the world a better place.
-          I have experience building websites from the ground up using plain HTML, CSS,
-          and JavaScript, but also using more advanced frameworks and technologies like
-          React, Sass, and Bootstrap to take my websites to the next level. Designing and
-          building websites is my passion and I want to bring designs to life for the
-          world to see.
+          Hello there! I'm a highly motivated software engineer with a passion for
+          front-end development. I graduated with highest Honors (top 15% of the
+          graduation class) from UC Santa Cruz with degrees in both Computer Science and
+          Cognitive Science. In addition, I am an Honors graduate from Nucamp Coding
+          Bootcamp, where I completed the full-stack development curriculum.
+          <br /> <br />
+          Currently, I am working as a Software Engineer at TARTLE, where I focus on
+          front-end development. My experience includes building websites from the ground
+          up using plain HTML, CSS, and JavaScript, as well as utilizing more advanced
+          frameworks and technologies like React, Sass, and TypeScript to take my websites
+          to the next level. My goal is to bring designs to life and create seamless user
+          experiences that leave a lasting impression.
+          <br /> <br />
+          When I'm not coding, I enjoy staying active and pursuing my hobbies. You can
+          often find me playing video games such as League of Legends, making coffee and
+          beautiful latte art, or participating in fitness activities such as
+          kickboxing/Muay Thai, running, or other sports. I find that staying active and
+          engaged in hobbies outside of work helps me maintain a healthy work-life balance
+          and stay sharp and focused. It's important to me to always be learning and
+          growing, both professionally and personally.
+          <br /> <br />
+          Throughout my career, I have consistently demonstrated a strong work ethic,
+          attention to detail, and a commitment to quality. I enjoy collaborating with
+          teams and I am always eager to learn new technologies and improve my skills. I
+          am excited to take on new challenges and leverage my expertise to create
+          innovative solutions that make a difference in the world.
         </p>
 
         <a
