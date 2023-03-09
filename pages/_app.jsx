@@ -18,11 +18,11 @@ const App = ({ Component, pageProps }) => {
 
         <meta
           property="og:image"
-          content="https://miltonchung.com/assets/landing-opt.jpg"
+          content="https://miltonchung.com/assets/og_preview.png"
         />
         <meta property="og:image:type" content="image/jpg" />
-        <meta property="og:image:width" content="5472" />
-        <meta property="og:image:height" content="3648" />
+        <meta property="og:image:width" content="1406" />
+        <meta property="og:image:height" content="792" />
         <meta
           property="og:image:alt"
           content="Milton Chung's personal portfolio website"
