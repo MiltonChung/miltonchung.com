@@ -3,8 +3,9 @@ import * as React from 'react';
 import '../src/styles/main.scss';
 import { Footer } from '../src/components/Footer';
 import 'react-toastify/dist/ReactToastify.min.css';
+import type { AppProps } from 'next/app';
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
     document.cookie = 'sameSite=None; Secure';
   }, []);
