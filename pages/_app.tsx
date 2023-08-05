@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import * as React from 'react';
 import '../src/styles/main.scss';
+import Script from 'next/script';
 import { Footer } from '../src/components/Footer';
 import 'react-toastify/dist/ReactToastify.min.css';
 import type { AppProps } from 'next/app';
@@ -48,6 +49,17 @@ const App = ({ Component, pageProps }: AppProps) => {
 
         <title>Milton Chung | Frontend Engineer</title>
       </Head>
+
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-8F7XZDNX4T" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-8F7XZDNX4T');
+        `}
+      </Script>
 
       <div id="root">
         <Component {...pageProps} />
