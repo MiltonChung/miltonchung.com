@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -31,9 +32,22 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="canonical" href="https://miltonchung.com/" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-8F7XZDNX4T"></script>
       </Head>
 
       <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8F7XZDNX4T" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-8F7XZDNX4T');
+        `}
+        </Script>
         <Main />
         <NextScript />
       </body>
