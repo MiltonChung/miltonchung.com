@@ -7,7 +7,7 @@ const TartleTest = () => {
       <input type="text" id="_tartle_eaid" value="" placeholder="Tartle EAID" />
 
       <div
-        id="tartle-datavault-connect-button"
+        id="tartle-datavault-button"
         data-client-id="IxuiiJFUE16dBSdHF3CZhJzkx8GmGk-z0yJKDChz0eM"
         data-redirect-uri="https://datavault-test.vercel.app/api/tartle"></div>
     </div>
