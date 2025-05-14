@@ -31,7 +31,7 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="canonical" href="https://miltonchung.com/" />
-        <script src="https://demo.tartle.co/scripts/datavault-connect.js"></script>
+        <script src="https://demo.tartle.co/scripts/datavault-connect.js?jasd=true"></script>
       </Head>
 
       <body>
