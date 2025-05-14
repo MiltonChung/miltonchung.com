@@ -10,7 +10,7 @@ const TartleTest = () => {
         id="tartle-datavault-button"
         data-client-id="IxuiiJFUE16dBSdHF3CZhJzkx8GmGk-z0yJKDChz0eM"
         data-env="demo"
-        data-redirect-uri="https://datavault-test.vercel.app/api/tartle"></div>
+        data-redirect-uri="https://miltonchung.com/tartletest"></div>
     </div>
   );
 };
