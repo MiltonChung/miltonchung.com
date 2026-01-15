@@ -1,3 +1,7 @@
+@use "../system/colors";
+@use "../system/system";
+@use "../system/text";
+
 %btn-base {
   border-radius: 5px;
   padding: 0.56rem 1rem;
@@ -7,7 +11,7 @@
   cursor: pointer;
   transition: all 0.5s;
   text-decoration: none;
-  font-size: $text-md;
+  font-size: text.$text-md;
   display: flex;
   align-items: center;
 
@@ -21,25 +25,25 @@
     margin-right: 0.5rem;
   }
 
-  @media (max-width: $screen-base) {
-    font-size: $text-base;
+  @media (max-width: system.$screen-base) {
+    font-size: text.$text-base;
     height: 2.5rem;
     padding: 0.25rem 0.75rem;
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: system.$screen-sm) {
     padding: 0.25rem 0.5rem;
   }
 }
 
 .btn-dark-primary {
   @extend %btn-base;
-  background: $dark-purple;
-  border: 3px solid $dark-purple;
-  color: $white;
+  background: colors.$dark-purple;
+  border: 3px solid colors.$dark-purple;
+  color: colors.$white;
 
   &:hover {
-    color: $dark-purple;
+    color: colors.$dark-purple;
     background: transparent;
   }
 }
@@ -47,42 +51,42 @@
 .btn-dark-secondary {
   @extend %btn-base;
   background: transparent;
-  border: 3px solid $dark-purple;
-  color: $colors-text;
+  border: 3px solid colors.$dark-purple;
+  color: colors.$colors-text;
 
   &:hover {
-    background: $dark-purple;
-    color: $white;
+    background: colors.$dark-purple;
+    color: colors.$white;
   }
 }
 
 .btn-blue-primary {
   @extend %btn-base;
-  background: $light-blue;
-  border: 3px solid $light-blue;
-  color: $white;
+  background: colors.$light-blue;
+  border: 3px solid colors.$light-blue;
+  color: colors.$white;
 
   &:hover {
-    color: $light-blue;
-    background: $white;
+    color: colors.$light-blue;
+    background: colors.$white;
   }
 }
 
 .btn-blue-secondary {
   @extend %btn-base;
-  border: 3px solid $light-blue;
-  background: $white;
-  color: $colors-text;
+  border: 3px solid colors.$light-blue;
+  background: colors.$white;
+  color: colors.$colors-text;
 
   &.transparent {
     background: transparent;
-    border: 3px solid $light-blue;
-    color: $white;
+    border: 3px solid colors.$light-blue;
+    color: colors.$white;
   }
 
   &:hover {
-    background: $light-blue;
-    border: 3px solid $white;
-    color: $white;
+    background: colors.$light-blue;
+    border: 3px solid colors.$white;
+    color: colors.$white;
   }
 }

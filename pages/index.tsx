@@ -12,6 +12,7 @@ import { MOBILE_WIDTH } from '../src/utils/constants';
 import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
 import { GithubIcon, HamburgerIcon, LinkedinIcon } from '../src/Icons';
 import type { FComponent, SanityAsset } from '../src/types/commons';
+import { PortableTextBlock } from '@portabletext/react';
 
 export type FeaturedProject = {
   _id: string;
@@ -22,7 +23,7 @@ export type FeaturedProject = {
   liveLink: string;
   githubLink: string;
   featured: boolean;
-  description: string;
+  description: PortableTextBlock[];
 };
 
 type HomeProps = {

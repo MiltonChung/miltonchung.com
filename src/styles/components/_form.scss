@@ -1,32 +1,36 @@
+@use "../system/colors";
+@use "../system/system";
+@use "../system/text";
+
 .field-container {
   display: flex;
   flex-direction: column;
-  font-family: $lato-font;
+  font-family: text.$lato-font;
 
   label {
     display: inline-block;
     text-align: left;
     width: 100%;
-    color: $colors-text;
-    font-size: $text-md;
+    color: colors.$colors-text;
+    font-size: text.$text-md;
     @extend .font-normal;
   }
 
   .field-errors {
-    color: $error-red;
-    font-size: $text-xs;
+    color: colors.$error-red;
+    font-size: text.$text-xs;
     margin-left: 0.25rem;
   }
 
-  @media (max-width: $screen-base) {
+  @media (max-width: system.$screen-base) {
     label {
-      font-size: $text-base;
+      font-size: text.$text-base;
       margin-bottom: 0.1rem;
     }
 
     input,
     textarea {
-      font-size: $text-sm;
+      font-size: text.$text-sm;
     }
   }
 }
@@ -34,14 +38,14 @@
 .input-line {
   display: flex;
   flex-direction: column;
-  border: $deep-ocean-blue solid 2px;
+  border: colors.$deep-ocean-blue solid 2px;
   border-radius: 5px;
   padding: 0.5rem 0.75rem;
   height: 3rem;
-  background: $white;
+  background: colors.$white;
 
   &:focus-within {
-    box-shadow: 0 0 0 2px $highlight-purple;
+    box-shadow: 0 0 0 2px colors.$highlight-purple;
     outline: 2px solid transparent;
     outline-offset: 2px;
     position: relative;
@@ -55,13 +59,13 @@
     width: 100%;
     border-width: 0px;
     padding: 0px;
-    color: $colors-text;
-    font-size: $text-md;
+    color: colors.$colors-text;
+    font-size: text.$text-md;
 
     &::placeholder {
       color: rgb(185, 185, 185);
       opacity: 1;
-      font-size: $text-base;
+      font-size: text.$text-base;
     }
 
     &:focus {
@@ -83,12 +87,12 @@
 .textarea-line {
   display: flex;
   flex-direction: column;
-  border: $deep-ocean-blue solid 2px;
+  border: colors.$deep-ocean-blue solid 2px;
   border-radius: 5px;
-  background: $white;
+  background: colors.$white;
 
   &:focus-within {
-    box-shadow: 0 0 0 2px $highlight-purple;
+    box-shadow: 0 0 0 2px colors.$highlight-purple;
     outline: 2px solid transparent;
     outline-offset: 2px;
     position: relative;
@@ -104,14 +108,14 @@
     width: 100%;
     border-width: 0px;
     padding: 0.75rem;
-    color: $colors-text;
+    color: colors.$colors-text;
     cursor: auto;
-    font-size: $text-base;
+    font-size: text.$text-base;
 
     &::placeholder {
       color: rgb(185, 185, 185);
       opacity: 1;
-      font-size: $text-base;
+      font-size: text.$text-base;
     }
 
     &:focus {
@@ -132,7 +136,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $dark-purple;
+      background: colors.$dark-purple;
     }
   }
 

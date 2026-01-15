@@ -1,5 +1,8 @@
+@use "system/colors";
+@use "system/text";
+
 #footer {
-  background: $dark-purple;
+  background: colors.$dark-purple;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,11 +12,11 @@
 
   button.scroll-to-top {
     width: 100%;
-    background: $pastel-muted-purple;
+    background: colors.$pastel-muted-purple;
     outline: none;
     border: none;
-    color: $white;
-    font-size: $text-base;
+    color: colors.$white;
+    font-size: text.$text-base;
     padding: 1rem 0;
     cursor: pointer;
     transition: all 0.3s;
@@ -28,7 +31,7 @@
     margin: 2rem 0 1rem 0;
 
     .social {
-      background: $pastel-gray;
+      background: colors.$pastel-gray;
       padding: 0.5rem;
       cursor: pointer;
       border-radius: 5px;
@@ -38,12 +41,12 @@
       }
 
       &:hover svg {
-        color: $light-blue;
+        color: colors.$light-blue;
       }
 
       svg {
         transition: all 0.3s;
-        color: $white;
+        color: colors.$white;
         width: 35px;
         height: 35px;
       }
@@ -51,7 +54,7 @@
   }
 
   .credit-container {
-    color: $white;
+    color: colors.$white;
     @extend .font-thin;
     display: flex;
     flex-direction: column;
@@ -62,7 +65,7 @@
     }
 
     a {
-      color: $white;
+      color: colors.$white;
       @extend .font-medium;
     }
   }

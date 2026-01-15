@@ -1,7 +1,8 @@
-import sanityClient from "@sanity/client";
+import { createClient } from '@sanity/client';
 
-export default sanityClient({
-	projectId: "w8nlqrwa",
-	dataset: "production",
-	useCdn: true,
+export default createClient({
+  projectId: 'w8nlqrwa',
+  dataset: 'production',
+  useCdn: true,
+  apiVersion: '2024-06-01'
 });

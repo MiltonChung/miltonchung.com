@@ -1,3 +1,7 @@
+@use "../system/colors";
+@use "../system/system";
+@use "../system/text";
+
 .tooltip-container {
   position: relative;
   display: inline-block;
@@ -11,8 +15,8 @@
     visibility: hidden;
     width: fit-content;
     max-width: 350px;
-    background-color: $dark-purple-alpha;
-    color: $white;
+    background-color: colors.$dark-purple-alpha;
+    color: colors.$white;
     text-align: center;
     border-radius: 5px;
     padding: 0.75rem 1rem;
@@ -23,7 +27,7 @@
     transform: translateX(-50%);
     opacity: 0;
     transition: all 0.35s ease-in-out;
-    font-size: $text-base;
+    font-size: text.$text-base;
 
     &::after {
       content: '';
@@ -33,11 +37,11 @@
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-      border-color: $dark-purple-alpha transparent transparent transparent;
+      border-color: colors.$dark-purple-alpha transparent transparent transparent;
     }
 
-    @media (max-width: $screen-base) {
-      font-size: $text-sm;
+    @media (max-width: system.$screen-base) {
+      font-size: text.$text-sm;
     }
   }
 }

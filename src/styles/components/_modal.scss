@@ -1,3 +1,7 @@
+@use "../system/colors";
+@use "../system/system";
+@use "../system/text";
+
 body.ReactModal__Body--open {
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
@@ -53,7 +57,7 @@ body.ReactModal__Body--open {
 }
 
 .modal-content {
-  background-color: $white;
+  background-color: colors.$white;
   width: 80%;
   max-width: 1000px;
   height: fit-content;
@@ -66,15 +70,15 @@ body.ReactModal__Body--open {
   display: flex;
   flex-direction: column;
 
-  @media (max-width: $screen-base) {
+  @media (max-width: system.$screen-base) {
     width: 84%;
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: system.$screen-sm) {
     width: 87%;
   }
 
-  @media (max-width: $screen-xs) {
+  @media (max-width: system.$screen-xs) {
     width: 90%;
   }
 
@@ -116,11 +120,11 @@ body.ReactModal__Body--open {
 
     .modal-title {
       text-align: start;
-      font-size: $text-3xl;
+      font-size: text.$text-3xl;
       margin-bottom: 1rem;
 
-      @media (max-width: $screen-base) {
-        font-size: $text-xl;
+      @media (max-width: system.$screen-base) {
+        font-size: text.$text-xl;
       }
     }
 
@@ -130,7 +134,7 @@ body.ReactModal__Body--open {
       height: auto;
       margin-bottom: 1rem;
       box-shadow: 3px 3px 10px rgba(6, 6, 6, 0.694);
-      border: 1px solid $dark-purple;
+      border: 1px solid colors.$dark-purple;
     }
 
     .modal-description {
@@ -140,7 +144,7 @@ body.ReactModal__Body--open {
       }
       a {
         text-decoration: none;
-        color: $deep-ocean-blue;
+        color: colors.$deep-ocean-blue;
         @extend .font-bold;
       }
     }
@@ -161,7 +165,7 @@ body.ReactModal__Body--open {
       }
     }
 
-    @media (max-width: $screen-base) {
+    @media (max-width: system.$screen-base) {
       margin: 1rem 0.5rem 0.5rem 0.5rem;
     }
   }

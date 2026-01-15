@@ -1,3 +1,7 @@
+@use "system/colors";
+@use "system/system";
+@use "system/text";
+
 %nav-common {
   display: flex;
   height: 60px;
@@ -6,8 +10,8 @@
   margin: 0rem auto 1rem auto;
 
   a.navbar-brand {
-    font-size: $text-xl;
-    color: $white;
+    font-size: text.$text-xl;
+    color: colors.$white;
     visibility: hidden;
     display: flex;
     align-items: center;
@@ -33,7 +37,7 @@ nav#home-nav {
   z-index: 99;
 
   &.affix {
-    background: $dark-purple-alpha;
+    background: colors.$dark-purple-alpha;
 
     a.navbar-brand {
       visibility: visible;
@@ -50,7 +54,7 @@ nav#home-nav {
     svg {
       width: 25px;
       height: 25px;
-      color: $white;
+      color: colors.$white;
     }
   }
 
@@ -70,8 +74,8 @@ nav#home-nav {
         list-style-type: none;
 
         a.nav-link {
-          color: $white;
-          font-size: $text-md;
+          color: colors.$white;
+          font-size: text.$text-md;
           text-decoration: none;
           @extend .font-normal;
           width: fit-content;
@@ -82,11 +86,11 @@ nav#home-nav {
           border-bottom: 4px solid transparent;
 
           &:hover {
-            border-bottom: 4px solid $light-blue;
+            border-bottom: 4px solid colors.$light-blue;
           }
 
           &.active-nav {
-            border-bottom: 4px solid $light-blue;
+            border-bottom: 4px solid colors.$light-blue;
           }
         }
       }
@@ -100,7 +104,7 @@ nav#home-nav {
     top: 4rem;
     right: 1rem;
     text-align: center;
-    background: $dark-purple-alpha;
+    background: colors.$dark-purple-alpha;
     border-radius: 10px;
     width: 40%;
     min-width: 280px;
@@ -114,28 +118,28 @@ nav#home-nav {
         a.nav-link {
           cursor: pointer;
           text-decoration: none;
-          color: $white;
-          font-size: $text-md;
+          color: colors.$white;
+          font-size: text.$text-md;
           @extend .font-normal;
           text-align: center;
           transition: all 0.35s;
           border-bottom: 4px solid transparent;
 
           &:hover {
-            border-bottom: 4px solid $light-blue;
+            border-bottom: 4px solid colors.$light-blue;
           }
         }
       }
     }
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: system.$screen-xs) {
       width: 90%;
       min-width: unset;
       margin: 0 auto;
     }
   }
 
-  @media (max-width: $screen-base) {
+  @media (max-width: system.$screen-base) {
     justify-content: space-between;
 
     .menu-button {
@@ -153,15 +157,15 @@ nav#projects-nav {
   align-items: center;
   width: 100%;
   position: relative;
-  background-color: $dark-purple-alpha;
+  background-color: colors.$dark-purple-alpha;
 
   a.navbar-brand {
     visibility: visible;
   }
 
   a.nav-link {
-    color: $white;
-    font-size: $text-md;
+    color: colors.$white;
+    font-size: text.$text-md;
     text-decoration: none;
     @extend .font-normal;
     width: fit-content;
@@ -172,11 +176,11 @@ nav#projects-nav {
     border-bottom: 4px solid transparent;
 
     &:hover {
-      border-bottom: 4px solid $light-blue;
+      border-bottom: 4px solid colors.$light-blue;
     }
 
     &.active-nav {
-      border-bottom: 4px solid $light-blue;
+      border-bottom: 4px solid colors.$light-blue;
     }
   }
 }
