@@ -31,7 +31,10 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://miltonchung.com/" />
-        <meta property="og:title" content="Milton Chung | Frontend Engineer" />
+        <meta
+          property="og:title"
+          content="Milton Chung | Software Engineer - Web Platform"
+        />
         <meta
           property="og:description"
           content="Hi! I'm Milton and I'm passionate about frontend development (and latte art)."
@@ -47,7 +50,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <meta name="author" content="Milton Chung" />
 
-        <title>Milton Chung | Frontend Engineer</title>
+        <title>Milton Chung | Software Engineer - Web Platform</title>
       </Head>
 
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-8F7XZDNX4T" />

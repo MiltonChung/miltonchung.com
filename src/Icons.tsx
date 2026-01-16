@@ -30,6 +30,14 @@ import HackerRankLogo from '../public/assets/logos/hackerrank.svg';
 import CodepenLogo from '../public/assets/logos/codepen.svg';
 import ConvexLogo from '../public/assets/logos/convex.svg';
 import NextjsLogo from '../public/assets/logos/nextjs.svg';
+import RubyLogo from '../public/assets/logos/ruby.svg';
+import RubyOnRailsLogo from '../public/assets/logos/ruby_on_rails.svg';
+import HeadlessUiLogo from '../public/assets/logos/headless_ui.svg';
+import TailwindCssLogo from '../public/assets/logos/tailwind_css.svg';
+import JiraLogo from '../public/assets/logos/jira.svg';
+import PostgresqlLogo from '../public/assets/logos/postgresql.svg';
+import AwsLogo from '../public/assets/logos/aws.svg';
+import SendGridLogo from '../public/assets/logos/sendgrid.svg';
 
 // Big SVGs
 import ContactIllustration from '../public/assets/svg/contact.svg';
@@ -64,5 +72,13 @@ export {
   HackerRankLogo,
   CodepenLogo,
   ConvexLogo,
-  NextjsLogo
+  NextjsLogo,
+  RubyLogo,
+  RubyOnRailsLogo,
+  HeadlessUiLogo,
+  TailwindCssLogo,
+  JiraLogo,
+  PostgresqlLogo,
+  AwsLogo,
+  SendGridLogo
 };

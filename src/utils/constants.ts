@@ -13,14 +13,20 @@ import {
   LinkedinIcon,
   NextjsLogo,
   NodejsLogo,
-  NpmLogo,
   PostmanLogo,
   PythonLogo,
   ReactLogo,
   SanityLogo,
   SassLogo,
   TypescriptLogo,
-  VSCodeLogo
+  RubyLogo,
+  RubyOnRailsLogo,
+  HeadlessUiLogo,
+  TailwindCssLogo,
+  PostgresqlLogo,
+  JiraLogo,
+  AwsLogo,
+  SendGridLogo
 } from '../Icons';
 
 export const MOBILE_WIDTH = 768;
@@ -89,11 +95,6 @@ export const skills = [
     name: 'React',
     link: 'https://reactjs.org/'
   },
-  // {
-  //   logo: ExpressLogo,
-  //   name: 'Express',
-  //   link: 'https://expressjs.com/'
-  // },
   {
     logo: NextjsLogo,
     name: 'Next.js',
@@ -105,19 +106,9 @@ export const skills = [
     link: 'https://nodejs.org/en/'
   },
   {
-    logo: NpmLogo,
-    name: 'npm',
-    link: 'https://www.npmjs.com/'
-  },
-  {
     logo: PythonLogo,
     name: 'Python',
     link: 'https://www.python.org/'
-  },
-  {
-    logo: VSCodeLogo,
-    name: 'Visual Studio Code',
-    link: 'https://code.visualstudio.com/'
   },
   {
     logo: FigmaLogo,
@@ -138,6 +129,51 @@ export const skills = [
     logo: SanityLogo,
     name: 'Sanity',
     link: 'https://www.sanity.io/'
+  },
+  {
+    logo: RubyLogo,
+    name: 'Ruby',
+    link: 'https://www.ruby-lang.org/en/'
+  },
+  {
+    logo: RubyOnRailsLogo,
+    name: 'Ruby on Rails',
+    link: 'https://rubyonrails.org/'
+  },
+  {
+    logo: HeadlessUiLogo,
+    name: 'Headless UI',
+    link: 'https://headlessui.dev/'
+  },
+  {
+    logo: TailwindCssLogo,
+    name: 'Tailwind CSS',
+    link: 'https://tailwindcss.com/'
+  },
+  {
+    logo: PostgresqlLogo,
+    name: 'PostgreSQL',
+    link: 'https://www.postgresql.org/'
+  },
+  {
+    logo: AwsLogo,
+    name: 'AWS',
+    link: 'https://aws.amazon.com/'
+  },
+  {
+    logo: SendGridLogo,
+    name: 'SendGrid',
+    link: 'https://sendgrid.com/'
+  },
+  {
+    logo: JiraLogo,
+    name: 'Jira',
+    link: 'https://www.atlassian.com/software/jira'
+  },
+  {
+    logo: GithubIcon,
+    name: 'GitHub',
+    link: 'https://github.com/'
   }
 ];
 
