@@ -27,3 +27,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Sanity Studio build output
+portfoliocms/dist
+portfoliocms/.sanity

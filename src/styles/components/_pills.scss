@@ -1,3 +1,7 @@
+@use "../system/colors";
+@use "../system/system";
+@use "../system/text";
+
 .pills-container {
   display: flex;
   justify-content: flex-start;
@@ -7,10 +11,10 @@
 
   .pill {
     margin-bottom: 0.4rem;
-    color: $white;
-    font-size: $text-base;
+    color: colors.$white;
+    font-size: text.$text-base;
     @extend .font-medium;
-    background: $pastel-purple;
+    background: colors.$pastel-purple;
     padding: 0.2rem 0.7rem 0.3rem 0.7rem;
     border-radius: 30px;
 
@@ -18,8 +22,8 @@
       margin-right: 0.4rem;
     }
 
-    @media (max-width: $screen-base) {
-      font-size: $text-sm;
+    @media (max-width: system.$screen-base) {
+      font-size: text.$text-sm;
     }
   }
 }

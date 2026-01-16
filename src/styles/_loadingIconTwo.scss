@@ -1,3 +1,5 @@
+@use "system/colors";
+
 .lds-ellipsis {
 	display: inline-block;
 	position: relative;
@@ -12,7 +14,7 @@
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	background: $white;
+	background: colors.$white;
 	animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

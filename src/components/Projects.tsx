@@ -3,7 +3,7 @@ import * as React from 'react';
 import { GithubIcon } from '../Icons';
 import { Pills } from './common/Pills';
 import { FeaturedProject } from '../../pages';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react';
 import type { FComponent } from '../types/commons';
 
 type ProjectsProps = {
@@ -40,11 +40,7 @@ const Projects: FComponent<ProjectsProps> = ({ featuredProjects = [] }) => {
                 <Pills pills={item.skills} />
 
                 <div className="description">
-                  <BlockContent
-                    blocks={item.description}
-                    projectId="w8nlqrwa"
-                    dataset="production"
-                  />
+                  <PortableText value={item.description} />
                 </div>
 
                 <div className="button-row">

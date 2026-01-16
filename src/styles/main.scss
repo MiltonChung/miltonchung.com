@@ -1,14 +1,15 @@
-@import './system/system';
-@import './components/components';
-@import '_navbar.scss';
-@import '_homePage.scss';
-@import '_projectsPage.scss';
-@import '_footer.scss';
-@import '_loadingIconTwo.scss';
-@import '_tartleTest.scss';
+@use 'system/system';
+@use 'components/components';
+@use '_navbar.scss';
+@use '_homePage.scss';
+@use '_projectsPage.scss';
+@use '_footer.scss';
+@use '_loadingIconTwo.scss';
+@use '_tartleTest.scss';
+@use "system/colors";
 
 html {
-  color: $colors-text;
+  color: colors.$colors-text;
   font-size: 16px;
 }
 
@@ -18,7 +19,7 @@ img {
 
 // === Browser Changes ================================
 ::selection {
-  background: $highlight-purple;
+  background: colors.$highlight-purple;
 }
 
 ::-webkit-scrollbar {
@@ -30,6 +31,6 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $dark-purple-alpha;
+  background: colors.$dark-purple-alpha;
   border-radius: 50px;
 }

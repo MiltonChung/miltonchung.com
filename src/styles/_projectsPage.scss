@@ -1,3 +1,7 @@
+@use "system/colors";
+@use "system/system";
+@use "system/text";
+
 .projects-page {
   .all-projects {
     margin-bottom: 3rem;
@@ -8,26 +12,26 @@
       .filter-button {
         margin-right: 0.5rem;
         padding: 0.4rem 1rem 0.45rem 1rem;
-        background: $dark-purple;
-        border: 2px solid $dark-purple;
-        color: $white;
+        background: colors.$dark-purple;
+        border: 2px solid colors.$dark-purple;
+        color: colors.$white;
         border-radius: 30px;
-        font-size: $text-base;
+        font-size: text.$text-base;
         cursor: pointer;
         outline: none;
         @extend .font-medium;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-          border: 2px solid $light-blue;
+          border: 2px solid colors.$light-blue;
         }
 
         &.selected {
-          background: $light-blue;
+          background: colors.$light-blue;
         }
 
         @media (max-width: 600px) {
-          font-size: $text-sm;
+          font-size: text.$text-sm;
           padding: 0.4rem 0.7rem 0.45rem 0.7rem;
         }
       }
@@ -74,7 +78,7 @@
           width: 100%;
           height: 100%;
           background: rgba(78, 96, 167, 0.65);
-          color: $white;
+          color: colors.$white;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -100,18 +104,18 @@
           }
 
           .project-card-title {
-            text-shadow: 1px 1px 3px $black;
+            text-shadow: 1px 1px 3px colors.$black;
             width: 95%;
             margin: 0 auto;
-            font-size: $text-2xl;
+            font-size: text.$text-2xl;
             @extend .font-bold;
 
-            @media (max-width: $screen-sm) {
-              font-size: $text-xl;
+            @media (max-width: system.$screen-sm) {
+              font-size: text.$text-xl;
             }
 
-            @media (max-width: $screen-xs) {
-              font-size: $text-lg;
+            @media (max-width: system.$screen-xs) {
+              font-size: text.$text-lg;
             }
           }
 
@@ -128,16 +132,16 @@
               .pill {
                 box-shadow: 2px 2px 6px rgba(4, 31, 68, 0.644);
 
-                @media (max-width: $screen-base) {
+                @media (max-width: system.$screen-base) {
                   padding: 0.3rem 0.7rem 0.45rem 0.6rem;
-                  font-size: $text-base;
+                  font-size: text.$text-base;
                 }
 
-                @media (max-width: $screen-sm) {
+                @media (max-width: system.$screen-sm) {
                   font-size: 15px;
                 }
 
-                @media (max-width: $screen-xs) {
+                @media (max-width: system.$screen-xs) {
                   font-size: 14px;
                 }
               }
@@ -146,7 +150,7 @@
         }
       }
 
-      @media (max-width: $screen-base) {
+      @media (max-width: system.$screen-base) {
         row-gap: 0.5rem;
 
         .mobile-card-description {
@@ -155,7 +159,7 @@
           margin-bottom: 2.5rem;
 
           .project-card-title {
-            font-size: $text-lg;
+            font-size: text.$text-lg;
           }
         }
 
@@ -164,7 +168,7 @@
         }
       }
 
-      @media (max-width: $screen-sm) {
+      @media (max-width: system.$screen-sm) {
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       }
     }

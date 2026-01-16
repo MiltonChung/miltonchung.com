@@ -1,3 +1,8 @@
+@use "system/colors";
+@use "system/mixins";
+@use "system/system";
+@use "system/text";
+
 #landing {
   background-image: linear-gradient(
       to right,
@@ -30,10 +35,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: $white;
+    color: colors.$white;
     margin: auto;
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: system.$screen-xs) {
       width: 94%;
     }
 
@@ -41,14 +46,14 @@
       font-size: 133px;
       @extend .font-medium;
       line-height: 7rem;
-      text-shadow: 3px 3px 4px $dark-blue;
+      text-shadow: 3px 3px 4px colors.$dark-blue;
     }
 
     h2 {
       font-size: 55px;
       @extend .font-normal;
       margin-bottom: 1.5rem;
-      text-shadow: 3px 3px 4px $dark-blue;
+      text-shadow: 3px 3px 4px colors.$dark-blue;
     }
 
     .landing-buttons-row {
@@ -56,7 +61,7 @@
       margin-bottom: 0.8rem;
 
       a {
-        font-size: $text-md;
+        font-size: text.$text-md;
         width: fit-content;
         letter-spacing: 0.65px;
 
@@ -75,11 +80,11 @@
         svg {
           width: 35px;
           height: 35px;
-          color: $white;
+          color: colors.$white;
           transition: all 0.25s;
 
           &:hover {
-            color: $light-blue;
+            color: colors.$light-blue;
           }
         }
 
@@ -89,7 +94,7 @@
       }
     }
 
-    @media (max-width: $screen-lg) {
+    @media (max-width: system.$screen-lg) {
       h1 {
         font-size: 96px;
         line-height: 6rem;
@@ -100,7 +105,7 @@
       }
     }
 
-    @media (max-width: $screen-base) {
+    @media (max-width: system.$screen-base) {
       h1 {
         font-size: 70px;
         line-height: 5rem;
@@ -119,7 +124,7 @@
         gap: 0.75rem;
 
         a {
-          font-size: $text-base;
+          font-size: text.$text-base;
 
           &:first-child {
             justify-self: flex-end;
@@ -148,7 +153,7 @@
       }
     }
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: system.$screen-sm) {
       h1 {
         font-size: 60px;
         line-height: 4rem;
@@ -160,7 +165,7 @@
       }
     }
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: system.$screen-xs) {
       h1 {
         font-size: 50px;
         line-height: 3.5rem;
@@ -171,7 +176,7 @@
       }
     }
 
-    @media (max-width: $screen-2xs) {
+    @media (max-width: system.$screen-2xs) {
       h1 {
         font-size: 43px;
       }
@@ -180,7 +185,7 @@
 }
 
 #about {
-  background: $white;
+  background: colors.$white;
   padding: 7rem 0 4.5rem 0;
 
   .about-wrapper {
@@ -199,7 +204,7 @@
       width: 85%;
       height: 100%;
       z-index: 1;
-      background: $light-blue;
+      background: colors.$light-blue;
       border-radius: 11px;
     }
 
@@ -222,18 +227,18 @@
     .about-me-text-wrapper {
       flex: 2.5;
       padding: 1.5rem 0.5rem 1.5rem 0;
-      color: $white;
+      color: colors.$white;
       z-index: 2;
 
       p.about-me-text {
         margin-bottom: 2.3rem;
-        font-size: $text-md;
+        font-size: text.$text-md;
         letter-spacing: 0.5px;
         @extend .font-thin;
       }
 
       a.btn-blue-primary {
-        border: 3px solid $white;
+        border: 3px solid colors.$white;
 
         svg {
           margin-left: 10px;
@@ -241,17 +246,17 @@
 
           path {
             transition: all 0.35s;
-            color: $white;
+            color: colors.$white;
           }
         }
 
         &:hover svg path {
-          fill: $light-blue;
+          fill: colors.$light-blue;
         }
       }
     }
 
-    @media (max-width: $screen-base) {
+    @media (max-width: system.$screen-base) {
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -272,27 +277,27 @@
       }
 
       .about-me-text-wrapper {
-        color: $colors-text;
+        color: colors.$colors-text;
         padding: 2rem 0;
 
         .about-title {
           small {
-            color: $light-blue;
+            color: colors.$light-blue;
           }
           .underline-section {
-            @include underline-mixin($light-blue, 120px);
+            @include mixins.underline-mixin(colors.$light-blue, 120px);
           }
         }
 
         p.about-me-text {
           margin-bottom: 1.25rem;
-          @include font-normal;
+          @include text.font-normal;
         }
 
         a.btn-blue-primary {
-          border: 3px solid $light-blue;
+          border: 3px solid colors.$light-blue;
           padding: 0.5rem 1rem;
-          font-size: $text-base;
+          font-size: text.$text-base;
 
           svg {
             width: 12px;
@@ -305,7 +310,7 @@
 }
 
 #portfolio {
-  background: $light-gray;
+  background: colors.$light-gray;
   padding: 4.5rem 0;
 
   .portfolio-wrapper {
@@ -320,12 +325,12 @@
       margin-bottom: 4rem;
 
       .border-bottom {
-        background: $dark-purple;
+        background: colors.$dark-purple;
         height: 1px;
         width: 30%;
         margin: 3rem auto 4rem auto;
 
-        @media (max-width: $screen-sm) {
+        @media (max-width: system.$screen-sm) {
           width: 60%;
         }
       }
@@ -347,7 +352,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: $light-blue;
+            background: colors.$light-blue;
             border-radius: 5px;
             height: 88%;
           }
@@ -380,14 +385,14 @@
           flex: 1;
 
           .title {
-            font-size: $text-2xl;
+            font-size: text.$text-2xl;
             line-height: 2.25rem;
             @extend .font-medium;
             margin-bottom: 0.5rem;
           }
 
           .description {
-            font-size: $text-md;
+            font-size: text.$text-md;
             @extend .font-thin;
             letter-spacing: 0.5px;
             margin-top: 1rem;
@@ -396,7 +401,7 @@
               @extend .font-bold;
               letter-spacing: unset;
               text-decoration: none;
-              color: $deep-ocean-blue;
+              color: colors.$deep-ocean-blue;
 
               &:hover {
                 text-decoration: underline;
@@ -414,7 +419,7 @@
           }
         }
 
-        @media (max-width: $screen-md) {
+        @media (max-width: system.$screen-md) {
           flex-direction: column;
 
           .project-img {
@@ -427,19 +432,19 @@
           }
         }
 
-        @media (max-width: $screen-sm) {
+        @media (max-width: system.$screen-sm) {
           .project-content {
             .title {
-              font-size: $text-lg;
+              font-size: text.$text-lg;
               line-height: normal;
             }
 
             .description {
-              font-size: $text-base;
+              font-size: text.$text-base;
             }
 
             .button-row a {
-              font-size: $text-base;
+              font-size: text.$text-base;
             }
           }
         }
@@ -453,7 +458,7 @@
 }
 
 #skills {
-  background: $white;
+  background: colors.$white;
   padding: 4.5rem 0;
 
   .skills-container {
@@ -481,11 +486,11 @@
       a {
         margin-top: 1rem;
         text-decoration: none;
-        color: $grape-purple;
+        color: colors.$grape-purple;
         @extend .font-bold;
         width: 100%;
         text-align: center;
-        font-size: $text-md;
+        font-size: text.$text-md;
 
         &:hover {
           text-decoration: underline;
@@ -499,7 +504,7 @@
       }
     }
 
-    @media (max-width: $screen-xs) {
+    @media (max-width: system.$screen-xs) {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       grid-gap: 1em;
 
@@ -518,7 +523,7 @@
 }
 
 #contact {
-  background: $light-gray;
+  background: colors.$light-gray;
   padding: 4.5rem 0;
 
   .contact-body {
@@ -542,9 +547,9 @@
         }
 
         button {
-          background: $light-blue;
+          background: colors.$light-blue;
           border-radius: 5px;
-          border: 3px solid $light-blue;
+          border: 3px solid colors.$light-blue;
           color: white;
           padding: 0.8rem 1rem;
           width: fit-content;
@@ -557,7 +562,7 @@
           font-weight: 500;
         }
         button:hover {
-          color: $light-blue;
+          color: colors.$light-blue;
           background: transparent;
         }
         button:disabled {
@@ -577,7 +582,7 @@
 
       h3.contact-divider {
         margin: 1rem 0;
-        font-size: $text-2xl;
+        font-size: text.$text-2xl;
         @extend .font-bold;
       }
 
@@ -587,8 +592,8 @@
         margin-bottom: 2rem;
 
         a {
-          color: $deep-ocean-blue;
-          font-size: $text-lg;
+          color: colors.$deep-ocean-blue;
+          font-size: text.$text-lg;
           text-decoration: none;
           margin-right: 0.75rem;
 
@@ -599,7 +604,7 @@
 
         .copy-button {
           padding: 0.5rem;
-          background: $light-blue;
+          background: colors.$light-blue;
           outline: none;
           border: none;
           position: relative;
@@ -611,15 +616,15 @@
           }
 
           svg {
-            color: $white;
+            color: colors.$white;
             width: 16px;
             height: auto;
           }
         }
 
-        @media (max-width: $screen-sm) {
+        @media (max-width: system.$screen-sm) {
           a {
-            font-size: $text-md;
+            font-size: text.$text-md;
           }
         }
       }
@@ -638,7 +643,7 @@
 #profiles {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-  background: $light-blue;
+  background: colors.$light-blue;
 
   .profiles-container {
     width: 100%;
@@ -657,7 +662,7 @@
       width: 100%;
 
       &:hover a span {
-        border-bottom: 1px solid $white;
+        border-bottom: 1px solid colors.$white;
       }
 
       img,
@@ -668,8 +673,8 @@
       }
 
       a {
-        font-size: $text-md;
-        color: $white;
+        font-size: text.$text-md;
+        color: colors.$white;
         text-decoration: none;
         letter-spacing: 0.7px;
         display: flex;

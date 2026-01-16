@@ -1,10 +1,14 @@
-@import '_pills.scss';
-@import '_form.scss';
-@import '_tooltip.scss';
-@import '_animations.scss';
-@import '_modal.scss';
-@import '_buttons.scss';
-@import '_breadcrumb.scss';
+@use '_pills.scss';
+@use '_form.scss';
+@use '_tooltip.scss';
+@use '_animations.scss';
+@use '_modal.scss';
+@use '_buttons.scss';
+@use '_breadcrumb.scss';
+@use "../system/colors";
+@use "../system/mixins";
+@use "../system/system";
+@use "../system/text";
 
 .custom-container {
   width: 85%;
@@ -20,25 +24,25 @@
   margin-bottom: 1rem;
 
   small {
-    font-size: $text-lg;
-    color: $baby-blue;
+    font-size: text.$text-lg;
+    color: colors.$baby-blue;
   }
   h2 {
     margin: -0.5rem 0 0.6rem -0.12rem;
-    font-size: $text-4xl;
+    font-size: text.$text-4xl;
     @extend .font-medium;
   }
   .underline-section {
-    @include underline-mixin($light-blue, 110px);
+    @include mixins.underline-mixin(colors.$light-blue, 110px);
   }
 
-  @media (max-width: $screen-base) {
+  @media (max-width: system.$screen-base) {
     margin-bottom: 0.5rem;
     small {
-      font-size: $text-md;
+      font-size: text.$text-md;
     }
     h2 {
-      font-size: $text-3xl;
+      font-size: text.$text-3xl;
       line-height: 3.25rem;
       margin-bottom: 0.4rem;
     }
@@ -48,25 +52,25 @@
 .section-title-white {
   @extend .section-title;
   small {
-    color: $white;
+    color: colors.$white;
   }
   h2 {
-    color: $white;
+    color: colors.$white;
   }
   .underline-section {
-    @include underline-mixin($white, 120px);
+    @include mixins.underline-mixin(colors.$white, 120px);
   }
 
-  @media (max-width: $screen-base) {
+  @media (max-width: system.$screen-base) {
     &:not(.always-white) {
       small {
-        color: $baby-blue;
+        color: colors.$baby-blue;
       }
       h2 {
-        color: $colors-text;
+        color: colors.$colors-text;
       }
       .underline-section {
-        @include underline-mixin($light-blue, 110px);
+        @include mixins.underline-mixin(colors.$light-blue, 110px);
       }
     }
   }
@@ -74,34 +78,34 @@
 
 .Toastify__toast-container {
   .toastify-custom {
-    font-size: $text-base;
-    font-family: $lato-font;
+    font-size: text.$text-base;
+    font-family: text.$lato-font;
     width: fit-content;
     min-width: 320px;
     padding: 0.5rem 0.8rem 0.5rem 1rem;
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: system.$screen-sm) {
       min-width: unset;
       width: 300px;
     }
   }
 
   .submit-form-success {
-    background: $light-blue;
-    color: $white;
-    font-size: $text-md;
+    background: colors.$light-blue;
+    color: colors.$white;
+    font-size: text.$text-md;
 
     .Toastify__close-button {
-      color: $white;
+      color: colors.$white;
       opacity: 0.87;
     }
   }
 
   .error-toast {
-    font-size: $text-base;
+    font-size: text.$text-base;
   }
 
   .Toastify__progress-bar {
-    background: $dark-purple;
+    background: colors.$dark-purple;
   }
 }

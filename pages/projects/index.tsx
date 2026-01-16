@@ -8,7 +8,7 @@ import { CloseIcon, GithubIcon } from '../../src/Icons';
 import { Pills } from '../../src/components/common/Pills';
 import placeholder from '../../public/assets/placeholder.jpg';
 import { FComponent, SanityAsset } from '../../src/types/commons';
-import BlockContent, { BlockContentProps } from '@sanity/block-content-to-react';
+import { PortableText, PortableTextBlock } from '@portabletext/react';
 
 ReactModal.setAppElement('#root');
 
@@ -16,7 +16,7 @@ type Project = {
   _id: string;
   title: string;
   skills: string[];
-  description: BlockContentProps;
+  description: PortableTextBlock[];
   githubLink: string;
   liveLink: string;
   order: number;
@@ -207,11 +207,7 @@ const Modals: FComponent<ModalProps> = ({
               <Pills pills={item.skills} />
 
               <div className="modal-description">
-                <BlockContent
-                  blocks={item.description}
-                  projectId="w8nlqrwa"
-                  dataset="production"
-                />
+                <PortableText value={item.description} />
               </div>
 
               <div className="modal-buttons">
