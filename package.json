@@ -33,6 +33,6 @@
     "@types/react-modal": "^3.13.1",
     "@types/react-scroll": "^1.8.6",
     "sass": "^1.57.1",
-    "typescript": "4.9.4"
+    "typescript": "^5.9.3"
   }
 }
