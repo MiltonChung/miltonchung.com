@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import * as React from 'react';
 import { ExternalIcon } from '../Icons';
-import MiltonProfile from '../../public/assets/images/me.jpg';
+import MiltonProfile from '../../public/assets/images/milton.png';
 
 const AboutMe = () => {
   return (
@@ -43,7 +43,7 @@ const AboutMe = () => {
         </p>
 
         <a
-          href="/assets/Milton_Chung_Resume.pdf"
+          href="/assets/Milton_Chung_Resume_2026.pdf"
           target="_blank"
           className="btn-blue-primary"
           rel="noreferrer nofollow"

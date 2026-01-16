@@ -59,7 +59,7 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
       <header aria-label="landing" id="landing">
         <div className="landing-container">
           <h1>Milton Chung</h1>
-          <h2>Front-End Engineer</h2>
+          <h2>Software Engineer - Web Platform</h2>
 
           <div className="landing-buttons-row">
             <ScrollLink
@@ -68,7 +68,7 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
               spy={true}
               smooth={true}
               duration={400}>
-              Portfolio
+              View My Work
             </ScrollLink>
             <ScrollLink
               className="btn-blue-secondary transparent"
@@ -76,7 +76,7 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
               spy={true}
               smooth={true}
               duration={400}>
-              Contact
+              Contact Me
             </ScrollLink>
           </div>
 
