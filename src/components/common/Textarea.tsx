@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FieldErrors } from 'react-hook-form/dist/types/errors';
-import { FComponent } from '../../types/commons';
+import { FComponentWithRef } from '../../types/commons';
 
 type TextareaNativeProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLTextAreaElement>,
@@ -19,48 +19,48 @@ type TextareaProps = {
   rows?: number;
 } & TextareaNativeProps;
 
-const Textarea: FComponent<TextareaProps> = React.forwardRef(
-  (
-    {
-      name,
-      placeholder = '',
-      label,
-      errors,
-      disabled = false,
-      className = '',
-      ariaLabel,
-      cols,
-      rows,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <div className={className ? `${className} field-container` : 'field-container'}>
-        <label htmlFor={name}>{label}</label>
+const WrappedTextarea: FComponentWithRef<TextareaProps, HTMLTextAreaElement> = (
+  {
+    name,
+    placeholder = '',
+    label,
+    errors,
+    disabled = false,
+    className = '',
+    ariaLabel,
+    cols,
+    rows,
+    ...props
+  },
+  ref
+) => {
+  return (
+    <div className={className ? `${className} field-container` : 'field-container'}>
+      <label htmlFor={name}>{label}</label>
 
-        <div className={disabled ? `textarea-disabled textarea-line` : 'textarea-line'}>
-          <textarea
-            aria-label={ariaLabel}
-            name={name}
-            id={name}
-            ref={ref}
-            cols={cols}
-            rows={rows}
-            placeholder={placeholder}
-            autoComplete="off"
-            disabled={disabled}
-            {...props}
-          />
-        </div>
-        <p className="field-errors">
-          {errors[name] && (
-            <span className="errorMessage">{errors[name].message.toString()}</span>
-          )}
-        </p>
+      <div className={disabled ? `textarea-disabled textarea-line` : 'textarea-line'}>
+        <textarea
+          aria-label={ariaLabel}
+          name={name}
+          id={name}
+          ref={ref}
+          cols={cols}
+          rows={rows}
+          placeholder={placeholder}
+          autoComplete="off"
+          disabled={disabled}
+          {...props}
+        />
       </div>
-    );
-  }
-);
+      <p className="field-errors">
+        {errors[name] && (
+          <span className="errorMessage">{errors[name].message.toString()}</span>
+        )}
+      </p>
+    </div>
+  );
+};
+
+const Textarea = React.forwardRef(WrappedTextarea);
 
 export { Textarea };

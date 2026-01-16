@@ -9,6 +9,11 @@ export type ComponentProps<T> = {
   children?: React.ReactNode;
 } & T;
 
+export type FComponentWithRef<T = Record<string, unknown>, S = unknown> = (
+  props: ComponentProps<T>,
+  ref: React.MutableRefObject<S>
+) => React.JSX.Element;
+
 export type FComponent<T = Record<string, unknown>> = (
   props: ComponentProps<T>
 ) => React.JSX.Element;
