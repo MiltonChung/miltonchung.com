@@ -3,7 +3,6 @@ import * as React from 'react';
 import '../src/styles/main.scss';
 import Script from 'next/script';
 import { Footer } from '../src/components/Footer';
-import 'react-toastify/dist/ReactToastify.min.css';
 import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -63,6 +62,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           gtag('config', 'G-8F7XZDNX4T');
         `}
       </Script>
+      <Script src="https://www.google.com/recaptcha/api.js" async defer></Script>
 
       <div id="root">
         <Component {...pageProps} />

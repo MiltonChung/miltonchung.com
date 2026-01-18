@@ -38,6 +38,9 @@ import JiraLogo from '../public/assets/logos/jira.svg';
 import PostgresqlLogo from '../public/assets/logos/postgresql.svg';
 import AwsLogo from '../public/assets/logos/aws.svg';
 import SendGridLogo from '../public/assets/logos/sendgrid.svg';
+import LeetCodeLogo from '../public/assets/logos/leetcode.svg';
+import LinkedInFullLogo from '../public/assets/logos/linkedin_full.svg';
+import GithubFullLogo from '../public/assets/logos/github_full.svg';
 
 // Big SVGs
 import ContactIllustration from '../public/assets/svg/contact.svg';
@@ -80,5 +83,8 @@ export {
   JiraLogo,
   PostgresqlLogo,
   AwsLogo,
-  SendGridLogo
+  SendGridLogo,
+  LeetCodeLogo,
+  LinkedInFullLogo,
+  GithubFullLogo
 };
