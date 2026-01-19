@@ -52,7 +52,7 @@ export const profiles = [
     name: 'Frontend Mentor'
   },
   {
-    link: 'https://leetcode.com/MiltonChung',
+    link: 'https://leetcode.com/u/mewton/',
     logo: LeetCodeLogo,
     alt: 'leetcode logo',
     name: 'LeetCode'
