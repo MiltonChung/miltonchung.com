@@ -6,7 +6,7 @@ const Skills = () => {
     <div className="custom-container">
       <div className="section-title">
         <small>What I know</small>
-        <h2>My Skills</h2>
+        <h2>Tools & Technologies</h2>
         <div className="underline-section" />
       </div>
 

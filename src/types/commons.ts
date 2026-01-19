@@ -1,5 +1,12 @@
 import * as React from 'react';
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+    onRecaptchaVerify: (token: string) => void;
+  }
+}
+
 export interface WithChildren {
   children: React.ReactNode;
 }

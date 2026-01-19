@@ -1,5 +1,4 @@
 import {
-  CodepenLogo,
   ConvexLogo,
   CssLogo,
   EdabitLogo,
@@ -7,30 +6,56 @@ import {
   FigmaLogo,
   FrontendMentorLogo,
   GithubIcon,
-  HackerRankLogo,
   HtmlLogo,
   JavascriptLogo,
   LinkedinIcon,
   NextjsLogo,
   NodejsLogo,
-  NpmLogo,
   PostmanLogo,
   PythonLogo,
   ReactLogo,
   SanityLogo,
   SassLogo,
   TypescriptLogo,
-  VSCodeLogo
+  RubyLogo,
+  RubyOnRailsLogo,
+  HeadlessUiLogo,
+  TailwindCssLogo,
+  PostgresqlLogo,
+  JiraLogo,
+  AwsLogo,
+  SendGridLogo,
+  LeetCodeLogo,
+  LinkedInFullLogo,
+  GithubFullLogo
 } from '../Icons';
 
 export const MOBILE_WIDTH = 768;
 
 export const profiles = [
   {
+    link: 'https://github.com/miltonchung',
+    logo: GithubFullLogo,
+    alt: 'github logo',
+    name: 'Github'
+  },
+  {
+    link: 'https://www.linkedin.com/in/miltonchung',
+    logo: LinkedInFullLogo,
+    alt: 'linkedin logo',
+    name: 'LinkedIn'
+  },
+  {
     link: 'https://www.frontendmentor.io/profile/MiltonChung',
     logo: FrontendMentorLogo,
     alt: 'frontend mentor logo',
     name: 'Frontend Mentor'
+  },
+  {
+    link: 'https://leetcode.com/u/mewton/',
+    logo: LeetCodeLogo,
+    alt: 'leetcode logo',
+    name: 'LeetCode'
   },
   {
     link: 'https://edabit.com/user/CY5fcK7kzoo56Ysmr',
@@ -43,18 +68,6 @@ export const profiles = [
     logo: ExercismLogo,
     alt: 'exercism logo',
     name: 'Exercism'
-  },
-  {
-    link: 'https://www.hackerrank.com/miltonjchung?hr_r=1',
-    logo: HackerRankLogo,
-    alt: 'hackerrank logo',
-    name: 'HackerRank'
-  },
-  {
-    link: 'https://codepen.io/miltonchung',
-    logo: CodepenLogo,
-    alt: 'codepen logo',
-    name: 'Codepen'
   }
 ];
 
@@ -89,11 +102,6 @@ export const skills = [
     name: 'React',
     link: 'https://reactjs.org/'
   },
-  // {
-  //   logo: ExpressLogo,
-  //   name: 'Express',
-  //   link: 'https://expressjs.com/'
-  // },
   {
     logo: NextjsLogo,
     name: 'Next.js',
@@ -105,19 +113,9 @@ export const skills = [
     link: 'https://nodejs.org/en/'
   },
   {
-    logo: NpmLogo,
-    name: 'npm',
-    link: 'https://www.npmjs.com/'
-  },
-  {
     logo: PythonLogo,
     name: 'Python',
     link: 'https://www.python.org/'
-  },
-  {
-    logo: VSCodeLogo,
-    name: 'Visual Studio Code',
-    link: 'https://code.visualstudio.com/'
   },
   {
     logo: FigmaLogo,
@@ -138,6 +136,51 @@ export const skills = [
     logo: SanityLogo,
     name: 'Sanity',
     link: 'https://www.sanity.io/'
+  },
+  {
+    logo: RubyLogo,
+    name: 'Ruby',
+    link: 'https://www.ruby-lang.org/en/'
+  },
+  {
+    logo: RubyOnRailsLogo,
+    name: 'Ruby on Rails',
+    link: 'https://rubyonrails.org/'
+  },
+  {
+    logo: HeadlessUiLogo,
+    name: 'Headless UI',
+    link: 'https://headlessui.dev/'
+  },
+  {
+    logo: TailwindCssLogo,
+    name: 'Tailwind CSS',
+    link: 'https://tailwindcss.com/'
+  },
+  {
+    logo: PostgresqlLogo,
+    name: 'PostgreSQL',
+    link: 'https://www.postgresql.org/'
+  },
+  {
+    logo: AwsLogo,
+    name: 'AWS',
+    link: 'https://aws.amazon.com/'
+  },
+  {
+    logo: SendGridLogo,
+    name: 'SendGrid',
+    link: 'https://sendgrid.com/'
+  },
+  {
+    logo: JiraLogo,
+    name: 'Jira',
+    link: 'https://www.atlassian.com/software/jira'
+  },
+  {
+    logo: GithubIcon,
+    name: 'GitHub',
+    link: 'https://github.com/'
   }
 ];
 
