@@ -36,16 +36,15 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <meta
           property="og:description"
-          content="Hi! I'm Milton and I'm passionate about frontend development (and latte art)."
+          content="Software engineer focused on web platform development with experience building production web applications using React, TypeScript, and modern web technologies. Also into latte art!"
         />
-
         <meta
           name="keywords"
-          content="Milton Chung, HTML, CSS, portfolio, website, personal, ucsc, Milton, Chung, React, Typescript, Sass, Javascript, convex, frontend, engineer, developer, front-end, front end, front end developer, front-end developer"
+          content="Milton Chung, software engineer, frontend engineer, frontend developer, React developer, TypeScript, JavaScript, HTML, CSS, Sass, web developer, UI engineering, production web applications, portfolio, personal website, UC Santa Cruz"
         />
         <meta
           name="description"
-          content="Hey! I'm a web developer passionate about frontend development (and latte art!) with technologies like React, TypeScript, and Sass. Come say hi!"
+          content="Hi! I'm Milton Chung, a web platform focused software engineer with professional experience building and maintaining production web applications using React, TypeScript, and Sass. Passionate about clean UI, thoughtful UX, and latte art."
         />
         <meta name="author" content="Milton Chung" />
 
