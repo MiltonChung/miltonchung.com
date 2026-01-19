@@ -13,6 +13,7 @@ import { useWindowDimensions } from '../src/hooks/useWindowDimensions';
 import { GithubIcon, HamburgerIcon, LinkedinIcon } from '../src/Icons';
 import type { FComponent, SanityAsset } from '../src/types/commons';
 import { PortableTextBlock } from '@portabletext/react';
+import { Certification } from '../src/components/Certification';
 
 export type FeaturedProject = {
   _id: string;
@@ -192,10 +193,13 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
           <Contact />
         </section>
 
+        <section aria-label="certifications" id="certifications">
+          <Certification />
+        </section>
+
         <section aria-label="profiles" id="profiles">
           <Profiles />
         </section>
-        {/* Add certifications and links */}
       </main>
     </>
   );

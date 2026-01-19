@@ -5,10 +5,10 @@
 @use '_modal.scss';
 @use '_buttons.scss';
 @use '_breadcrumb.scss';
-@use "../system/colors";
-@use "../system/mixins";
-@use "../system/system";
-@use "../system/text";
+@use '../system/colors';
+@use '../system/mixins';
+@use '../system/system';
+@use '../system/text';
 
 .custom-container {
   width: 85%;
@@ -28,7 +28,7 @@
     color: colors.$baby-blue;
   }
   h2 {
-    margin: -0.5rem 0 0.6rem -0.12rem;
+    margin: -0.25rem 0 0.6rem -0.12rem;
     font-size: text.$text-4xl;
     @extend .font-medium;
   }
