@@ -719,23 +719,6 @@
       text-decoration: none;
       transition: all 0.25s ease;
 
-      .sparkles {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .sparkle {
-        position: absolute;
-        border-radius: 999px;
-        opacity: 0;
-        animation-name: certification-sparkle;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        color: rgb(255, 237, 138);
-      }
-
       .certification-left {
         display: flex;
         flex-direction: column;
@@ -823,26 +806,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes certification-sparkle {
-  0% {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.85;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(0.6);
-    opacity: 0;
   }
 }
