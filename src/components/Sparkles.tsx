@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { StarIcon } from '../Icons';
 
-// How many stars to render per card
 const SPARKLE_COUNT = 8;
 
-// Utility to pick a random value between min and max (inclusive of min, exclusive of max)
 const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
 type Sparkle = {
