@@ -1,6 +1,6 @@
-@use "../system/colors";
-@use "../system/system";
-@use "../system/text";
+@use '../system/colors';
+@use '../system/system';
+@use '../system/text';
 
 .field-container {
   display: flex;
@@ -12,7 +12,8 @@
     text-align: left;
     width: 100%;
     color: colors.$colors-text;
-    font-size: text.$text-md;
+    font-size: text.$text-base;
+    margin-bottom: 0.2rem;
     @extend .font-normal;
   }
 
@@ -25,7 +26,7 @@
   @media (max-width: system.$screen-base) {
     label {
       font-size: text.$text-base;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.3rem;
     }
 
     input,
@@ -38,7 +39,7 @@
 .input-line {
   display: flex;
   flex-direction: column;
-  border: colors.$deep-ocean-blue solid 2px;
+  border: colors.$deep-ocean-blue solid 1px;
   border-radius: 5px;
   padding: 0.5rem 0.75rem;
   height: 3rem;
@@ -60,7 +61,7 @@
     border-width: 0px;
     padding: 0px;
     color: colors.$colors-text;
-    font-size: text.$text-md;
+    font-size: text.$text-base;
 
     &::placeholder {
       color: rgb(185, 185, 185);
@@ -87,7 +88,7 @@
 .textarea-line {
   display: flex;
   flex-direction: column;
-  border: colors.$deep-ocean-blue solid 2px;
+  border: colors.$deep-ocean-blue solid 1px;
   border-radius: 5px;
   background: colors.$white;
 

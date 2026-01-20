@@ -2,7 +2,6 @@ import Link from 'next/link';
 import * as React from 'react';
 import sanityClient from '../src/sanity';
 import { Skills } from '../src/components/Skills';
-import { Link as ScrollLink } from 'react-scroll';
 import { useToggle } from '../src/hooks/useToggle';
 import { AboutMe } from '../src/components/AboutMe';
 import { Contact } from '../src/components/Contact';
@@ -63,22 +62,12 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
           <h2>Software Engineer - Web Platform</h2>
 
           <div className="landing-buttons-row">
-            <ScrollLink
-              className="btn-blue-secondary transparent"
-              to="portfolio"
-              spy={true}
-              smooth={true}
-              duration={400}>
+            <Link className="btn-blue-secondary transparent" href="/#portfolio">
               View My Work
-            </ScrollLink>
-            <ScrollLink
-              className="btn-blue-secondary transparent"
-              to="contact"
-              spy={true}
-              smooth={true}
-              duration={400}>
+            </Link>
+            <Link className="btn-blue-secondary transparent" href="/#contact">
               Contact Me
-            </ScrollLink>
+            </Link>
           </div>
 
           <div className="landing-icons-row">
@@ -103,15 +92,9 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
 
       <main className="home">
         <nav className={scrollPosition > 499 ? 'affix' : null} id="home-nav">
-          <ScrollLink
-            to="landing"
-            spy={true}
-            smooth={true}
-            duration={1000}
-            delay={100}
-            className="navbar-brand">
+          <Link className="navbar-brand" href="/#landing">
             Milton Chung
-          </ScrollLink>
+          </Link>
           <button
             aria-label="hamberger menu"
             type="button"
@@ -123,55 +106,39 @@ const Home: FComponent<HomeProps> = ({ featuredProjects }) => {
           <div className={isMenuOpen ? 'nav-links-m' : 'nav-links'}>
             <ul className="navbar-nav">
               <li className="nav-item">
-                <ScrollLink
+                <Link
                   onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                  activeClass="active-nav"
                   className="nav-link"
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  duration={400}>
+                  href="/#about">
                   About
-                </ScrollLink>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <ScrollLink
+                <Link
                   onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                  activeClass="active-nav"
                   className="nav-link"
-                  to="portfolio"
-                  spy={true}
-                  smooth={true}
-                  duration={400}>
+                  href="/#portfolio">
                   Portfolio
-                </ScrollLink>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <ScrollLink
+                <Link
                   onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                  activeClass="active-nav"
                   className="nav-link"
-                  to="skills"
-                  spy={true}
-                  smooth={true}
-                  duration={400}>
+                  href="/#skills">
                   Skills
-                </ScrollLink>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <ScrollLink
+                <Link
                   onClick={width <= 768 ? () => toggleMenuOpen() : null}
-                  activeClass="active-nav"
                   className="nav-link"
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  duration={400}>
+                  href="/#contact">
                   Contact
-                </ScrollLink>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,6 +1,6 @@
 // === Typography =======================================
-$rubik-font: 'Rubik', sans-serif;
-$lato-font: 'Lato', sans-serif;
+$rubik-font: var(--font-rubik);
+$lato-font: var(--font-lato);
 
 $text-xs: 0.75rem; // 12px
 $text-sm: 0.85rem; // 13.6px
