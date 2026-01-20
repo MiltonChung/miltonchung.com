@@ -14,23 +14,37 @@ type Sparkle = {
   duration: number;
 };
 
+// Deterministic layout used for the initial SSR + hydration pass so server and client markup match
+const createInitialSparkles = (): Sparkle[] => {
+  return Array.from({ length: SPARKLE_COUNT }).map((_, index) => ({
+    id: index,
+    top: 20 + ((index * 10) % 60),
+    left: 20 + ((index * 15) % 60),
+    size: 12,
+    delay: 0,
+    duration: 6
+  }));
+};
+
 const createSparkles = (): Sparkle[] => {
   return Array.from({ length: SPARKLE_COUNT }).map((_, index) => ({
     id: index,
-    // 10–90% of card, to avoid extreme edges
-    top: randomInRange(10, 90),
+    top: randomInRange(10, 90), // 10–90% of card
     left: randomInRange(10, 90),
-    // 8–18px star size
-    size: randomInRange(8, 18),
-    // 0–4s animation delay
-    delay: randomInRange(0, 4),
-    // 4–8s animation duration
-    duration: randomInRange(4, 8)
+    size: randomInRange(8, 18), // 8–18px star size
+    delay: randomInRange(0, 4), // 0–4s animation delay
+    duration: randomInRange(4, 8) // 4–8s animation duration
   }));
 };
 
 const Sparkles: React.FC = () => {
-  const [sparkles] = React.useState<Sparkle[]>(() => createSparkles());
+  const [sparkles, setSparkles] = React.useState<Sparkle[]>(() =>
+    createInitialSparkles()
+  );
+
+  React.useEffect(() => {
+    setSparkles(createSparkles());
+  }, []);
 
   return (
     <div className="sparkles" aria-hidden="true">

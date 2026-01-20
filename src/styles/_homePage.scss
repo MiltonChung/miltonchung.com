@@ -584,6 +584,17 @@
         }
       }
 
+      .contact-thankyou {
+        h3 {
+          font-size: 3rem;
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          font-size: 1.25rem;
+        }
+      }
+
       h3.contact-divider {
         margin: 1rem 0;
         font-size: text.$text-2xl;
