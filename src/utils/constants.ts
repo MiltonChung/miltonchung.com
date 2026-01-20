@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import {
   ConvexLogo,
   CssLogo,
@@ -35,7 +36,7 @@ export const MOBILE_WIDTH = 768;
 type Logo = React.FC<React.SVGProps<SVGSVGElement>>;
 type Profile = {
   link: string;
-  logo: Logo;
+  logo: Logo | StaticImageData;
   alt: string;
   name: string;
 };

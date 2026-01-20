@@ -1,6 +1,12 @@
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import * as React from 'react';
 import { profiles } from '../utils/constants';
+
+const isStaticImageLogo = (
+  logo: React.FC<React.SVGProps<SVGSVGElement>> | StaticImageData
+): logo is StaticImageData => {
+  return typeof logo === 'object' && logo !== null && 'src' in logo;
+};
 
 const Profiles = () => {
   return (
@@ -16,7 +22,7 @@ const Profiles = () => {
           return (
             <div className="profile" key={name}>
               <a href={link} target="_blank" rel="noreferrer nofollow">
-                {Logo.src ? <Image src={Logo} alt={alt} /> : <Logo />}
+                {isStaticImageLogo(Logo) ? <Image src={Logo} alt={alt} /> : <Logo />}
                 <span>{name}</span>
               </a>
             </div>
