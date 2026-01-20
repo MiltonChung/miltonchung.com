@@ -3,6 +3,7 @@ import CloseIcon from '../public/assets/svg/close.svg';
 import HamburgerIcon from '../public/assets/svg/hamburger.svg';
 import ExternalIcon from '../public/assets/svg/external.svg';
 import CopyIcon from '../public/assets/svg/copy.svg';
+import StarIcon from '../public/assets/svg/star.svg';
 
 // Logos
 import GithubIcon from '../public/assets/logos/github.svg';
@@ -72,5 +73,6 @@ export {
   SendGridLogo,
   LeetCodeLogo,
   LinkedInFullLogo,
-  GithubFullLogo
+  GithubFullLogo,
+  StarIcon
 };

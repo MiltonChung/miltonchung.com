@@ -32,7 +32,33 @@ import {
 
 export const MOBILE_WIDTH = 768;
 
-export const profiles = [
+type Logo = React.FC<React.SVGProps<SVGSVGElement>>;
+type Profile = {
+  link: string;
+  logo: Logo;
+  alt: string;
+  name: string;
+};
+type Skill = {
+  logo: Logo;
+  name: string;
+  link: string;
+};
+type Social = {
+  link: string;
+  logo: Logo;
+  title: string;
+};
+type Certification = {
+  name: string;
+  issuer: string;
+  link: string;
+  logo: Logo;
+  date: string;
+  credentialId?: string;
+};
+
+export const profiles: Profile[] = [
   {
     link: 'https://github.com/miltonchung',
     logo: GithubFullLogo,
@@ -71,7 +97,7 @@ export const profiles = [
   }
 ];
 
-export const skills = [
+export const skills: Skill[] = [
   {
     logo: HtmlLogo,
     name: 'HTML',
@@ -184,7 +210,7 @@ export const skills = [
   }
 ];
 
-export const footerSocials = [
+export const footerSocials: Social[] = [
   {
     link: 'https://github.com/miltonchung',
     logo: GithubIcon,
@@ -194,5 +220,16 @@ export const footerSocials = [
     link: 'https://www.linkedin.com/in/miltonchung',
     logo: LinkedinIcon,
     title: 'LinkedIn'
+  }
+];
+
+export const certifications: Certification[] = [
+  {
+    name: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    link: 'https://cp.certmetrics.com/amazon/en/public/verify/credential/7bd4852276e64cc9b33dff09f123fced',
+    logo: AwsLogo,
+    date: 'January 2026',
+    credentialId: '7bd4852276e64cc9b33dff09f123fced'
   }
 ];
