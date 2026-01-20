@@ -4,6 +4,21 @@ import '../src/styles/main.scss';
 import Script from 'next/script';
 import { Footer } from '../src/components/Footer';
 import type { AppProps } from 'next/app';
+import { Lato, Rubik } from 'next/font/google';
+
+const rubik = Rubik({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-rubik',
+  weight: ['300', '400', '500', '600', '700', '800', '900']
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lato',
+  weight: ['100', '300', '400', '700', '900']
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
@@ -63,7 +78,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Script>
       <Script src="https://www.google.com/recaptcha/api.js" async defer></Script>
 
-      <div id="root">
+      <div id="root" className={`${rubik.variable} ${lato.variable}`}>
         <Component {...pageProps} />
         <Footer />
       </div>

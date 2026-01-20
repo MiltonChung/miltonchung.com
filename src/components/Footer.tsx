@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { footerSocials } from '../utils/constants';
-import { animateScroll as scroll } from 'react-scroll';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
-    scroll.scrollToTop();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
