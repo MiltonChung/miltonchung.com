@@ -43,7 +43,7 @@ const AboutMe = () => {
         </p>
 
         <a
-          href="/assets/Milton_Chung_Resume_2026.pdf"
+          href="/assets/Milton_Chung_Resume.pdf"
           target="_blank"
           className="btn-blue-primary"
           rel="noreferrer nofollow"
